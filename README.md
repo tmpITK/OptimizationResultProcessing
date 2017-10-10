@@ -1,6 +1,6 @@
 # OptimizationResultProcessing
 
-Needed a script to process result of Optimization. Mainly for multi objective algorithms.
+Needed a script to process results of Optimization. Mainly for multi objective algorithms.
 
 Developed with inspyred algos.
 

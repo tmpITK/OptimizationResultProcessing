@@ -35,11 +35,11 @@ class OptimizationSettings(MetaOptimizationSettings):
 
 		for child in root:
 			if child.tag == "evo_strat":
-				self.evolutionary_strategy = child.text
+				self.algorithm_name = child.text
 			if child.tag == "boundaries":
 				self.boundaries =  map(lambda x:map(self._float_or_int,x.strip().split(", ")), child.text.strip()[2:len(child.text.strip())-2].split("], ["))
 			if child.tag == "max_evaluation":
-				self.maximum_number_of_evaluations = int(float(child.text))
+				self.number_of_generations = int(float(child.text))
 			if child.tag =="pop_size":
 				self.population_size = int(float(child.text))
 			if child.tag == "num_params":
@@ -49,7 +49,7 @@ class OptimizationSettings(MetaOptimizationSettings):
 			if child.tag == "weights":
 				self.weights =  map(self._float_or_int,child.text.strip().lstrip("[").rstrip("]").split(","))
 				self.number_of_objectives = len(self.weights)
-		return [self.evolutionary_strategy, self.boundaries, self.maximum_number_of_evaluations, self.population_size, self.number_of_parameters,
+		return [self.algorithm_name, self.boundaries, self.number_of_generations, self.population_size, self.number_of_parameters,
 					self.features, self.weights, self.number_of_objectives]
 
 	@staticmethod
@@ -71,9 +71,10 @@ class RawOptimizationResult():
 	Class for getting and storing the result of the optimization procces.
 	'''
 	def __init__(self, opSettings, ind_file):
-		self.evolutionary_strategy, self.boundaries, self.maximum_number_of_evaluations, self.population_size, self.number_of_parameters, self.features, self.weights, self.number_of_objectives = opSettings.getOptimizationSettings()
+		self.algorithm_name, self.boundaries, self.number_of_generations, self.population_size, self.number_of_parameters, self.features, self.weights, self.number_of_objectives = opSettings.getOptimizationSettings()
 		self.ind_file = ind_file
 		self.generations = []
+
 		self.parseIndividualFile()
 
 	@staticmethod
@@ -93,12 +94,15 @@ class RawOptimizationResult():
 					self.generations.append(current_generation)
 					current_generation = []
 
-	def getRawIndividualResults(self):
-		self.printIndividualResults(self.generations)
+	def printRawIndividualResults(self):
+		self.printGivenIndividuals(self.generations)
+
+	def printFinalGeneration(self):
+		self.printGivenIndividuals([self.final_generation])
 
 	@staticmethod
-	def printIndividualResults(generations):
-		for index, generation in enumerate(generations):
+	def printGivenIndividuals(generations):
+		for  generation in generations:
 			print(*generation, sep='\n')
 
 class SortedMOOResult(RawOptimizationResult):
@@ -156,13 +160,13 @@ class SortedMOOResult(RawOptimizationResult):
 		plt.plot([row[1] for row in self.statistics], 'r--', label = "min", linewidth=1.5)
 		plt.plot([row[2] for row in self.statistics], 'r', label = "median", linewidth=1.5)
 
-		fig.suptitle('{0} on {1}'.format(self.evolutionary_strategy, "Voltage Clamp"))
+		fig.suptitle('{0} on {1}'.format(self.algorithm_name, "Voltage Clamp"))
 		plt.xlabel('generations')
 		plt.ylabel('score value')
 		plt.yscale('log')
 
 		plt.legend(fontsize=14, ncol=1)	#ncol= number of columns of the labels
-		plt.savefig('{0} on {1}'.format(self.evolutionary_strategy, "Voltage Clamp"), format='pdf')
+		plt.savefig('{0} on {1}'.format(self.algorithm_name, "Voltage Clamp"), format='pdf')
 		plt.show()
 		plt.close()
 
@@ -195,26 +199,39 @@ class TrueMOOResult(RawOptimizationResult):
 
 		self.final_archive_file = final_archive_file
 		self.final_archive = []
+		self.final_generation = []
+		self.final_generation_objectives = []
 
+		self.getFinalGeneration()
+		self.getFinalGenerationObjectives()
 		self.parseFinalArchiveFile()
-		self.plotParetoFront()
+		self.plotParetoFront(self.final_archive, "Pareto Front")
+		if(self.algorithm_name == "PAES"):
+			self.plotParetoFront(self.final_generation_objectives, "Final Generation")
 
 	def parseFinalArchiveFile(self):
 		with open(self.final_archive_file, 'rb') as arc_file:
 			for line in iter(arc_file):
 				self.final_archive.append([float(self.removeUnwantedChars(element)) for element in line.split()])
 
-	def plotParetoFront(self):
+	def getFinalGeneration(self):
+		self.final_generation = self.generations[-1]
+
+	def getFinalGenerationObjectives(self):
+		self.final_generation_objectives = [individual[2:5] for individual in self.final_generation]
+
+	def plotParetoFront(self, best_individuals, title):
 
 		x = []
 		y = []
-		for individual in self.final_archive:
+		for individual in best_individuals:
+			print(individual)
 			x.append(individual[self.NUMBER_OF_OBJECTIVE[0]])
 			y.append(individual[self.NUMBER_OF_OBJECTIVE[1]])
 		if self.number_of_objectives > 2:
 			fig = plt.figure()
 			ax = fig.add_subplot(111, projection='3d')
-			z = [row[self.NUMBER_OF_OBJECTIVE[2]] for row in self.final_archive]
+			z = [row[self.NUMBER_OF_OBJECTIVE[2]] for row in best_individuals]
 			ax.scatter(x, y, z, color='b')
 			ax.set_ylim(min(z), max(z))
 			ax.set_zlabel(self.features[self.NUMBER_OF_OBJECTIVE[2]])
@@ -224,19 +241,19 @@ class TrueMOOResult(RawOptimizationResult):
 			ax.scatter(x, y, color='b')
 			ax.set_xlim(min(x), max(x))
 			ax.set_ylim(min(y), max(y))
-		fig.suptitle('Pareto Front of {0} by {1}'.format("Voltage Clamp", self.evolutionary_strategy))
+		fig.suptitle('{0} of {1} by {2}'.format(title, "Voltage Clamp", self.algorithm_name))
 		ax.autoscale_view(True,True,True)
 
 		ax.set_xlabel(self.features[self.NUMBER_OF_OBJECTIVE[0]])
 		ax.set_ylabel(self.features[self.NUMBER_OF_OBJECTIVE[1]])
-		plt.savefig('Pareto Front of {0} by {1}'.format("Voltage Clamp", self.evolutionary_strategy), format='pdf')
+		plt.savefig('{0} of {1} by {2}'.format(title, "Voltage Clamp", self.algorithm_name), format='pdf')
 		plt.show()
 
 if __name__ == '__main__':
 	start_time = time.time()
 
-	opSettings = OptimizationSettings("hh_settings.xml")
-	sorted_by_weighted_sum_multi_objective_result = SortedMOOResult(opSettings, "hh_ind_file.txt")
-	true_multi_objective_result = TrueMOOResult(opSettings, "hh_ind_file.txt", "hh_final_archive.txt")
+	opSettings = OptimizationSettings("paes_settings.xml")
+	sorted_result = SortedMOOResult(opSettings, "paes_ind_file.txt")
+	multi_objective_result = TrueMOOResult(opSettings, "paes_ind_file.txt", "paes_final_archive.txt")
 
 	print("--- %s seconds ---" % (time.time() - start_time))

@@ -36,6 +36,9 @@ class OptimizationSettings(MetaOptimizationSettings):
 		for child in root:
 			if child.tag == "evo_strat":
 				self.algorithm_name = child.text
+			if child.tag == "model_path":
+				self.model_name = child.text.split('/')[-1]
+				print(self.model_name)
 			if child.tag == "boundaries":
 				self.boundaries =  map(lambda x:map(self._float_or_int,x.strip().split(", ")), child.text.strip()[2:len(child.text.strip())-2].split("], ["))
 			if child.tag == "max_evaluation":
@@ -49,7 +52,7 @@ class OptimizationSettings(MetaOptimizationSettings):
 			if child.tag == "weights":
 				self.weights =  map(self._float_or_int,child.text.strip().lstrip("[").rstrip("]").split(","))
 				self.number_of_objectives = len(self.weights)
-		return [self.algorithm_name, self.boundaries, self.number_of_generations, self.population_size, self.number_of_parameters,
+		return [self.algorithm_name, self.model_name, self.boundaries, self.number_of_generations, self.population_size, self.number_of_parameters,
 					self.features, self.weights, self.number_of_objectives]
 
 	@staticmethod
@@ -71,7 +74,7 @@ class RawOptimizationResult():
 	Class for getting and storing the result of the optimization procces.
 	'''
 	def __init__(self, opSettings, ind_file):
-		self.algorithm_name, self.boundaries, self.number_of_generations, self.population_size, self.number_of_parameters, self.features, self.weights, self.number_of_objectives = opSettings.getOptimizationSettings()
+		self.algorithm_name, self.model_name, self.boundaries, self.number_of_generations, self.population_size, self.number_of_parameters, self.features, self.weights, self.number_of_objectives = opSettings.getOptimizationSettings()
 		self.ind_file = ind_file
 		self.generations = []
 
@@ -160,13 +163,13 @@ class SortedMOOResult(RawOptimizationResult):
 		plt.plot([row[1] for row in self.statistics], 'r--', label = "min", linewidth=1.5)
 		plt.plot([row[2] for row in self.statistics], 'r', label = "median", linewidth=1.5)
 
-		fig.suptitle('{0} on {1}'.format(self.algorithm_name, "Voltage Clamp"))
+		fig.suptitle('{0} on {1}'.format(self.algorithm_name, self.model_name))
 		plt.xlabel('generations')
 		plt.ylabel('score value')
 		plt.yscale('log')
 
 		plt.legend(fontsize=14, ncol=1)	#ncol= number of columns of the labels
-		plt.savefig('{0} on {1}'.format(self.algorithm_name, "Voltage Clamp"), format='pdf')
+		plt.savefig('{0} on {1}'.format(self.algorithm_name, self.model_name), format='pdf')
 		plt.show()
 		plt.close()
 
@@ -240,19 +243,23 @@ class TrueMOOResult(RawOptimizationResult):
 			ax.scatter(x, y, color='b')
 			ax.set_xlim(min(x), max(x))
 			ax.set_ylim(min(y), max(y))
-		fig.suptitle('{0} of {1} on {2}'.format(title,  self.algorithm_name, "Voltage Clamp"))
+		fig.suptitle('{0} of {1} on {2}'.format(title,  self.algorithm_name, self.model_name))
 		ax.autoscale_view(True,True,True)
 
 		ax.set_xlabel(self.features[self.NUMBER_OF_OBJECTIVE[0]])
 		ax.set_ylabel(self.features[self.NUMBER_OF_OBJECTIVE[1]])
-		plt.savefig('{0} of {1} on {2}'.format(title, self.algorithm_name, "Voltage Clamp"), format='pdf')
+		plt.savefig('{0} of {1} on {2}'.format(title, self.algorithm_name, self.model_name), format='pdf')
 		plt.show()
 
 if __name__ == '__main__':
 	start_time = time.time()
 
-	opSettings = OptimizationSettings("paes_settings.xml")
-	sorted_result = SortedMOOResult(opSettings, "paes_ind_file.txt")
-	multi_objective_result = TrueMOOResult(opSettings, "paes_ind_file.txt", "paes_final_archive.txt")
+	paes_clamp_opSettings = OptimizationSettings("paes_settings.xml")
+	paes_clamp_sorted_result = SortedMOOResult(paes_clamp_opSettings, "paes_ind_file.txt")
+	paes_clamp_multi_objective_result = TrueMOOResult(paes_clamp_opSettings, "paes_ind_file.txt", "paes_final_archive.txt")
+
+	nsga_hh_opSettings = OptimizationSettings("hh_settings.xml")
+	nsga_hh_sorted_result = SortedMOOResult(nsga_hh_opSettings, "hh_ind_file.txt")
+	nsga_hh_multi_objective_result = TrueMOOResult(nsga_hh_opSettings, "hh_ind_file.txt", "hh_final_archive.txt")
 
 	print("--- %s seconds ---" % (time.time() - start_time))

@@ -38,7 +38,6 @@ class OptimizationSettings(MetaOptimizationSettings):
 				self.algorithm_name = child.text
 			if child.tag == "model_path":
 				self.model_name = child.text.split('/')[-1]
-				print(self.model_name)
 			if child.tag == "boundaries":
 				self.boundaries =  map(lambda x:map(self._float_or_int,x.strip().split(", ")), child.text.strip()[2:len(child.text.strip())-2].split("], ["))
 			if child.tag == "max_evaluation":
@@ -74,7 +73,8 @@ class RawOptimizationResult():
 	Class for getting and storing the result of the optimization procces.
 	'''
 	def __init__(self, opSettings, ind_file):
-		self.algorithm_name, self.model_name, self.boundaries, self.number_of_generations, self.population_size, self.number_of_parameters, self.features, self.weights, self.number_of_objectives = opSettings.getOptimizationSettings()
+		self.algorithm_name, self.model_name, self.boundaries, self.number_of_generations, self.population_size, \
+									self.number_of_parameters, self.features, self.weights, self.number_of_objectives = opSettings.getOptimizationSettings()
 		self.ind_file = ind_file
 		self.generations = []
 
@@ -94,8 +94,11 @@ class RawOptimizationResult():
 			for line in iter(f):
 				current_generation.append([float(self.removeUnwantedChars(element)) for element in line.split()])
 				if len(current_generation) == self.population_size:
-					self.generations.append(current_generation)
+					self.saveGeneration(current_generation)
 					current_generation = []
+
+	def saveGeneration(self, new_generation):
+		self.generations.append(new_generation)
 
 	def printRawIndividualResults(self):
 		self.printGivenIndividuals(self.generations)
@@ -120,6 +123,8 @@ class SortedMOOResult(RawOptimizationResult):
 		RawOptimizationResult.__init__(self, opSettings, ind_file)
 
 		self.INDEX_OF_WEIGHTED_SUM = 2
+		self.OFFSET = 2 	#ind_file format!
+		self.NEW_OFFSET = 3 #we inserted the weighted sum!
 
 		self.sorted_generations = []
 		self.statistics = []
@@ -136,9 +141,9 @@ class SortedMOOResult(RawOptimizationResult):
 			index_of_original_generation = self.generations.index(generation)
 
 			for individual in generation:
-				indexOfOriginalIndividual = generation.index(individual)
-				individual = individual[:2] + [self.calculateWeightedSum(individual[2:self.number_of_objectives+2])] +  individual[2:]
-				generation[indexOfOriginalIndividual] = individual
+				index_of_original_individual = generation.index(individual)
+				individual = individual[:self.OFFSET] + [self.calculateWeightedSum(individual[self.OFFSET:self.number_of_objectives+self.OFFSET])] +  individual[self.OFFSET:]
+				generation[index_of_original_individual] = individual
 
 			self.generations[index_of_original_generation] = generation
 
@@ -168,25 +173,24 @@ class SortedMOOResult(RawOptimizationResult):
 		plt.ylabel('score value')
 		plt.yscale('log')
 
-		plt.legend(fontsize=14, ncol=1)	#ncol= number of columns of the labels
+		plt.legend(fontsize=14, ncol=1)
 		plt.savefig('{0} on {1}'.format(self.algorithm_name, self.model_name), format='pdf')
-		plt.show()
-		plt.close()
 
 	def writeStatistics(self):
 		with open("sorted_stat_file.txt", "wb") as f:
 			for index, generation in enumerate(self.statistics):
 				f.write('%d, %d, %s\n' % (index, self.population_size, ",".join(map(str, generation))))
 
-	def prepareIndividualForWriting(self,individual):
-		individual = [str(elem) for elem in individual]
-		return individual[:3] + ['(' + ", ".join(individual[3:3+self.number_of_objectives]) + ')'] + ['[' + ", ".join(individual[3+self.number_of_objectives:]) + ']']
-
 	def writeSortedIndividuals(self):
 		with open("sorted_ind_file.txt", "wb") as f:
 			for generation in self.sorted_generations:
 				for individual in generation:
 					f.write("%s\n" % ", ".join(self.prepareIndividualForWriting(individual)))
+
+	def prepareIndividualForWriting(self,individual):
+		individual = [str(elem) for elem in individual]
+		return individual[:3] + ['(' + ", ".join(individual[self.NEW_OFFSET:self.NEW_OFFSET+self.number_of_objectives]) +
+	 									')'] + ['[' + ", ".join(individual[self.NEW_OFFSET+self.number_of_objectives:]) + ']']
 
 class TrueMOOResult(RawOptimizationResult):
 
@@ -205,22 +209,26 @@ class TrueMOOResult(RawOptimizationResult):
 		self.final_generation = []
 		self.final_generation_objectives = []
 
-		self.getFinalGeneration()
-		self.getFinalGenerationObjectives()
+		self.separateFinalGeneration()
+		self.separateFinalGenerationObjectives()
 		self.parseFinalArchiveFile()
 		self.plotParetoFront(self.final_archive, "Pareto Front")
+
 		if(self.algorithm_name == "PAES"):
 			self.plotParetoFront(self.final_generation_objectives, "Final Generation")
 
 	def parseFinalArchiveFile(self):
 		with open(self.final_archive_file, 'rb') as arc_file:
 			for line in iter(arc_file):
-				self.final_archive.append([float(self.removeUnwantedChars(element)) for element in line.split()])
+				self.saveArchivedIndividualObjectives([float(self.removeUnwantedChars(element)) for element in line.split()])
 
-	def getFinalGeneration(self):
+	def saveArchivedIndividualObjectives(self, archived_individual):
+		self.final_archive.append(archived_individual)
+
+	def separateFinalGeneration(self):
 		self.final_generation = self.generations[-1]
 
-	def getFinalGenerationObjectives(self):
+	def separateFinalGenerationObjectives(self):
 		self.final_generation_objectives = [individual[2:5] for individual in self.final_generation]
 
 	def plotParetoFront(self, best_individuals, title):
@@ -249,7 +257,6 @@ class TrueMOOResult(RawOptimizationResult):
 		ax.set_xlabel(self.features[self.NUMBER_OF_OBJECTIVE[0]])
 		ax.set_ylabel(self.features[self.NUMBER_OF_OBJECTIVE[1]])
 		plt.savefig('{0} of {1} on {2}'.format(title, self.algorithm_name, self.model_name), format='pdf')
-		plt.show()
 
 if __name__ == '__main__':
 	start_time = time.time()
@@ -257,9 +264,11 @@ if __name__ == '__main__':
 	paes_clamp_opSettings = OptimizationSettings("paes_settings.xml")
 	paes_clamp_sorted_result = SortedMOOResult(paes_clamp_opSettings, "paes_ind_file.txt")
 	paes_clamp_multi_objective_result = TrueMOOResult(paes_clamp_opSettings, "paes_ind_file.txt", "paes_final_archive.txt")
+	plt.show()
 
 	nsga_hh_opSettings = OptimizationSettings("hh_settings.xml")
 	nsga_hh_sorted_result = SortedMOOResult(nsga_hh_opSettings, "hh_ind_file.txt")
 	nsga_hh_multi_objective_result = TrueMOOResult(nsga_hh_opSettings, "hh_ind_file.txt", "hh_final_archive.txt")
+	plt.show()
 
 	print("--- %s seconds ---" % (time.time() - start_time))

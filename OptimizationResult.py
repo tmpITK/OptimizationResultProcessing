@@ -216,11 +216,14 @@ class TrueMOOResult(RawOptimizationResult):
 			ax = fig.add_subplot(111, projection='3d')
 			z = [row[self.NUMBER_OF_OBJECTIVE[2]] for row in self.final_archive]
 			ax.scatter(x, y, z, color='b')
+			ax.set_ylim(min(z), max(z))
 			ax.set_zlabel(self.features[self.NUMBER_OF_OBJECTIVE[2]])
 		else:
 			fig = plt.figure()
 			ax = fig.add_subplot(111)
 			ax.scatter(x, y, color='b')
+			ax.set_xlim(min(x), max(x))
+			ax.set_ylim(min(y), max(y))
 		fig.suptitle('Pareto Front of {0} by {1}'.format("Voltage Clamp", self.evolutionary_strategy))
 		ax.autoscale_view(True,True,True)
 

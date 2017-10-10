@@ -225,7 +225,6 @@ class TrueMOOResult(RawOptimizationResult):
 		x = []
 		y = []
 		for individual in best_individuals:
-			print(individual)
 			x.append(individual[self.NUMBER_OF_OBJECTIVE[0]])
 			y.append(individual[self.NUMBER_OF_OBJECTIVE[1]])
 		if self.number_of_objectives > 2:
@@ -241,12 +240,12 @@ class TrueMOOResult(RawOptimizationResult):
 			ax.scatter(x, y, color='b')
 			ax.set_xlim(min(x), max(x))
 			ax.set_ylim(min(y), max(y))
-		fig.suptitle('{0} of {1} by {2}'.format(title, "Voltage Clamp", self.algorithm_name))
+		fig.suptitle('{0} of {1} on {2}'.format(title,  self.algorithm_name, "Voltage Clamp"))
 		ax.autoscale_view(True,True,True)
 
 		ax.set_xlabel(self.features[self.NUMBER_OF_OBJECTIVE[0]])
 		ax.set_ylabel(self.features[self.NUMBER_OF_OBJECTIVE[1]])
-		plt.savefig('{0} of {1} by {2}'.format(title, "Voltage Clamp", self.algorithm_name), format='pdf')
+		plt.savefig('{0} of {1} on {2}'.format(title, self.algorithm_name, "Voltage Clamp"), format='pdf')
 		plt.show()
 
 if __name__ == '__main__':

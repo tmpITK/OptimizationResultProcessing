@@ -204,10 +204,6 @@ class TrueMOOResult(RawOptimizationResult):
 			for line in iter(arc_file):
 				self.final_archive.append([float(self.removeUnwantedChars(element)) for element in line.split()])
 
-	def getFinalArchive(self):
-		for index, indFit in enumerate(self.final_archive):
-			print(index+1, indFit)
-
 	def plotParetoFront(self):
 
 		x = []

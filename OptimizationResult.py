@@ -81,14 +81,6 @@ class RawOptimizationResult():
 
 		self.parseIndividualFile()
 
-	@staticmethod
-	def removeUnwantedChars(element):
-		remove_these_chars = ['(', ')', '[', ']', ',']
-		for char in remove_these_chars:
-			if char in element:
-				element = element.replace(char, '')
-		return element
-
 	def parseIndividualFile(self):
 		with open(self.ind_file, 'rb') as f:
 			current_generation = []
@@ -97,6 +89,14 @@ class RawOptimizationResult():
 				if len(current_generation) == self.population_size:
 					self.saveGeneration(current_generation)
 					current_generation = []
+
+	@staticmethod
+	def removeUnwantedChars(element):
+		remove_these_chars = ['(', ')', '[', ']', ',']
+		for char in remove_these_chars:
+			if char in element:
+				element = element.replace(char, '')
+		return element
 
 	def saveGeneration(self, new_generation):
 		self.generations.append(new_generation)
@@ -129,10 +129,10 @@ class SortedMOOResult(RawOptimizationResult):
 
 		self.insertWeightedSums()
 		self.sortIndividualsByWeightedSum()
+		self.writeSortedIndividuals()
 		self.calculateStatistics()
 		self.writeStatistics()
 		self.plotStatistics()
-		self.writeSortedIndividuals()
 
 	def insertWeightedSums(self):
 		for generation in self.generations:
@@ -152,12 +152,27 @@ class SortedMOOResult(RawOptimizationResult):
 		for generation in self.generations:
 			self.sorted_generations.append(sorted(generation,key=lambda x: x[self.INDEX_OF_WEIGHTED_SUM]))
 
+	def prepareIndividualForWriting(self,individual):
+		individual = [str(elem) for elem in individual]
+		return individual[:3] + ['(' + ", ".join(individual[self.NEW_OFFSET:self.NEW_OFFSET+self.number_of_objectives]) +
+	 									')'] + ['[' + ", ".join(individual[self.NEW_OFFSET+self.number_of_objectives:]) + ']']
+	def writeStatistics(self):
+		with open(self.directory + "sorted_stat_file.txt", "wb") as f:
+			for index, generation in enumerate(self.statistics):
+				f.write('%d, %d, %s\n' % (index, self.population_size, ",".join(map(str, generation))))
+
 	def calculateStatistics(self):
 		for generation in self.sorted_generations:
 			maximum_of_generation = max([row[self.INDEX_OF_WEIGHTED_SUM] for row in generation])
 			minimum_of_generation = min([row[self.INDEX_OF_WEIGHTED_SUM] for row in generation])
 			median_of_generation = np.median([row[self.INDEX_OF_WEIGHTED_SUM] for row in generation])
 			self.statistics.append([maximum_of_generation, minimum_of_generation, median_of_generation])
+
+	def writeSortedIndividuals(self):
+		with open(self.directory + "sorted_ind_file.txt", "wb") as f:
+			for generation in self.sorted_generations:
+				for individual in generation:
+					f.write("%s\n" % ", ".join(self.prepareIndividualForWriting(individual)))
 
 	def plotStatistics(self):
 		fig = plt.figure()
@@ -174,22 +189,6 @@ class SortedMOOResult(RawOptimizationResult):
 		plt.legend(fontsize=14, ncol=1)
 		plt.savefig(self.directory + '{0} on {1}'.format(self.algorithm_name, self.model_name), format='pdf')
 
-	def writeStatistics(self):
-		with open(self.directory + "sorted_stat_file.txt", "wb") as f:
-			for index, generation in enumerate(self.statistics):
-				f.write('%d, %d, %s\n' % (index, self.population_size, ",".join(map(str, generation))))
-
-	def writeSortedIndividuals(self):
-		with open(self.directory + "sorted_ind_file.txt", "wb") as f:
-			for generation in self.sorted_generations:
-				for individual in generation:
-					f.write("%s\n" % ", ".join(self.prepareIndividualForWriting(individual)))
-
-	def prepareIndividualForWriting(self,individual):
-		individual = [str(elem) for elem in individual]
-		return individual[:3] + ['(' + ", ".join(individual[self.NEW_OFFSET:self.NEW_OFFSET+self.number_of_objectives]) +
-	 									')'] + ['[' + ", ".join(individual[self.NEW_OFFSET+self.number_of_objectives:]) + ']']
-
 class TrueMOOResult(RawOptimizationResult):
 
 	"""
@@ -200,9 +199,9 @@ class TrueMOOResult(RawOptimizationResult):
 	def __init__(self, opSettings, ind_file="ind_file.txt", final_archive_file="final_archive.txt"):
 		RawOptimizationResult.__init__(self, opSettings, ind_file)
 
-		self.OBJECTIVE_NUMBER = range(self.number_of_objectives)
-		self.LAST_ELEMENT_INDEX = -1
 		self.OFFSET = 2
+		self.LAST_ELEMENT_INDEX = -1
+		self.OBJECTIVE_NUMBER = range(self.number_of_objectives)
 
 		self.final_archive_file = self.directory + final_archive_file
 		self.final_archive = []
@@ -216,6 +215,12 @@ class TrueMOOResult(RawOptimizationResult):
 
 		if(self.algorithm_name == "PAES"):
 			self.plotParetoFront(self.final_generation_objectives, "Final Generation")
+			
+	def separateFinalGeneration(self):
+		self.final_generation = self.generations[self.LAST_ELEMENT_INDEX]
+
+	def separateFinalGenerationObjectives(self):
+		self.final_generation_objectives = [individual[self.OFFSET:self.OFFSET + self.number_of_objectives] for individual in self.final_generation]
 
 	def parseFinalArchiveFile(self):
 		with open(self.final_archive_file, 'rb') as arc_file:
@@ -224,12 +229,6 @@ class TrueMOOResult(RawOptimizationResult):
 
 	def saveArchivedIndividualObjectives(self, archived_individual):
 		self.final_archive.append(archived_individual)
-
-	def separateFinalGeneration(self):
-		self.final_generation = self.generations[self.LAST_ELEMENT_INDEX]
-
-	def separateFinalGenerationObjectives(self):
-		self.final_generation_objectives = [individual[self.OFFSET:self.OFFSET + self.number_of_objectives] for individual in self.final_generation]
 
 	def plotParetoFront(self, best_individuals, title):
 

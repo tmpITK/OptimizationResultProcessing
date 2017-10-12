@@ -21,6 +21,12 @@ class FileDoesNotExist(Exception):
 		super(FileDoesNotExist, self).__init__(message)
 
 
+class IncorrectNumberOfObjectives(Exception):
+	def __init__(self):
+		message = "Number of objectives must be either 2 or 3"
+		super(IncorrectNumberOfObjectives, self).__init__(message)
+
+
 class MetaOptimizationSettings:
 	__metaclass__ = abc.ABCMeta
 	@abc.abstractmethod
@@ -51,8 +57,6 @@ class OptimizationSettings(MetaOptimizationSettings):
 				self.algorithm_name = child.text
 			if child.tag == "model_path":
 				self.model_name = child.text.split('/')[self.LAST_ELEMENT_INDEX]
-			if child.tag == "boundaries":
-				self.boundaries =  map(lambda x:map(self._float_or_int,x.strip().split(", ")), child.text.strip()[2:len(child.text.strip())-2].split("], ["))
 			if child.tag == "max_evaluation":
 				self.number_of_generations = int(float(child.text))
 			if child.tag =="pop_size":
@@ -63,10 +67,9 @@ class OptimizationSettings(MetaOptimizationSettings):
 				self.features = child.text.split(", ")
 			if child.tag == "weights":
 				self.weights =  map(self._float_or_int,child.text.strip().lstrip("[").rstrip("]").split(","))
-				self.number_of_objectives = len(self.weights)
 
-		return [self.directory, self.algorithm_name, self.model_name, self.boundaries, self.number_of_generations, self.population_size, self.number_of_parameters,
-					self.features, self.weights, self.number_of_objectives]
+		return [self.algorithm_name, self.model_name, self.number_of_generations, self.population_size, self.number_of_parameters,
+					self.features, self.weights]
 
 	@staticmethod
 	def _float_or_int(value):
@@ -87,8 +90,10 @@ class RawOptimizationResult(object):
 	Class for getting and storing the result of the optimization procces.
 	'''
 	def __init__(self, op_settings, ind_file="ind_file.txt"):
-		self.directory, self.algorithm_name, self.model_name, self.boundaries, self.number_of_generations, self.population_size, \
-									self.number_of_parameters, self.features, self.weights, self.number_of_objectives = op_settings.get_optimization_settings()
+		self.directory = op_settings.directory
+		self.algorithm_name, self.model_name, self.number_of_generations, self.population_size, \
+									self.number_of_parameters, self.features, self.weights = op_settings.get_optimization_settings()
+		self.number_of_objectives = len(self.features)
 		self.ind_file = self.directory + ind_file
 		self.generations = []
 
@@ -154,10 +159,16 @@ class SortedMOOResult(RawOptimizationResult):
 
 			for individual in generation:
 				index_of_original_individual = generation.index(individual)
-				individual = individual[:self.OFFSET] + [self.calculate_weighted_sum(individual[self.OFFSET:self.number_of_objectives+self.OFFSET])] +  individual[self.OFFSET:]
+				individual = individual[:self.OFFSET] +\
+					[self.calculate_weighted_sum(self.get_individual_objectives(individual))] +\
+					individual[self.OFFSET:]
 				generation[index_of_original_individual] = individual
 
 			self.generations[index_of_original_generation] = generation
+
+	def get_individual_objectives(self, individual):
+		objectives = individual[self.OFFSET:self.number_of_objectives+self.OFFSET]
+		return objectives
 
 	def calculate_weighted_sum(self, objectives):
 		return sum([obj*weight for obj, weight in zip(objectives, self.weights)])
@@ -218,6 +229,9 @@ class TrueMOOResult(RawOptimizationResult):
 		self.LAST_ELEMENT_INDEX = -1
 		self.OBJECTIVE_NUMBER = range(self.number_of_objectives)
 
+		if (self.number_of_objectives not in range(1,4)):
+			raise IncorrectNumberOfObjectives()
+
 		self.final_archive_file = self.directory + final_archive_file
 		self.final_archive = []
 		self.final_generation = []
@@ -252,21 +266,24 @@ class TrueMOOResult(RawOptimizationResult):
 		for individual in best_individuals:
 			x.append(individual[self.OBJECTIVE_NUMBER[0]])
 			y.append(individual[self.OBJECTIVE_NUMBER[1]])
+
 		if self.number_of_objectives > 2:
 			fig = plt.figure()
 			ax = fig.add_subplot(111, projection='3d')
 			z = [row[self.OBJECTIVE_NUMBER[2]] for row in best_individuals]
+			tuner_z = self.tune_limit(z)
 			ax.scatter(x, y, z, color='b')
-			ax.set_ylim(min(z), max(z))
+			ax.set_zlim(min(z)-tuner_z, max(z)+tuner_z)
 			ax.set_zlabel(self.features[self.OBJECTIVE_NUMBER[2]])
 		else:
 			fig = plt.figure()
 			ax = fig.add_subplot(111)
 			ax.scatter(x, y, color='b')
-			tuner_x = self.tune_limit(x)
-			tuner_y = self.tune_limit(y)
-			ax.set_xlim(min(x)-tuner_x, max(x)+tuner_x)
-			ax.set_ylim(min(y)-tuner_y, max(y)+tuner_y)
+
+		tuner_x = self.tune_limit(x)
+		tuner_y = self.tune_limit(y)
+		ax.set_xlim(min(x)-tuner_x, max(x)+tuner_x)
+		ax.set_ylim(min(y)-tuner_y, max(y)+tuner_y)
 		fig.suptitle('{0} of {1} on {2}'.format(title,  self.algorithm_name, self.model_name))
 		ax.autoscale_view(True,True,True)
 
@@ -276,7 +293,7 @@ class TrueMOOResult(RawOptimizationResult):
 
 	@staticmethod
 	def tune_limit( values):
-		return (max(values)-min(values))/10
+		return (max(values)-min(values))/100
 
 def get_directories(directory_base_name):
 	CHILD_DIR_INDEX = 0
@@ -305,9 +322,11 @@ if __name__ == '__main__':
 		paes_clamp_multi_objective_result = TrueMOOResult(paes_clamp_op_settings)
 		plt.show()
 
+	'''
 	nsga_hh_op_settings = OptimizationSettings("hh_settings.xml")
 	nsga_hh_sorted_result = SortedMOOResult(nsga_hh_op_settings, "hh_ind_file.txt")
 	nsga_hh_multi_objective_result = TrueMOOResult(nsga_hh_op_settings, "hh_ind_file.txt", "hh_final_archive.txt")
 	plt.show()
+	'''
 
 	print("--- %s seconds ---" % (time.time() - start_time))

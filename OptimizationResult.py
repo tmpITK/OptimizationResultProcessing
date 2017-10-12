@@ -13,11 +13,20 @@ NOTE: file formats used:
 	-ind_file: 	generation, population size, (fitnes results), [resulting parameters]
 	-final_archive_file: (fitnes results)
 """
+
+
+class FileDoesNotExist(Exception):
+	def __init__(self, missing_file, directory):
+		message = "%s is not in %s" % (missing_file, directory)
+		super(FileDoesNotExist, self).__init__(message)
+
+
 class MetaOptimizationSettings:
 	__metaclass__ = abc.ABCMeta
 	@abc.abstractmethod
 	def get_optimization_settings(self):
 		raise NotImplementedError
+
 
 class OptimizationSettings(MetaOptimizationSettings):
 	'''
@@ -28,11 +37,14 @@ class OptimizationSettings(MetaOptimizationSettings):
 		self.LAST_ELEMENT_INDEX = -1
 
 		self.directory = directory
-		self.xml_file = self.directory + xml_file
+
+		try:
+			self.xml = ET.parse(self.directory + xml_file)
+		except IOError:
+			raise FileDoesNotExist(xml_file, self.directory)
 
 	def get_optimization_settings(self):
-		xml = ET.parse(self.xml_file)
-		root = xml.getroot()
+		root = self.xml.getroot()
 
 		for child in root:
 			if child.tag == "evo_strat":
@@ -52,6 +64,7 @@ class OptimizationSettings(MetaOptimizationSettings):
 			if child.tag == "weights":
 				self.weights =  map(self._float_or_int,child.text.strip().lstrip("[").rstrip("]").split(","))
 				self.number_of_objectives = len(self.weights)
+
 		return [self.directory, self.algorithm_name, self.model_name, self.boundaries, self.number_of_generations, self.population_size, self.number_of_parameters,
 					self.features, self.weights, self.number_of_objectives]
 
@@ -108,6 +121,7 @@ class RawOptimizationResult(object):
 	def print_given_generations(generations):
 		for  generation in generations:
 			print(*generation, sep='\n')
+
 
 class SortedMOOResult(RawOptimizationResult):
 
@@ -189,6 +203,7 @@ class SortedMOOResult(RawOptimizationResult):
 		plt.legend(fontsize=14, ncol=1)
 		plt.savefig(self.directory + '{0} on {1}'.format(self.algorithm_name, self.model_name), format='pdf')
 
+
 class TrueMOOResult(RawOptimizationResult):
 
 	"""
@@ -263,17 +278,20 @@ class TrueMOOResult(RawOptimizationResult):
 	def tune_limit( values):
 		return (max(values)-min(values))/10
 
-if __name__ == '__main__':
+def get_directories(directory_base_name):
 	CHILD_DIR_INDEX = 0
 	LAST_ELEMENT_INDEX = -1
+
+	regex = re.compile(directory_base_name+'_.')
+	return [x[CHILD_DIR_INDEX]+'/' for x in os.walk(cwd) if re.match(regex, x[CHILD_DIR_INDEX].split('/')[LAST_ELEMENT_INDEX])]
+
+
+if __name__ == '__main__':
 	start_time = time.time()
 
 	cwd = os.getcwd()
-	hh_regex = re.compile('hh_pas_surrogate_.')
-	hh_directories = [x[CHILD_DIR_INDEX]+'/' for x in os.walk(cwd) if re.match(hh_regex, x[CHILD_DIR_INDEX].split('/')[LAST_ELEMENT_INDEX])]
-
-	vclamp_regex = re.compile('VClamp_surrogate_.')
-	vclamp_directories = [x[CHILD_DIR_INDEX]+'/' for x in os.walk(cwd) if re.match(vclamp_regex, x[CHILD_DIR_INDEX].split('/')[LAST_ELEMENT_INDEX])]
+	hh_directories = get_directories('hh_pas_surrogate')
+	vclamp_directories = get_directories('VClamp_surrogate')
 
 	for directory in hh_directories:
 		nsga_hh_op_settings = OptimizationSettings(directory=directory)

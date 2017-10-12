@@ -16,7 +16,7 @@ NOTE: file formats used:
 class MetaOptimizationSettings:
 	__metaclass__ = abc.ABCMeta
 	@abc.abstractmethod
-	def getOptimizationSettings(self):
+	def get_optimization_settings(self):
 		raise NotImplementedError
 
 class OptimizationSettings(MetaOptimizationSettings):
@@ -30,7 +30,7 @@ class OptimizationSettings(MetaOptimizationSettings):
 		self.directory = directory
 		self.xml_file = self.directory + xml_file
 
-	def getOptimizationSettings(self):
+	def get_optimization_settings(self):
 		xml = ET.parse(self.xml_file)
 		root = xml.getroot()
 
@@ -69,43 +69,43 @@ class OptimizationSettings(MetaOptimizationSettings):
 	def getParams(self):
 		print(self.__dict__.keys())
 
-class RawOptimizationResult():
+class RawOptimizationResult(object):
 	'''
 	Class for getting and storing the result of the optimization procces.
 	'''
 	def __init__(self, op_settings, ind_file="ind_file.txt"):
 		self.directory, self.algorithm_name, self.model_name, self.boundaries, self.number_of_generations, self.population_size, \
-									self.number_of_parameters, self.features, self.weights, self.number_of_objectives = op_settings.getOptimizationSettings()
+									self.number_of_parameters, self.features, self.weights, self.number_of_objectives = op_settings.get_optimization_settings()
 		self.ind_file = self.directory + ind_file
 		self.generations = []
 
-		self.parseIndividualFile()
+		self.parse_individual_file()
 
-	def parseIndividualFile(self):
+	def parse_individual_file(self):
 		with open(self.ind_file, 'rb') as f:
 			current_generation = []
 			for line in iter(f):
-				current_generation.append([float(self.removeUnwantedChars(element)) for element in line.split()])
+				current_generation.append([float(self.remove_unwanted_characters(element)) for element in line.split()])
 				if len(current_generation) == self.population_size:
-					self.saveGeneration(current_generation)
+					self.save_generation(current_generation)
 					current_generation = []
 
 	@staticmethod
-	def removeUnwantedChars(element):
+	def remove_unwanted_characters(element):
 		remove_these_chars = ['(', ')', '[', ']', ',']
 		for char in remove_these_chars:
 			if char in element:
 				element = element.replace(char, '')
 		return element
 
-	def saveGeneration(self, new_generation):
+	def save_generation(self, new_generation):
 		self.generations.append(new_generation)
 
-	def printRawIndividualResults(self):
-		self.printGivenIndividuals(self.generations)
+	def print_untouched_generations(self):
+		self.print_given_generations(self.generations)
 
 	@staticmethod
-	def printGivenIndividuals(generations):
+	def print_given_generations(generations):
 		for  generation in generations:
 			print(*generation, sep='\n')
 
@@ -127,54 +127,54 @@ class SortedMOOResult(RawOptimizationResult):
 		self.sorted_generations = []
 		self.statistics = []
 
-		self.insertWeightedSums()
-		self.sortIndividualsByWeightedSum()
-		self.writeSortedIndividuals()
-		self.calculateStatistics()
-		self.writeStatistics()
-		self.plotStatistics()
+		self.insert_weighted_sums()
+		self.sort_individuals_by_weighted_sum()
+		self.write_sorted_individuals()
+		self.calculate_statistics()
+		self.write_statistics()
+		self.plot_statistics()
 
-	def insertWeightedSums(self):
+	def insert_weighted_sums(self):
 		for generation in self.generations:
 			index_of_original_generation = self.generations.index(generation)
 
 			for individual in generation:
 				index_of_original_individual = generation.index(individual)
-				individual = individual[:self.OFFSET] + [self.calculateWeightedSum(individual[self.OFFSET:self.number_of_objectives+self.OFFSET])] +  individual[self.OFFSET:]
+				individual = individual[:self.OFFSET] + [self.calculate_weighted_sum(individual[self.OFFSET:self.number_of_objectives+self.OFFSET])] +  individual[self.OFFSET:]
 				generation[index_of_original_individual] = individual
 
 			self.generations[index_of_original_generation] = generation
 
-	def calculateWeightedSum(self, objectives):
+	def calculate_weighted_sum(self, objectives):
 		return sum([obj*weight for obj, weight in zip(objectives, self.weights)])
 
-	def sortIndividualsByWeightedSum(self):
+	def sort_individuals_by_weighted_sum(self):
 		for generation in self.generations:
 			self.sorted_generations.append(sorted(generation,key=lambda x: x[self.INDEX_OF_WEIGHTED_SUM]))
 
-	def prepareIndividualForWriting(self,individual):
+	def prepare_individual_for_writing(self,individual):
 		individual = [str(elem) for elem in individual]
 		return individual[:3] + ['(' + ", ".join(individual[self.NEW_OFFSET:self.NEW_OFFSET+self.number_of_objectives]) +
 	 									')'] + ['[' + ", ".join(individual[self.NEW_OFFSET+self.number_of_objectives:]) + ']']
-	def writeStatistics(self):
+	def write_statistics(self):
 		with open(self.directory + "sorted_stat_file.txt", "wb") as f:
 			for index, generation in enumerate(self.statistics):
 				f.write('%d, %d, %s\n' % (index, self.population_size, ",".join(map(str, generation))))
 
-	def calculateStatistics(self):
+	def calculate_statistics(self):
 		for generation in self.sorted_generations:
 			maximum_of_generation = max([row[self.INDEX_OF_WEIGHTED_SUM] for row in generation])
 			minimum_of_generation = min([row[self.INDEX_OF_WEIGHTED_SUM] for row in generation])
 			median_of_generation = np.median([row[self.INDEX_OF_WEIGHTED_SUM] for row in generation])
 			self.statistics.append([maximum_of_generation, minimum_of_generation, median_of_generation])
 
-	def writeSortedIndividuals(self):
+	def write_sorted_individuals(self):
 		with open(self.directory + "sorted_ind_file.txt", "wb") as f:
 			for generation in self.sorted_generations:
 				for individual in generation:
-					f.write("%s\n" % ", ".join(self.prepareIndividualForWriting(individual)))
+					f.write("%s\n" % ", ".join(self.prepare_individual_for_writing(individual)))
 
-	def plotStatistics(self):
+	def plot_statistics(self):
 		fig = plt.figure()
 
 		plt.plot([row[0] for row in self.statistics], 'r.-', label = "max", linewidth=1.5)
@@ -208,29 +208,29 @@ class TrueMOOResult(RawOptimizationResult):
 		self.final_generation = []
 		self.final_generation_objectives = []
 
-		self.separateFinalGeneration()
-		self.separateFinalGenerationObjectives()
-		self.parseFinalArchiveFile()
-		self.plotParetoFront(self.final_archive, "Pareto Front")
+		self.separate_final_generation()
+		self.separate_final_generation_objectives()
+		self.parse_final_archive_file()
+		self.plot_pareto_front(self.final_archive, "Pareto Front")
 
 		if(self.algorithm_name == "PAES"):
-			self.plotParetoFront(self.final_generation_objectives, "Final Generation")
+			self.plot_pareto_front(self.final_generation_objectives, "Final Generation")
 
-	def separateFinalGeneration(self):
+	def separate_final_generation(self):
 		self.final_generation = self.generations[self.LAST_ELEMENT_INDEX]
 
-	def separateFinalGenerationObjectives(self):
+	def separate_final_generation_objectives(self):
 		self.final_generation_objectives = [individual[self.OFFSET:self.OFFSET + self.number_of_objectives] for individual in self.final_generation]
 
-	def parseFinalArchiveFile(self):
+	def parse_final_archive_file(self):
 		with open(self.final_archive_file, 'rb') as arc_file:
 			for line in iter(arc_file):
-				self.saveArchivedIndividualObjectives([float(self.removeUnwantedChars(element)) for element in line.split()])
+				self.save_archived_individual_objectives([float(self.remove_unwanted_characters(element)) for element in line.split()])
 
-	def saveArchivedIndividualObjectives(self, archived_individual):
+	def save_archived_individual_objectives(self, archived_individual):
 		self.final_archive.append(archived_individual)
 
-	def plotParetoFront(self, best_individuals, title):
+	def plot_pareto_front(self, best_individuals, title):
 
 		x = []
 		y = []
@@ -248,10 +248,10 @@ class TrueMOOResult(RawOptimizationResult):
 			fig = plt.figure()
 			ax = fig.add_subplot(111)
 			ax.scatter(x, y, color='b')
-			modulator_x = self.modulate(x)
-			modulator_y = self.modulate(y)
-			ax.set_xlim(min(x)-modulator_x, max(x)+modulator_x)
-			ax.set_ylim(min(y)-modulator_y, max(y)+modulator_y)
+			tuner_x = self.tune_limit(x)
+			tuner_y = self.tune_limit(y)
+			ax.set_xlim(min(x)-tuner_x, max(x)+tuner_x)
+			ax.set_ylim(min(y)-tuner_y, max(y)+tuner_y)
 		fig.suptitle('{0} of {1} on {2}'.format(title,  self.algorithm_name, self.model_name))
 		ax.autoscale_view(True,True,True)
 
@@ -260,7 +260,7 @@ class TrueMOOResult(RawOptimizationResult):
 		plt.savefig(self.directory + '{0} of {1} on {2}'.format(title, self.algorithm_name, self.model_name), format='pdf')
 
 	@staticmethod
-	def modulate( values):
+	def tune_limit( values):
 		return (max(values)-min(values))/10
 
 if __name__ == '__main__':

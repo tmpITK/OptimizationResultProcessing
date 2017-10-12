@@ -73,9 +73,9 @@ class RawOptimizationResult():
 	'''
 	Class for getting and storing the result of the optimization procces.
 	'''
-	def __init__(self, opSettings, ind_file="ind_file.txt"):
+	def __init__(self, op_settings, ind_file="ind_file.txt"):
 		self.directory, self.algorithm_name, self.model_name, self.boundaries, self.number_of_generations, self.population_size, \
-									self.number_of_parameters, self.features, self.weights, self.number_of_objectives = opSettings.getOptimizationSettings()
+									self.number_of_parameters, self.features, self.weights, self.number_of_objectives = op_settings.getOptimizationSettings()
 		self.ind_file = self.directory + ind_file
 		self.generations = []
 
@@ -117,12 +117,12 @@ class SortedMOOResult(RawOptimizationResult):
 	fitness score.
 	"""
 
-	def __init__(self, opSettings, ind_file='ind_file.txt'):
-		RawOptimizationResult.__init__(self, opSettings, ind_file)
+	def __init__(self, op_settings, ind_file='ind_file.txt'):
+		RawOptimizationResult.__init__(self, op_settings, ind_file)
 
 		self.INDEX_OF_WEIGHTED_SUM = 2
-		self.OFFSET = 2 	#ind_file format!
-		self.NEW_OFFSET = 3 #we inserted the weighted sum!
+		self.OFFSET = 2 	#ind_file format! -> generation and individual index
+		self.NEW_OFFSET = 3 #we insert the weighted sum!
 
 		self.sorted_generations = []
 		self.statistics = []
@@ -196,8 +196,8 @@ class TrueMOOResult(RawOptimizationResult):
 	and plotting the Pareto Front.
 	"""
 
-	def __init__(self, opSettings, ind_file="ind_file.txt", final_archive_file="final_archive.txt"):
-		RawOptimizationResult.__init__(self, opSettings, ind_file)
+	def __init__(self, op_settings, ind_file="ind_file.txt", final_archive_file="final_archive.txt"):
+		RawOptimizationResult.__init__(self, op_settings, ind_file)
 
 		self.OFFSET = 2
 		self.LAST_ELEMENT_INDEX = -1
@@ -215,7 +215,7 @@ class TrueMOOResult(RawOptimizationResult):
 
 		if(self.algorithm_name == "PAES"):
 			self.plotParetoFront(self.final_generation_objectives, "Final Generation")
-			
+
 	def separateFinalGeneration(self):
 		self.final_generation = self.generations[self.LAST_ELEMENT_INDEX]
 
@@ -248,14 +248,20 @@ class TrueMOOResult(RawOptimizationResult):
 			fig = plt.figure()
 			ax = fig.add_subplot(111)
 			ax.scatter(x, y, color='b')
-			ax.set_xlim(min(x), max(x))
-			ax.set_ylim(min(y), max(y))
+			modulator_x = self.modulate(x)
+			modulator_y = self.modulate(y)
+			ax.set_xlim(min(x)-modulator_x, max(x)+modulator_x)
+			ax.set_ylim(min(y)-modulator_y, max(y)+modulator_y)
 		fig.suptitle('{0} of {1} on {2}'.format(title,  self.algorithm_name, self.model_name))
 		ax.autoscale_view(True,True,True)
 
 		ax.set_xlabel(self.features[self.OBJECTIVE_NUMBER[0]])
 		ax.set_ylabel(self.features[self.OBJECTIVE_NUMBER[1]])
 		plt.savefig(self.directory + '{0} of {1} on {2}'.format(title, self.algorithm_name, self.model_name), format='pdf')
+
+	@staticmethod
+	def modulate( values):
+		return (max(values)-min(values))/10
 
 if __name__ == '__main__':
 	CHILD_DIR_INDEX = 0
@@ -270,20 +276,20 @@ if __name__ == '__main__':
 	vclamp_directories = [x[CHILD_DIR_INDEX]+'/' for x in os.walk(cwd) if re.match(vclamp_regex, x[CHILD_DIR_INDEX].split('/')[LAST_ELEMENT_INDEX])]
 
 	for directory in hh_directories:
-		nsga_hh_opSettings = OptimizationSettings(directory=directory)
-		nsga_hh_sorted_result = SortedMOOResult(nsga_hh_opSettings)
-		nsga_hh_multi_objective_result = TrueMOOResult(nsga_hh_opSettings)
+		nsga_hh_op_settings = OptimizationSettings(directory=directory)
+		nsga_hh_sorted_result = SortedMOOResult(nsga_hh_op_settings)
+		nsga_hh_multi_objective_result = TrueMOOResult(nsga_hh_op_settings)
 		plt.show()
 
 	for directory in vclamp_directories:
-		paes_clamp_opSettings = OptimizationSettings(directory=directory)
-		paes_clamp_sorted_result = SortedMOOResult(paes_clamp_opSettings)
-		paes_clamp_multi_objective_result = TrueMOOResult(paes_clamp_opSettings)
+		paes_clamp_op_settings = OptimizationSettings(directory=directory)
+		paes_clamp_sorted_result = SortedMOOResult(paes_clamp_op_settings)
+		paes_clamp_multi_objective_result = TrueMOOResult(paes_clamp_op_settings)
 		plt.show()
 
-	nsga_hh_opSettings = OptimizationSettings("hh_settings.xml")
-	nsga_hh_sorted_result = SortedMOOResult(nsga_hh_opSettings, "hh_ind_file.txt")
-	nsga_hh_multi_objective_result = TrueMOOResult(nsga_hh_opSettings, "hh_ind_file.txt", "hh_final_archive.txt")
+	nsga_hh_op_settings = OptimizationSettings("hh_settings.xml")
+	nsga_hh_sorted_result = SortedMOOResult(nsga_hh_op_settings, "hh_ind_file.txt")
+	nsga_hh_multi_objective_result = TrueMOOResult(nsga_hh_op_settings, "hh_ind_file.txt", "hh_final_archive.txt")
 	plt.show()
 
 	print("--- %s seconds ---" % (time.time() - start_time))

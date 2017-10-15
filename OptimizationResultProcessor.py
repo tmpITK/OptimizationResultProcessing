@@ -2,6 +2,7 @@ from __future__ import print_function
 import os
 import re
 import abc
+import sys
 import time
 import numpy as np
 import xml.etree.ElementTree as ET
@@ -102,8 +103,8 @@ class RawOptimizationResult(object):
 	def parse_individual_file(self):
 		with open(self.ind_file, 'rb') as f:
 			current_generation = []
-			for line in iter(f):
-				current_generation.append([float(self.remove_unwanted_characters(element)) for element in line.split()])
+			for individual in iter(f):
+				current_generation.append(self.split_individual_values(individual))
 				if self.end_of_generation(len(current_generation)):
 					self.save_generation(current_generation)
 					current_generation = []
@@ -115,6 +116,9 @@ class RawOptimizationResult(object):
 			if char in element:
 				element = element.replace(char, '')
 		return element
+
+	def split_individual_values(self, new_individual):
+		return [float(self.remove_unwanted_characters(value)) for value in new_individual.split()]
 
 	def end_of_generation(self, length_of_generation):
 	    return length_of_generation == self.population_size
@@ -144,7 +148,7 @@ class WeightedMooResult(RawOptimizationResult):
 
 		self.INDEX_OF_WEIGHTED_SUM = 2
 		self.OFFSET = 2 	#ind_file format! -> generation and individual index
-		self.NEW_OFFSET = 3 #we insert the weighted sum!
+		self.NEW_OFFSET = self.OFFSET+1 #we insert the weighted sum!
 
 		self.sorted_generations = []
 		self.statistics = []
@@ -163,7 +167,7 @@ class WeightedMooResult(RawOptimizationResult):
 			for individual in generation:
 				index_of_original_individual = generation.index(individual)
 				weighted_sum = self.calculate_weighted_sum(self.get_individual_objectives(individual))
-				individual = individual[:self.OFFSET] + [weighted_sum] + individual[self.OFFSET:]
+				individual.insert(self.OFFSET, weighted_sum)
 				generation[index_of_original_individual] = individual
 
 			self.generations[index_of_original_generation] = generation
@@ -178,11 +182,6 @@ class WeightedMooResult(RawOptimizationResult):
 	def sort_individuals_by_weighted_sum(self):
 		for generation in self.generations:
 			self.sorted_generations.append(sorted(generation,key=lambda x: x[self.INDEX_OF_WEIGHTED_SUM]))
-
-	def prepare_individual_for_writing(self,individual):
-		individual = [str(elem) for elem in individual]
-		return individual[:3] + ['(' + ", ".join(individual[self.NEW_OFFSET:self.NEW_OFFSET+self.number_of_objectives]) +
-	 									')'] + ['[' + ", ".join(individual[self.NEW_OFFSET+self.number_of_objectives:]) + ']']
 
 	@staticmethod
 	def write_statistics(directory, statistics, population_size):
@@ -206,7 +205,17 @@ class WeightedMooResult(RawOptimizationResult):
 		with open(self.directory + "sorted_ind_file.txt", "wb") as f:
 			for generation in self.sorted_generations:
 				for individual in generation:
-					f.write("%s\n" % ", ".join(self.prepare_individual_for_writing(individual)))
+					f.write("%s\n" % self.format_individual_for_writing(individual))
+
+	def format_individual_for_writing(self,individual):
+		individual = [str(value) for value in individual]
+
+		indexes = individual[:self.OFFSET]
+		weighted_sum = individual[self.OFFSET:self.NEW_OFFSET]
+		objectives = individual[self.NEW_OFFSET:self.NEW_OFFSET+self.number_of_objectives]
+		parameters = individual[self.NEW_OFFSET+self.number_of_objectives:]
+
+		return  "{0}, {1}, ({2}), [{3}]".format(", ".join(indexes), ", ".join(weighted_sum), ", ".join(objectives), ", ".join(parameters))
 
 	def plot_statistics(self):
 		plotter = PlotOptimizationResult.GeneralPlotter(self.algorithm_name, self.model_name, self.directory)
@@ -259,7 +268,6 @@ class NormalMooResult(RawOptimizationResult):
 
 		if self.algorithm_name == "PAES":
 			plotter.create_pareto_plot(self.final_generation_objectives, "Final Generation")
-		plt.close()
 
 
 def get_directories(directory_base_name):
@@ -270,43 +278,48 @@ def get_directories(directory_base_name):
 	return [x[CHILD_DIR_INDEX]+'/' for x in os.walk(cwd) if re.match(regex, x[CHILD_DIR_INDEX].split('/')[LAST_ELEMENT_INDEX])]
 
 
-def fill_statistics_for_all_runs(all_minimums):
-	all_statistics = []
-	for i in range(len(all_minimums[0])):
-			current_column = [column[i] for column in all_minimums]
-			all_statistics.append(WeightedMooResult.calculate_statistics(current_column))
-	return all_statistics
+def fill_statistics_for_all_runs(all_minimums_of_all_runs):
+	all_statistics_of_all_runs = []
+	for i in range(len(all_minimums_of_all_runs[0])):
+			current_column = [column[i] for column in all_minimums_of_all_runs]
+			all_statistics_of_all_runs.append(WeightedMooResult.calculate_statistics(current_column))
+	return all_statistics_of_all_runs
 
 if __name__ == '__main__':
 	start_time = time.time()
-
+	INDEX_OF_MINIMUM = 1
 	cwd = os.getcwd()
+
+	#Parameters for every run
 	algorithm_name = ''
 	population_size = 0
 	model_name = ''
+
+	#This must be give to the script by hand: what is the base directory name of the results
 	hh_base_directory = 'hh_pas_surrogate'
 	hh_directories = get_directories(hh_base_directory)
 
 	vclamp_base_directory = 'VClamp_surrogate'
 	vclamp_directories = get_directories(vclamp_base_directory)
 
-	all_minimums = []
+	#
+	all_minimums_of_all_runs = []
+	#NSGAII on HODGKIN-HUXLEY
 	for instance_index, directory in enumerate(hh_directories):
-		nsga_hh_op_settings = OptimizationSettings(directory=directory)
-		nsga_hh_sorted_result = WeightedMooResult(nsga_hh_op_settings)
-		all_minimums.append([row[1] for row in nsga_hh_sorted_result.statistics])
-		nsga_hh_multi_objective_result = NormalMooResult(nsga_hh_op_settings)
+		op_settings = OptimizationSettings(directory=directory)
+		sorted_result = WeightedMooResult(op_settings)
+		all_minimums_of_all_runs.append([row[INDEX_OF_MINIMUM] for row in sorted_result.statistics])
+		multi_objective_result = NormalMooResult(op_settings)
 
 		if instance_index == 0:
-			algorithm_name = nsga_hh_multi_objective_result.algorithm_name
-			population_size = nsga_hh_multi_objective_result.population_size
-			model_name = nsga_hh_multi_objective_result.model_name
+			algorithm_name = multi_objective_result.algorithm_name
+			population_size = multi_objective_result.population_size
+			model_name = multi_objective_result.model_name
 
-	all_statistics = fill_statistics_for_all_runs(all_minimums)
+	all_statistics_of_all_runs = fill_statistics_for_all_runs(all_minimums_of_all_runs)
 	plotter = PlotOptimizationResult.GeneralPlotter(algorithm_name, model_name, directory=(cwd+'/'))
-	plotter.create_generation_plot(all_statistics, title="Statistics of every run of ")
-	WeightedMooResult.write_statistics((cwd+'/'), all_statistics, population_size)
-	plt.show()
+	plotter.create_generation_plot(all_statistics_of_all_runs, title="Statistics of every run of ")
+	WeightedMooResult.write_statistics((cwd+'/'), all_statistics_of_all_runs, population_size)
 
 	for directory in vclamp_directories:
 		paes_clamp_op_settings = OptimizationSettings(directory=directory)

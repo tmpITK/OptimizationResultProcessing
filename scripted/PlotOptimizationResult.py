@@ -22,6 +22,7 @@ class GeneralPlotter(object):
 
         plt.legend(fontsize=14, ncol=1)
         plt.savefig(self.directory + '{0}{1} on {2}'.format(title, self.algorithm_name, self.model_name), format='pdf')
+        plt.close()
 
 
     def create_pareto_plot(self, best_individuals, title="Pareto Front"):
@@ -56,8 +57,8 @@ class GeneralPlotter(object):
 
         ax.set_xlabel(self.features[OBJECTIVE_NUMBER[0]])
         ax.set_ylabel(self.features[OBJECTIVE_NUMBER[1]])
-        plt.savefig(self.directory + '{0} of {1} on {2}'.format(title, self.algorithm_name, self.model_name),
-                    format='pdf')
+        plt.savefig(self.directory + '{0} of {1} on {2}'.format(title, self.algorithm_name, self.model_name),format='pdf')
+        plt.close()
 
     @staticmethod
     def tune_limit(values):

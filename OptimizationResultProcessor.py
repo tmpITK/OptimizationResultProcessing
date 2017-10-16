@@ -2,7 +2,6 @@ from __future__ import print_function
 import os
 import re
 import abc
-import sys
 import time
 import numpy as np
 import xml.etree.ElementTree as ET
@@ -105,7 +104,7 @@ class RawOptimizationResult(object):
 			current_generation = []
 			for individual in iter(f):
 				current_generation.append(self.split_individual_values(individual))
-				if self.end_of_generation(len(current_generation)):
+				if self.is_end_of_generation(len(current_generation)):
 					self.save_generation(current_generation)
 					current_generation = []
 
@@ -120,7 +119,7 @@ class RawOptimizationResult(object):
 	def split_individual_values(self, new_individual):
 		return [float(self.remove_unwanted_characters(value)) for value in new_individual.split()]
 
-	def end_of_generation(self, length_of_generation):
+	def is_end_of_generation(self, length_of_generation):
 	    return length_of_generation == self.population_size
 
 	def save_generation(self, new_generation):
@@ -183,12 +182,6 @@ class WeightedMooResult(RawOptimizationResult):
 		for generation in self.generations:
 			self.sorted_generations.append(sorted(generation,key=lambda x: x[self.INDEX_OF_WEIGHTED_SUM]))
 
-	@staticmethod
-	def write_statistics(directory, statistics, population_size):
-		with open(directory + "sorted_stat_file.txt", "wb") as f:
-			for index, generation in enumerate(statistics):
-				f.write('%d, %d, %s\n' % (index, population_size, ",".join(map(str, generation))))
-
 	def fill_statistics_list(self):
 		for generation in self.sorted_generations:
 			current_generation = [row[self.INDEX_OF_WEIGHTED_SUM] for row in generation]
@@ -200,6 +193,12 @@ class WeightedMooResult(RawOptimizationResult):
 		minimum = min(data)
 		median = np.median(data)
 		return [maximum, minimum, median]
+
+	@staticmethod
+	def write_statistics(directory, statistics, population_size):
+		with open(directory + "sorted_stat_file.txt", "wb") as f:
+			for index, generation in enumerate(statistics):
+				f.write('%d, %d, %s\n' % (index, population_size, ", ".join(map(str, generation))))
 
 	def write_sorted_individuals(self):
 		with open(self.directory + "sorted_ind_file.txt", "wb") as f:
@@ -256,8 +255,8 @@ class NormalMooResult(RawOptimizationResult):
 
 	def parse_final_archive_file(self):
 		with open(self.final_archive_file, 'rb') as arc_file:
-			for line in iter(arc_file):
-				self.save_archived_individual_objectives([float(self.remove_unwanted_characters(element)) for element in line.split()])
+			for individual in iter(arc_file):
+				self.save_archived_individual_objectives(self.split_individual_values(individual))
 
 	def save_archived_individual_objectives(self, archived_individual):
 		self.final_archive.append(archived_individual)

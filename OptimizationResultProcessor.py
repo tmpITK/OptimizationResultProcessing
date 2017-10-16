@@ -286,7 +286,7 @@ def fill_statistics_for_all_runs(all_minimums_of_all_runs):
 
 
 def write_separate_statistics(all_statistics_of_all_runs, cwd):
-	STAT_TYPES = ["maximum", "minimum", "median"]
+	STAT_TYPES = ["max", "min", "median"]
 	results_directory = create_directory_for_statistics(cwd)
 
 	for index, stat_type in enumerate(STAT_TYPES):

@@ -284,6 +284,24 @@ def fill_statistics_for_all_runs(all_minimums_of_all_runs):
 			all_statistics_of_all_runs.append(WeightedMooResult.calculate_statistics(current_column))
 	return all_statistics_of_all_runs
 
+
+def write_separate_statistics(all_statistics_of_all_runs, cwd):
+	STAT_TYPES = ["maximum", "minimum", "median"]
+	results_directory = create_directory_for_statistics(cwd)
+
+	for index, stat_type in enumerate(STAT_TYPES):
+		with open("{0}{1}.txt".format(results_directory, stat_type), "wb") as f:
+			for stats in all_statistics_of_all_runs:
+				f.write('%s\n' % stats[index])
+
+
+def create_directory_for_statistics(cwd):
+	results_dir = cwd + '/results'
+	if not os.path.exists(results_dir):
+		os.makedirs(results_dir)
+	return results_dir + '/'
+
+
 if __name__ == '__main__':
 	start_time = time.time()
 	INDEX_OF_MINIMUM = 1
@@ -316,9 +334,12 @@ if __name__ == '__main__':
 			model_name = multi_objective_result.model_name
 
 	all_statistics_of_all_runs = fill_statistics_for_all_runs(all_minimums_of_all_runs)
+	write_separate_statistics(all_statistics_of_all_runs, cwd)
+	WeightedMooResult.write_statistics((cwd+'/'), all_statistics_of_all_runs, population_size)
+
 	plotter = PlotOptimizationResult.GeneralPlotter(algorithm_name, model_name, directory=(cwd+'/'))
 	plotter.create_generation_plot(all_statistics_of_all_runs, title="Statistics of every run of ")
-	WeightedMooResult.write_statistics((cwd+'/'), all_statistics_of_all_runs, population_size)
+
 
 	for directory in vclamp_directories:
 		paes_clamp_op_settings = OptimizationSettings(directory=directory)

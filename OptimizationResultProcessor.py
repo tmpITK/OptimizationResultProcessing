@@ -103,7 +103,7 @@ class RawOptimizationResult(object):
 		with open(self.ind_file, 'rb') as f:
 			current_generation = []
 			for individual in iter(f):
-				current_generation.append(self.split_individual_values(individual))
+				current_generation.append(self.split_values_of_individuals(individual))
 				if self.is_end_of_generation(len(current_generation)):
 					self.save_generation(current_generation)
 					current_generation = []
@@ -116,7 +116,7 @@ class RawOptimizationResult(object):
 				element = element.replace(char, '')
 		return element
 
-	def split_individual_values(self, new_individual):
+	def split_values_of_individuals(self, new_individual):
 		return [float(self.remove_unwanted_characters(value)) for value in new_individual.split()]
 
 	def is_end_of_generation(self, length_of_generation):
@@ -154,9 +154,9 @@ class WeightedMooResult(RawOptimizationResult):
 
 		self.insert_weighted_sums()
 		self.sort_individuals_by_weighted_sum()
-		self.write_sorted_individuals()
+		self.write_sorted_individuals_to_file()
 		self.fill_statistics_list()
-		self.write_statistics(self.directory, self.statistics, self.population_size)
+		self.write_statistics_to_file(self.directory, self.statistics, self.population_size)
 		self.plot_statistics()
 
 	def insert_weighted_sums(self):
@@ -165,13 +165,13 @@ class WeightedMooResult(RawOptimizationResult):
 
 			for individual in generation:
 				index_of_original_individual = generation.index(individual)
-				weighted_sum = self.calculate_weighted_sum(self.get_individual_objectives(individual))
+				weighted_sum = self.calculate_weighted_sum(self.get_objectives_of_individual(individual))
 				individual.insert(self.OFFSET, weighted_sum)
 				generation[index_of_original_individual] = individual
 
 			self.generations[index_of_original_generation] = generation
 
-	def get_individual_objectives(self, individual):
+	def get_objectives_of_individual(self, individual):
 		objectives = individual[self.OFFSET:self.number_of_objectives+self.OFFSET]
 		return objectives
 
@@ -195,12 +195,12 @@ class WeightedMooResult(RawOptimizationResult):
 		return [maximum, minimum, median]
 
 	@staticmethod
-	def write_statistics(directory, statistics, population_size):
+	def write_statistics_to_file(directory, statistics, population_size):
 		with open(directory + "sorted_stat_file.txt", "wb") as f:
 			for index, generation in enumerate(statistics):
 				f.write('%d, %d, %s\n' % (index, population_size, ", ".join(map(str, generation))))
 
-	def write_sorted_individuals(self):
+	def write_sorted_individuals_to_file(self):
 		with open(self.directory + "sorted_ind_file.txt", "wb") as f:
 			for generation in self.sorted_generations:
 				for individual in generation:
@@ -234,9 +234,6 @@ class NormalMooResult(RawOptimizationResult):
 		self.OFFSET = 2
 		self.LAST_ELEMENT_INDEX = -1
 
-		if self.number_of_objectives not in range(1,4):
-			raise IncorrectNumberOfObjectives()
-
 		self.final_archive_file = self.directory + final_archive_file
 		self.final_archive = []
 		self.final_generation = []
@@ -245,7 +242,9 @@ class NormalMooResult(RawOptimizationResult):
 		self.separate_final_generation()
 		self.separate_final_generation_objectives()
 		self.parse_final_archive_file()
-		self.plot_pareto_front()
+
+		if self.number_of_objectives in range(1,4):
+			self.plot_pareto_front()
 
 	def separate_final_generation(self):
 		self.final_generation = self.generations[self.LAST_ELEMENT_INDEX]
@@ -256,7 +255,7 @@ class NormalMooResult(RawOptimizationResult):
 	def parse_final_archive_file(self):
 		with open(self.final_archive_file, 'rb') as arc_file:
 			for individual in iter(arc_file):
-				self.save_archived_individual_objectives(self.split_individual_values(individual))
+				self.save_archived_individual_objectives(self.split_values_of_individuals(individual))
 
 	def save_archived_individual_objectives(self, archived_individual):
 		self.final_archive.append(archived_individual)
@@ -289,7 +288,7 @@ def calculate_statistics(current_column):
 	return WeightedMooResult.calculate_statistics(current_column)
 
 
-def write_separate_statistics(all_statistics_of_all_runs, cwd):
+def write_separate_statistics_to_separate_files(all_statistics_of_all_runs, cwd):
 	STAT_TYPES = ["max", "min", "median"]
 	results_directory = create_directory_for_statistics(cwd)
 
@@ -299,8 +298,8 @@ def write_separate_statistics(all_statistics_of_all_runs, cwd):
 				f.write('%s\n' % stats[index])
 
 
-def write_statistics(directory, statistics, population_size):
-	return WeightedMooResult.write_statistics(directory, statistics, population_size)
+def write_statistics_to_file(directory, statistics, population_size):
+	return WeightedMooResult.write_statistics_to_file(directory, statistics, population_size)
 
 
 def create_directory_for_statistics(cwd):
@@ -342,8 +341,8 @@ if __name__ == '__main__':
 			model_name = multi_objective_result.model_name
 
 	all_statistics_of_all_runs = fill_statistics_for_all_runs(all_minimums_of_all_runs)
-	write_separate_statistics(all_statistics_of_all_runs, cwd)
-	write_statistics((cwd+'/'), all_statistics_of_all_runs, population_size)
+	write_separate_statistics_to_separate_files(all_statistics_of_all_runs, cwd)
+	write_statistics_to_file((cwd+'/'), all_statistics_of_all_runs, population_size)
 
 	plotter = PlotOptimizationResult.GeneralPlotter(algorithm_name, model_name, directory=(cwd+'/'))
 	plotter.create_generation_plot(all_statistics_of_all_runs, title="Statistics of every run of ")

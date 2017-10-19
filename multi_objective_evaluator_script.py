@@ -26,7 +26,6 @@ def calculate_statistics(current_column):
 
 def write_separate_statistics_to_separate_files(all_statistics_of_all_runs, cwd):
 	STAT_TYPES = ["max", "min", "median"]
-	results_directory = create_directory_for_statistics(cwd)
 
 	for index, stat_type in enumerate(STAT_TYPES):
 		with open("{0}{1}.txt".format(results_directory, stat_type), "wb") as f:
@@ -38,7 +37,7 @@ def write_statistics_to_file(directory, statistics, population_size):
 	return ORP.WeightedMooResult.write_statistics_to_file(directory, statistics, population_size)
 
 
-def create_directory_for_statistics(cwd):
+def create_directory_for_results(cwd):
 	results_dir = cwd + '/results'
 	if not os.path.exists(results_dir):
 		os.makedirs(results_dir)
@@ -49,6 +48,7 @@ if __name__ == '__main__':
 	start_time = time.time()
 	INDEX_OF_MINIMUM = 1
 	cwd = os.getcwd()
+	results_directory = create_directory_for_results(cwd)
 
 	#Parameters for every run
 	algorithm_name = ''
@@ -74,10 +74,10 @@ if __name__ == '__main__':
 			model_name = multi_objective_result.model_name
 
 	all_statistics_of_all_runs = fill_statistics_for_all_runs(all_minimums_of_all_runs)
-	write_separate_statistics_to_separate_files(all_statistics_of_all_runs, cwd)
-	write_statistics_to_file((cwd+'/'), all_statistics_of_all_runs, population_size)
+	write_separate_statistics_to_separate_files(all_statistics_of_all_runs, results_directory)
+	write_statistics_to_file((results_directory), all_statistics_of_all_runs, population_size)
 
-	plotter = POR.GeneralPlotter(algorithm_name, model_name, directory=(cwd+'/'))
+	plotter = POR.GeneralPlotter(algorithm_name, model_name, directory=(results_directory))
 	plotter.create_generation_plot(all_statistics_of_all_runs, title="Statistics of every run of ")
 
 	print("--- %s seconds ---" % (time.time() - start_time))

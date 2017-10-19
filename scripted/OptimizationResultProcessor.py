@@ -1,11 +1,7 @@
 from __future__ import print_function
-import os
-import re
 import abc
-import time
 import numpy as np
 import xml.etree.ElementTree as ET
-import matplotlib.pyplot as plt
 import PlotOptimizationResult
 
 """
@@ -19,12 +15,6 @@ class FileDoesNotExist(Exception):
 	def __init__(self, missing_file, directory):
 		message = "%s is not in %s" % (missing_file, directory)
 		super(FileDoesNotExist, self).__init__(message)
-
-
-class IncorrectNumberOfObjectives(Exception):
-	def __init__(self):
-		message = "Number of objectives must be either 2 or 3"
-		super(IncorrectNumberOfObjectives, self).__init__(message)
 
 
 class MetaOptimizationSettings:
@@ -148,6 +138,7 @@ class WeightedMooResult(RawOptimizationResult):
 		self.INDEX_OF_WEIGHTED_SUM = 2
 		self.OFFSET = 2 	#ind_file format! -> generation and individual index
 		self.NEW_OFFSET = self.OFFSET+1 #we insert the weighted sum!
+		self.plotter = PlotOptimizationResult.GeneralPlotter(self.algorithm_name, self.model_name, self.directory)
 
 		self.sorted_generations = []
 		self.statistics = []
@@ -217,8 +208,7 @@ class WeightedMooResult(RawOptimizationResult):
 		return  "{0}, {1}, ({2}), [{3}]".format(", ".join(indexes), ", ".join(weighted_sum), ", ".join(objectives), ", ".join(parameters))
 
 	def plot_statistics(self):
-		plotter = PlotOptimizationResult.GeneralPlotter(self.algorithm_name, self.model_name, self.directory)
-		plotter.create_generation_plot(self.statistics)
+		self.plotter.create_generation_plot(self.statistics)
 
 
 class NormalMooResult(RawOptimizationResult):
@@ -234,6 +224,7 @@ class NormalMooResult(RawOptimizationResult):
 		self.OFFSET = 2
 		self.LAST_ELEMENT_INDEX = -1
 
+		self.plotter = PlotOptimizationResult.GeneralPlotter(self.algorithm_name, self.model_name, self.directory, self.features)
 		self.final_archive_file = self.directory + final_archive_file
 		self.final_archive = []
 		self.final_generation = []
@@ -260,8 +251,7 @@ class NormalMooResult(RawOptimizationResult):
 		self.final_archive.append(archived_individual)
 
 	def plot_pareto_front(self):
-		plotter = PlotOptimizationResult.GeneralPlotter(self.algorithm_name, self.model_name, self.directory, self.features)
-		plotter.create_pareto_plot(self.final_archive)
+		self.plotter.create_pareto_plot(self.final_archive)
 
 		if self.algorithm_name == "PAES":
 			plotter.create_pareto_plot(self.final_generation_objectives, "Final Generation")

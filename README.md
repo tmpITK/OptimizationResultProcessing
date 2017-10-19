@@ -13,7 +13,8 @@ Put the three files in the main directory where the result directories are.
 
 The only user input needed is the base directory in which the results are found.
 
-The directories must contain:	-an xml file named "_settings.xml" with the appropriate datas.
+The directories must contain:	
+				-an xml file named "_settings.xml" with the appropriate datas.
 				-an "ind_file.txt" with inspyred type individual file format.
 				-a "final_archive.txt" with the objectives of the final individuals / row
 

@@ -4,6 +4,7 @@ import numpy as np
 import xml.etree.ElementTree as ET
 import PlotOptimizationResult
 
+
 """
 NOTE: file formats used:
 	-ind_file: 	generation, population size, (fitnes results), [resulting parameters]

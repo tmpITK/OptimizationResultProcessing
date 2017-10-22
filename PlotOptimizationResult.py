@@ -24,6 +24,19 @@ class GeneralPlotter(object):
         plt.savefig(self.directory + '{0}{1} on {2}'.format(title, self.algorithm_name, self.model_name), format='pdf')
         plt.close()
 
+    def create_min_plot_of_all_runs(self, all_minimums_of_all_runs):
+    	number_of_runs = len(all_minimums_of_all_runs)
+    	fig = plt.figure()
+
+    	for run in range(number_of_runs):
+    		plt.plot(all_minimums_of_all_runs[run], label=str(run))
+
+    	plt.xlabel('generations')
+    	plt.ylabel('score value')
+    	plt.legend()
+
+    	plt.savefig(self.directory + '{0}_runs_of_{1}_on_{2}'.format(number_of_runs, self.algorithm_name, self.model_name),format='pdf')
+    	plt.close()
 
     def create_pareto_plot(self, best_individuals, title="Pareto Front"):
         number_of_objectives = len(self.features)

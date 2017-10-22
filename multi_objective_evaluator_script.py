@@ -5,11 +5,10 @@ import PlotOptimizationResult as POR
 import OptimizationResultProcessor as ORP
 
 def get_directories(directory_base_name):
-	CHILD_DIR_INDEX = 0
-	LAST_ELEMENT_INDEX = -1
-
 	regex = re.compile(directory_base_name+'_.')
-	return [x[CHILD_DIR_INDEX]+'/' for x in os.walk(cwd) if re.match(regex, x[CHILD_DIR_INDEX].split('/')[LAST_ELEMENT_INDEX])]
+	all_elements_in_cwd = [element for element in os.listdir(cwd) if os.path.isdir(element)]
+
+	return [directory + '/' for directory in all_elements_in_cwd if re.match(regex, directory)]
 
 
 def fill_statistics_for_all_runs(all_minimums_of_all_runs):
@@ -78,6 +77,7 @@ if __name__ == '__main__':
 	write_statistics_to_file((results_directory), all_statistics_of_all_runs, population_size)
 
 	plotter = POR.GeneralPlotter(algorithm_name, model_name, directory=(results_directory))
+	plotter.create_min_plot_of_all_runs(all_minimums_of_all_runs)
 	plotter.create_generation_plot(all_statistics_of_all_runs, title="Statistics of every run of ")
 
 	print("--- %s seconds ---" % (time.time() - start_time))

@@ -34,7 +34,7 @@ class OptimizationSettings(MetaOptimizationSettings):
     Class for getting and storing the needed settings of the optimization process.
     '''
 
-    def __init__(self, xml_file="_settings.xml", directory=''):
+    def __init__(self, xml_file, directory):
         self.LAST_ELEMENT_INDEX = -1
 
         self.directory = directory
@@ -86,7 +86,7 @@ class RawMultiObjectiveOptimizationResult(OptimizationSettings):
     Class for getting and storing the result of the optimization procces.
     '''
 
-    def __init__(self, xml_file="_settings.xml", directory='', ind_file="ind_file.txt"):
+    def __init__(self, xml_file, directory, ind_file):
         OptimizationSettings.__init__(self, xml_file, directory)
         self.ind_file = self.directory + ind_file
         self.generations = []
@@ -129,17 +129,15 @@ class RawMultiObjectiveOptimizationResult(OptimizationSettings):
 
 class WeightedMooResult(RawMultiObjectiveOptimizationResult):
     """
-    Class for calculating the weighted sum of the objective functions' fitness values
-    and sorting the generations by this sum to get the individual with the lowest
-    fitness score.
+    Class representing a multi objective result that can be compared with
+    single objective results because its objectives are weighted and summed.
     """
 
     def __init__(self, xml_file="_settings.xml", directory='', ind_file='ind_file.txt'):
         RawMultiObjectiveOptimizationResult.__init__(self, xml_file, directory, ind_file)
 
-        self.INDEX_OF_WEIGHTED_SUM = 0
-        self.OFFSET = 0  # ind_file format! -> generation and individual index
-        self.NEW_OFFSET = 1  # we insert the weighted sum!
+        self.WEIGHTED_SUM__INDEX= 0
+        self.OFFSET = 1  # we insert the weighted sum!
         self.plotter = GeneralPlotter(self.algorithm_name, self.model_name, self.directory)
 
         self.sorted_generations = []
@@ -159,7 +157,7 @@ class WeightedMooResult(RawMultiObjectiveOptimizationResult):
             for individual in generation:
                 index_of_original_individual = generation.index(individual)
                 weighted_sum = self.calculate_weighted_sum(self.get_objectives_of_individual(individual))
-                individual.insert(self.INDEX_OF_WEIGHTED_SUM, weighted_sum)
+                individual.insert(self.WEIGHTED_SUM__INDEX, weighted_sum)
                 generation[index_of_original_individual] = individual
 
             self.generations[index_of_original_generation] = generation
@@ -173,11 +171,11 @@ class WeightedMooResult(RawMultiObjectiveOptimizationResult):
 
     def sort_individuals_by_weighted_sum(self):
         for generation in self.generations:
-            self.sorted_generations.append(sorted(generation, key=lambda x: x[self.INDEX_OF_WEIGHTED_SUM]))
+            self.sorted_generations.append(sorted(generation, key=lambda x: x[self.WEIGHTED_SUM__INDEX]))
 
     def fill_statistics_list(self):
         for generation in self.sorted_generations:
-            current_generation = [row[self.INDEX_OF_WEIGHTED_SUM] for row in generation]
+            current_generation = [row[self.WEIGHTED_SUM__INDEX] for row in generation]
             self.statistics.append(self.calculate_statistics(current_generation))
 
     @staticmethod
@@ -203,9 +201,9 @@ class WeightedMooResult(RawMultiObjectiveOptimizationResult):
         individual = [str(value) for value in individual]
 
         indexes = [str(gen_i), str(ind_i)]
-        weighted_sum = individual[self.INDEX_OF_WEIGHTED_SUM]
-        objectives = individual[self.NEW_OFFSET:self.NEW_OFFSET + self.number_of_objectives]
-        parameters = individual[self.NEW_OFFSET + self.number_of_objectives:]
+        weighted_sum = individual[self.WEIGHTED_SUM__INDEX]
+        objectives = individual[self.OFFSET:self.OFFSET + self.number_of_objectives]
+        parameters = individual[self.OFFSET + self.number_of_objectives:]
 
         return "{0}, {1}, ({2}), [{3}]".format(", ".join(indexes), ", ".join(weighted_sum), ", ".join(objectives),
                                                ", ".join(parameters))
@@ -216,14 +214,13 @@ class WeightedMooResult(RawMultiObjectiveOptimizationResult):
 
 class NormalMooResult(RawMultiObjectiveOptimizationResult):
     """
-    Class for getting and storing the archive of multi objective optimization results
-    and plotting the Pareto Front.
+    Class for representing a multi objective optimization result with archive.
     """
 
     def __init__(self, xml_file="_settings.xml", directory='', ind_file="ind_file.txt", final_archive_file="final_archive.txt"):
         RawMultiObjectiveOptimizationResult.__init__(self, xml_file, directory, ind_file)
 
-        self.OFFSET = 1
+        self.WEIGHTED_SUM__INDEX = 1
         self.LAST_ELEMENT_INDEX = -1
 
         self.plotter = GeneralPlotter(self.algorithm_name, self.model_name, self.directory, self.features)
@@ -242,7 +239,7 @@ class NormalMooResult(RawMultiObjectiveOptimizationResult):
         self.final_generation = self.generations[self.LAST_ELEMENT_INDEX]
 
     def separate_final_generation_objectives(self):
-        self.final_generation_objectives = [individual[self.OFFSET:self.OFFSET + self.number_of_objectives] for
+        self.final_generation_objectives = [individual[self.WEIGHTED_SUM__INDEX:self.WEIGHTED_SUM__INDEX + self.number_of_objectives] for
                                             individual in self.final_generation]
 
     def parse_final_archive_file(self):
@@ -390,7 +387,7 @@ if __name__ == '__main__':
     cwd = os.getcwd()
     results_directory = create_directory_for_results(cwd)
 
-    # Parameters for every run
+    # Parameters for every run (only initialized the variables)
     algorithm_name = ''
     population_size = 0
     model_name = ''
@@ -399,7 +396,6 @@ if __name__ == '__main__':
     base_directory = 'hh_pas_surrogate'
     directories = get_directories(base_directory)
 
-    #
     all_minimums_of_all_runs = []
     # NSGAII on HODGKIN-HUXLEY
     for instance_index, directory in enumerate(directories):

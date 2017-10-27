@@ -301,7 +301,7 @@ class GeneralPlotter(object):
             format='pdf')
         plt.close()
 
-    def create_pareto_plot(self, best_individuals, title="Pareto Front"):
+    def create_pareto_plot(self, best_individuals, title="Pareto_Front"):
         number_of_objectives = len(self.features)
         OBJECTIVE_NUMBER = range(number_of_objectives)
 
@@ -414,6 +414,6 @@ if __name__ == '__main__':
 
     plotter = GeneralPlotter(algorithm_name, model_name, directory=(results_directory))
     plotter.create_min_plot_of_all_runs(all_minimums_of_all_runs)
-    plotter.create_generation_plot(all_statistics_of_all_runs, title="Statistics of every run of ")
+    plotter.create_generation_plot(all_statistics_of_all_runs, title="Statistics_of_every_run_of_")
 
     print("--- %s seconds ---" % (time.time() - start_time))

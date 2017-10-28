@@ -205,12 +205,11 @@ class WeightedMooResult(RawMultiObjectiveOptimizationResult):
         objectives = individual[self.OFFSET:self.OFFSET + self.number_of_objectives]
         parameters = individual[self.OFFSET + self.number_of_objectives:]
 
-        return "{0}, {1}, ({2}), [{3}]".format(", ".join(indexes), ", ".join(weighted_sum), ", ".join(objectives),
-                                               ", ".join(parameters))
+        return "{0}, {1}, ({2}), [{3}]".format(", ".join(indexes), weighted_sum, ", ".join(objectives), ", ".join(parameters))
 
     def plot_statistics(self):
         self.plotter.create_generation_plot(self.statistics)
-
+        
 
 class NormalMooResult(RawMultiObjectiveOptimizationResult):
     """
@@ -254,7 +253,7 @@ class NormalMooResult(RawMultiObjectiveOptimizationResult):
         self.plotter.create_pareto_plot(self.final_archive)
 
         if self.algorithm_name == "PAES":
-            plotter.create_pareto_plot(self.final_generation_objectives, "Final Generation")
+            self.plotter.create_pareto_plot(self.final_generation_objectives, "Final Generation")
 
 
 class GeneralPlotter(object):

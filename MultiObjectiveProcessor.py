@@ -209,7 +209,7 @@ class WeightedMooResult(RawMultiObjectiveOptimizationResult):
 
     def plot_statistics(self):
         self.plotter.create_generation_plot(self.statistics)
-        
+
 
 class NormalMooResult(RawMultiObjectiveOptimizationResult):
     """

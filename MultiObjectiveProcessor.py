@@ -142,11 +142,13 @@ class WeightedMooResult(RawMultiObjectiveOptimizationResult):
 
         self.sorted_generations = []
         self.statistics = []
+        self.smoothed_statistics = []
 
         self.insert_weighted_sums()
         self.sort_individuals_by_weighted_sum()
         self.write_sorted_individuals_to_file()
         self.fill_statistics_list()
+        self.smooth_statistics()
         self.write_statistics_to_file(self.directory, self.statistics, self.population_size)
         self.plot_statistics()
 
@@ -183,7 +185,22 @@ class WeightedMooResult(RawMultiObjectiveOptimizationResult):
         maximum = max(data)
         minimum = min(data)
         median = np.median(data)
+
         return [maximum, minimum, median]
+
+    def smooth_statistics(self):
+        for gen_index, generation in enumerate(self.statistics):
+            current_smoothed_statistics = []
+            if gen_index == 0:
+                self.smoothed_statistics.append(generation)
+            else:
+                for stat_index, stat_component in enumerate(generation):
+                    current_best = min([stat[stat_index] for stat in self.smoothed_statistics[gen_index-1:gen_index]])
+                    if stat_component < current_best:
+                        current_smoothed_statistics.append(stat_component)
+                    else:
+                        current_smoothed_statistics.append(current_best)
+                self.smoothed_statistics.append(current_smoothed_statistics)
 
     @staticmethod
     def write_statistics_to_file(directory, statistics, population_size):
@@ -209,6 +226,7 @@ class WeightedMooResult(RawMultiObjectiveOptimizationResult):
 
     def plot_statistics(self):
         self.plotter.create_generation_plot(self.statistics)
+        self.plotter.create_generation_plot(self.smoothed_statistics, title='Smoothed_stat_of_')
 
 
 class NormalMooResult(RawMultiObjectiveOptimizationResult):
@@ -282,7 +300,7 @@ class GeneralPlotter(object):
         plt.savefig(self.directory + '{0}{1}_on_{2}'.format(title, self.algorithm_name, self.model_name), format='pdf')
         plt.close()
 
-    def create_min_plot_of_all_runs(self, all_minimums_of_all_runs):
+    def create_min_plot_of_all_runs(self, all_minimums_of_all_runs, title=''):
         number_of_runs = len(all_minimums_of_all_runs)
         fig = plt.figure()
         ax = fig.add_subplot(111)
@@ -296,7 +314,7 @@ class GeneralPlotter(object):
         plt.legend(loc='best')
 
         plt.savefig(
-            self.directory + '{0}_runs_of_{1}_on_{2}'.format(number_of_runs, self.algorithm_name, self.model_name),
+            self.directory + '{0}{1}_runs_of_{2}_on_{3}'.format(title,number_of_runs, self.algorithm_name, self.model_name),
             format='pdf')
         plt.close()
 
@@ -392,14 +410,16 @@ if __name__ == '__main__':
     model_name = ''
 
     # This must be give to the script by hand: what is the base directory name of the results
-    base_directory = 'hh_pas_surrogate'
+    base_directory = 'ca1_pc_simplification'
     directories = get_directories(base_directory)
 
     all_minimums_of_all_runs = []
+    all_smoothed_minimums_of_all_runs = []
     # NSGAII on HODGKIN-HUXLEY
     for instance_index, directory in enumerate(directories):
         sorted_result = WeightedMooResult(directory=directory)
         all_minimums_of_all_runs.append([row[INDEX_OF_MINIMUM] for row in sorted_result.statistics])
+        all_smoothed_minimums_of_all_runs.append([row[INDEX_OF_MINIMUM] for row in sorted_result.smoothed_statistics])
         multi_objective_result = NormalMooResult(directory=directory)
 
         if instance_index == 0:
@@ -408,11 +428,14 @@ if __name__ == '__main__':
             model_name = multi_objective_result.model_name
 
     all_statistics_of_all_runs = fill_statistics_for_all_runs(all_minimums_of_all_runs)
+    all_smoothed_statistics_of_all_runs = fill_statistics_for_all_runs(all_smoothed_minimums_of_all_runs)
     write_separate_statistics_to_separate_files(all_statistics_of_all_runs, results_directory)
     write_statistics_to_file((results_directory), all_statistics_of_all_runs, population_size)
 
     plotter = GeneralPlotter(algorithm_name, model_name, directory=(results_directory))
     plotter.create_min_plot_of_all_runs(all_minimums_of_all_runs)
+    plotter.create_min_plot_of_all_runs(all_smoothed_minimums_of_all_runs, title = "Smoothed_")
     plotter.create_generation_plot(all_statistics_of_all_runs, title="Statistics_of_every_run_of_")
+    plotter.create_generation_plot(all_smoothed_statistics_of_all_runs, title="Smoothed_statistics_of_every_run_of_")
 
     print("--- %s seconds ---" % (time.time() - start_time))

@@ -100,11 +100,14 @@ class RawSingleObjectiveResult(OptimizationSettings):
 
     def fill_in_statistics_list(self, generation):
         current_statistics = self.get_wanted_statistics(generation)
-        if len(self.statistics)==0:
-            self.statistics.append(current_statistics)
+        if self.algorithm_name == 'PSO':
+            if len(self.statistics)==0:
+                self.statistics.append(current_statistics)
+            else:
+                smoothed_statistics = self.smooth_statistics(current_statistics)
+                self.statistics.append(smoothed_statistics)
         else:
-            smoothed_statistics = self.smooth_statistics(current_statistics)
-            self.statistics.append(smoothed_statistics)
+            self.statistics.append(current_statistics)
 
 
     def get_wanted_statistics(self, generation):
@@ -121,7 +124,6 @@ class RawSingleObjectiveResult(OptimizationSettings):
         smoothed_statistics = []
         for stat_index, stat_component in enumerate(current_statistics):
             current_best = min([stat[stat_index] for stat in self.statistics])
-            print(current_best)
             if stat_component < current_best:
                 smoothed_statistics.append(stat_component)
             else:

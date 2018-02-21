@@ -155,7 +155,7 @@ class GeneralPlotter(object):
         plt.yscale('log')
 
         plt.legend(loc='best', fontsize=14, ncol=1)
-        plt.savefig(self.directory + '{0}{1}_on_{2}'.format(title, self.algorithm_name, self.model_name), format='png')
+        plt.savefig(self.directory + '{0}{1}_on_{2}.png'.format(title, self.algorithm_name, self.model_name), format='png')
         plt.close()
 
     def create_min_plot_of_all_runs(self, all_minimums_of_all_runs):
@@ -172,7 +172,7 @@ class GeneralPlotter(object):
         plt.legend(loc='best')
 
         plt.savefig(
-            self.directory + '{0}_runs_of_{1}_on_{2}'.format(number_of_runs, self.algorithm_name, self.model_name),
+            self.directory + '{0}_runs_of_{1}_on_{2}.png'.format(number_of_runs, self.algorithm_name, self.model_name),
             format='png')
         plt.close()
 

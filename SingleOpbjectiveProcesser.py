@@ -36,6 +36,7 @@ class OptimizationSettings(MetaOptimizationSettings):
 
     def __init__(self, xml_file, directory):
         self.LAST_ELEMENT_INDEX = -1
+	self.EXTENSION_INDEX = -4
 
         self.directory = directory
 
@@ -55,6 +56,7 @@ class OptimizationSettings(MetaOptimizationSettings):
                 self.algorithm_name = child.text
             if child.tag == "model_path":
                 self.model_name = child.text.split('/')[self.LAST_ELEMENT_INDEX]
+		self.model_name = self.model_name[:self.EXTENSION_INDEX] #remove .hoc
             if child.tag == "max_evaluation":
                 self.number_of_generations = int(float(child.text))
             if child.tag == "pop_size":
@@ -153,7 +155,7 @@ class GeneralPlotter(object):
         plt.yscale('log')
 
         plt.legend(loc='best', fontsize=14, ncol=1)
-        plt.savefig(self.directory + '{0}{1}_on_{2}'.format(title, self.algorithm_name, self.model_name), format='pdf')
+        plt.savefig(self.directory + '{0}{1}_on_{2}'.format(title, self.algorithm_name, self.model_name), format='png')
         plt.close()
 
     def create_min_plot_of_all_runs(self, all_minimums_of_all_runs):
@@ -171,7 +173,7 @@ class GeneralPlotter(object):
 
         plt.savefig(
             self.directory + '{0}_runs_of_{1}_on_{2}'.format(number_of_runs, self.algorithm_name, self.model_name),
-            format='pdf')
+            format='png')
         plt.close()
 
     @staticmethod

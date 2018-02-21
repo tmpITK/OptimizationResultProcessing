@@ -298,7 +298,7 @@ class GeneralPlotter(object):
         plt.yscale('log')
 
         plt.legend(loc='best', fontsize=14, ncol=1)
-        plt.savefig(self.directory + '{0}{1}_on_{2}'.format(title, self.algorithm_name, self.model_name), format='pdf')
+        plt.savefig(self.directory + '{0}{1}_on_{2}'.format(title, self.algorithm_name, self.model_name), format='png')
         plt.close()
 
     def create_min_plot_of_all_runs(self, all_minimums_of_all_runs, title=''):
@@ -316,7 +316,7 @@ class GeneralPlotter(object):
 
         plt.savefig(
             self.directory + '{0}{1}_runs_of_{2}_on_{3}'.format(title,number_of_runs, self.algorithm_name, self.model_name),
-            format='pdf')
+            format='png')
         plt.close()
 
     def create_pareto_plot(self, best_individuals, title="Pareto_Front"):
@@ -352,7 +352,7 @@ class GeneralPlotter(object):
         ax.set_xlabel(self.features[OBJECTIVE_NUMBER[0]])
         ax.set_ylabel(self.features[OBJECTIVE_NUMBER[1]])
         plt.savefig(self.directory + '{0}_of_{1}_on_{2}'.format(title, self.algorithm_name, self.model_name),
-                    format='pdf')
+                    format='png')
         plt.close()
 
     @staticmethod

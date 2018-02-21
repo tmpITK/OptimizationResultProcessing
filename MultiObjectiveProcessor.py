@@ -55,6 +55,7 @@ class OptimizationSettings(MetaOptimizationSettings):
                 self.algorithm_name = child.text
             if child.tag == "model_path":
                 self.model_name = child.text.split('/')[self.LAST_ELEMENT_INDEX]
+		self.model_name = self.model_name[:-4]
             if child.tag == "max_evaluation":
                 self.number_of_generations = int(float(child.text))
             if child.tag == "pop_size":

@@ -102,7 +102,7 @@ class RawSingleObjectiveResult(OptimizationSettings):
 
     def fill_in_statistics_list(self, generation):
         current_statistics = self.get_wanted_statistics(generation)
-        if self.algorithm_name == 'PSO':
+        if self.algorithm_name == 'Particle Swarm' or self.algorithm_name == 'Simulated Annealing':
             if len(self.statistics)==0:
                 self.statistics.append(current_statistics)
             else:
@@ -237,7 +237,7 @@ if __name__ == '__main__':
     model_name = ''
 
     # This must be give to the script by hand: what is the base directory name of the results
-    base_directory = 'hh_pas_surrogate'
+    base_directory = 'ca1pc_anat'
     directories = get_directories(base_directory)
 
     all_minimums_of_all_runs = []

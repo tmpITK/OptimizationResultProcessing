@@ -31,3 +31,11 @@ In the main directory:
 
 	-a results directory:	-"max.txt", "min.txt", "median.txt" with the max, min, median of all the runs alltogether
 	-a generational plot based on these aggregated statistics
+
+Island was created for the processing of Island model type results. Not in its final form currently.
+
+fitnes_grid_plot plots the energy surface of the Hodgkin-Huxley model component by component (additional files will be uploaded)
+
+fitnes_grid_plot_summ plots the weighted sum of the chosen components. 
+
+The latter two will be fused into one in the future.

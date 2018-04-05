@@ -55,7 +55,7 @@ class OptimizationSettings(MetaOptimizationSettings):
                 self.algorithm_name = child.text
             if child.tag == "model_path":
                 self.model_name = child.text.split('/')[self.LAST_ELEMENT_INDEX]
-		self.model_name = self.model_name[:-4]
+                self.model_name = self.model_name[:-4]
             if child.tag == "max_evaluation":
                 self.number_of_generations = int(float(child.text))
             if child.tag == "pop_size":
@@ -142,16 +142,14 @@ class WeightedMooResult(RawMultiObjectiveOptimizationResult):
         self.plotter = GeneralPlotter(self.algorithm_name, self.model_name, self.directory)
 
         self.sorted_generations = []
-        self.statistics = []
-        self.smoothed_statistics = []
+        self.minimums = []
+        self.smoothed_minimums = []
 
         self.insert_weighted_sums()
         self.sort_individuals_by_weighted_sum()
         self.write_sorted_individuals_to_file()
         self.fill_statistics_list()
-        self.smooth_statistics()
-        self.write_statistics_to_file(self.directory, self.statistics, self.population_size)
-        self.plot_statistics()
+        self.smooth_minimums()
 
     def insert_weighted_sums(self):
         for generation in self.generations:
@@ -179,7 +177,18 @@ class WeightedMooResult(RawMultiObjectiveOptimizationResult):
     def fill_statistics_list(self):
         for generation in self.sorted_generations:
             current_generation = [row[self.WEIGHTED_SUM__INDEX] for row in generation]
-            self.statistics.append(self.calculate_statistics(current_generation))
+            self.minimums.append(self.calculate_minimum(current_generation))
+
+    def calculate_minimum(self, data):
+        return min(data)
+
+    def smooth_minimums(self):
+        for gen_index, generation in enumerate(self.minimums):
+            if gen_index == 0:
+                self.smoothed_minimums.append(generation)
+            else:
+                minimum = min(self.minimums[0:gen_index+1])
+                self.smoothed_minimums.append(minimum)
 
     @staticmethod
     def calculate_statistics(data):
@@ -188,20 +197,6 @@ class WeightedMooResult(RawMultiObjectiveOptimizationResult):
         median = np.median(data)
 
         return [maximum, minimum, median]
-
-    def smooth_statistics(self):
-        for gen_index, generation in enumerate(self.statistics):
-            current_smoothed_statistics = []
-            if gen_index == 0:
-                self.smoothed_statistics.append(generation)
-            else:
-                for stat_index, stat_component in enumerate(generation):
-                    current_best = min([stat[stat_index] for stat in self.smoothed_statistics[gen_index-1:gen_index]])
-                    if stat_component < current_best:
-                        current_smoothed_statistics.append(stat_component)
-                    else:
-                        current_smoothed_statistics.append(current_best)
-                self.smoothed_statistics.append(current_smoothed_statistics)
 
     @staticmethod
     def write_statistics_to_file(directory, statistics, population_size):
@@ -226,8 +221,8 @@ class WeightedMooResult(RawMultiObjectiveOptimizationResult):
         return "{0}, {1}, ({2}), [{3}]".format(", ".join(indexes), weighted_sum, ", ".join(objectives), ", ".join(parameters))
 
     def plot_statistics(self):
-        self.plotter.create_generation_plot(self.statistics)
-        self.plotter.create_generation_plot(self.smoothed_statistics, title='Smoothed_stat_of_')
+        self.plotter.create_generation_plot(self.minimums)
+        self.plotter.create_generation_plot(self.smoothed_minimums, title='Smoothed_stat_of_')
 
 
 class NormalMooResult(RawMultiObjectiveOptimizationResult):
@@ -375,8 +370,9 @@ def fill_statistics_for_all_runs(all_minimums_of_all_runs):
     return all_statistics_of_all_runs
 
 
-def calculate_statistics(current_column):
-    return WeightedMooResult.calculate_statistics(current_column)
+def calculate_statistics(data):
+
+    return WeightedMooResult.calculate_statistics(data)
 
 
 def write_separate_statistics_to_separate_files(all_statistics_of_all_runs, cwd):
@@ -411,16 +407,20 @@ if __name__ == '__main__':
     model_name = ''
 
     # This must be give to the script by hand: what is the base directory name of the results
-    base_directory = 'ca1_pc_simplification'
+    base_directory = 'hh_pas_surrogate'
     directories = get_directories(base_directory)
+
+    if not directories:
+        print("--------Wrong bas directory name--------")
+        exit()
 
     all_minimums_of_all_runs = []
     all_smoothed_minimums_of_all_runs = []
     # NSGAII on HODGKIN-HUXLEY
     for instance_index, directory in enumerate(directories):
         sorted_result = WeightedMooResult(directory=directory)
-        all_minimums_of_all_runs.append([row[INDEX_OF_MINIMUM] for row in sorted_result.statistics])
-        all_smoothed_minimums_of_all_runs.append([row[INDEX_OF_MINIMUM] for row in sorted_result.smoothed_statistics])
+        all_minimums_of_all_runs.append(sorted_result.minimums)
+        all_smoothed_minimums_of_all_runs.append(sorted_result.smoothed_minimums)
         multi_objective_result = NormalMooResult(directory=directory)
 
         if instance_index == 0:
@@ -439,4 +439,4 @@ if __name__ == '__main__':
     plotter.create_generation_plot(all_statistics_of_all_runs, title="Statistics_of_every_run_of_")
     plotter.create_generation_plot(all_smoothed_statistics_of_all_runs, title="Smoothed_statistics_of_every_run_of_")
 
-    print("--- %s seconds ---" % (time.time() - start_time))
+print("--- %s seconds ---" % (time.time() - start_time))

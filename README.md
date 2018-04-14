@@ -39,3 +39,12 @@ fitnes_grid_plot plots the energy surface of the Hodgkin-Huxley model component 
 fitnes_grid_plot_summ plots the weighted sum of the chosen components. 
 
 The latter two will be fused into one in the future.
+
+MOVIE
+
+Scripts for visualizing the progress of an INSPYRED algorithm in the parameter space, using the ind_file.txt and _settings.xml. 
+
+    Must be given:  -axes labels
+                    -in case of a test model the exact parameter combination (currently only works like that)
+                    -projection type (in case of three parameters they are plotted in a 3D manner)
+                    -the path of the aformentioned files

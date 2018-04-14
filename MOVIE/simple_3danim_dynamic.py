@@ -1,0 +1,168 @@
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+from pylab import *
+import itertools
+import numpy as np
+import mpl_toolkits.mplot3d.axes3d as p3
+import matplotlib.animation as animation
+import os
+import xml.etree.ElementTree as ET
+from matplotlib.ticker import MultipleLocator, FormatStrFormatter
+
+cwd = os.getcwd()
+
+
+def _float_or_int(val):
+    try:
+        a = int(val)
+        return a
+    except ValueError:
+        try:
+            return float(val)
+        except ValueError:
+            return unicode(val.strip("u").strip('\''))
+
+
+def parseSettings(xml_file):
+    xml = ET.parse(xml_file)
+    root = xml.getroot()
+
+    for child in root:
+        if child.tag == "evo_strat":
+            evo_strat = child.text
+        if child.tag == "boundaries":
+            boundaries = map(lambda x: map(_float_or_int, x.strip().split(", ")),
+                             child.text.strip()[2:len(child.text.strip()) - 2].split("], ["))
+        if child.tag == "max_evaluation":
+            max_eval = int(float(child.text))
+        if child.tag == "pop_size":
+            pop_size = int(float(child.text))
+        if child.tag == "num_params":
+            num_param = int(child.text)
+    return boundaries, max_eval, pop_size, num_param, evo_strat
+
+
+def parseIndividuals(ind_file):
+    START_INDEX_OF_PARAMETERS = 3
+    generations = []
+    with open(ind_file) as f:
+        current_generation = []
+        for individual in iter(f):
+            individual = split_values_of_individuals(individual)[START_INDEX_OF_PARAMETERS:]
+            renormalized_individual = renormalize(individual)
+            current_generation.append(renormalized_individual)
+            if  is_end_of_generation(len(current_generation)):
+                generations.append(current_generation)
+                current_generation = []
+    return generations
+
+def remove_unwanted_characters(element):
+    remove_these_chars = ['(', ')', '[', ']', ',']
+    for char in remove_these_chars:
+        if char in element:
+            element = element.replace(char, '')
+    return element
+
+
+def split_values_of_individuals(new_individual):
+    return [float(remove_unwanted_characters(value)) for value in new_individual.split()]
+
+
+def is_end_of_generation(length_of_generation):
+    return length_of_generation ==  population_size
+
+def renormalize(parameters):
+    MAX_INDEX = 1
+    MIN_INDEX = 0
+    for i, parameter in enumerate(parameters):
+        parameters[i] = parameter * (boundaries[MAX_INDEX][i] - boundaries[MIN_INDEX][i]) + boundaries[MIN_INDEX][i]
+    return parameters
+#def save_generation(new_generation):
+    #generations.append(new_generation)
+
+
+
+def update(gen):
+
+    st.set_text(evo_strat + " on HH " + str(gen))
+    points = inds_gen[gen]
+    combinations = list(itertools.combinations(range(0, num_param), 2))
+    plt.clf()
+    for i, v in enumerate(xrange(num_plots)):
+        if proj[i] == '3d':
+
+            exec ("ax{0} = fig.add_subplot(2,2,v+1,projection = proj[i])".format(v))
+            for j in range(len(points)):
+                exec ("ax{0}.scatter(points[j][0], points[j][1], points[j][2])".format(v))
+        else:
+            exec ("ax{0} = fig.add_subplot(2,2,v+1)".format(v))
+            for j in range(len(points)):
+                exec ("ax{0}.scatter(points[j][combinations[i-1][0]], points[j][combinations[i-1][1]], c=colors[i])".format(v))
+    set_legend()
+
+def init():
+    gen = 0
+    st.set_text(evo_strat + " on HH " + str(gen))
+    points = inds_gen[gen]
+    combinations = list(itertools.combinations(range(0, num_param), 2))
+
+    for i, v in enumerate(xrange(num_plots)):
+        if proj[i] == '3d':
+            exec ("ax{0} = fig.add_subplot(2,2,v+1,projection = proj[i])".format(v))
+            for j in range(len(points)):
+                exec ("ax{0}.scatter(points[j][0], points[j][1], points[j][2])".format(v))
+        else:
+            exec ("ax{0} = fig.add_subplot(2,2,v+1)".format(v))
+            for j in range(len(points)):
+                exec ("ax{0}.scatter(points[j][combinations[i-1][0]], points[j][combinations[i-1][1]], c=colors[i])".format(v))
+
+
+
+
+
+def set_legend():
+    combinations = list(itertools.combinations(range(0, num_param), 2))
+
+    for i, v in enumerate(xrange(num_plots)):
+        exec ("ax{0} = fig.get_axes()[{0}]".format(v))
+        if proj[i] == '3d':
+            exec("threeD_axes(ax{0})".format(v))
+        else:
+            exec("twoD_axes(ax{0}, combinations[{0}-1])".format(v))
+
+
+def threeD_axes(ax):
+
+    ax.scatter(exact_point[0], exact_point[1], exact_point[2], c='r')
+    ax.set_xlim3d([boundaries[0][0], boundaries[1][0]])
+    ax.set_xlabel(labels[0])
+
+    ax.set_ylim3d([boundaries[0][1], boundaries[1][1]])
+    ax.set_ylabel(labels[1])
+
+    ax.set_zlim3d([boundaries[0][2], boundaries[1][2]])
+    ax.set_zlabel(labels[2])
+
+def twoD_axes(ax,combination):
+
+    ax.scatter(exact_point[combination[0]], exact_point[combination[1]], c='r')
+    ax.set_xlim([boundaries[0][combination[0]], boundaries[1][combination[0]]])
+    ax.set_xlabel(labels[combination[0]])
+
+    ax.set_ylim([boundaries[0][combination[1]], boundaries[1][combination[1]]])
+    ax.set_ylabel(labels[combination[1]])
+
+boundaries, max_eval, population_size, num_param, evo_strat = parseSettings("_settings.xml")
+inds_gen = parseIndividuals('ind_file.txt')
+exact_point = [0.12, 0.036, 0.0003]
+labels = ['gnabar_hh', 'gkbar_hh', 'gl_hh']
+fig = plt.figure(figsize=(12, 8))
+st = fig.suptitle(evo_strat + " on HH")
+num_plots = 4
+proj = ['3d', None, None, None]
+colors = ['C0', 'C1', 'C2', 'C5', 'C6', 'C8', 'C9', 'C4', 'C7', 'C3']
+
+anim = animation.FuncAnimation(fig, update, frames=len(inds_gen), init_func=init(), interval=300, repeat=False)
+
+#plt.show()
+anim.save('PSO_HH.html')

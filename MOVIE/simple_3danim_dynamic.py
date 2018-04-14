@@ -86,16 +86,17 @@ def update(gen):
 
     st.set_text(evo_strat + " on HH " + str(gen))
     points = inds_gen[gen]
+    num_cols = len(boundaries[0])-1
     combinations = list(itertools.combinations(range(0, num_param), 2))
     plt.clf()
     for i, v in enumerate(xrange(num_plots)):
         if proj[i] == '3d':
 
-            exec ("ax{0} = fig.add_subplot(2,2,v+1,projection = proj[i])".format(v))
+            exec ("ax{0} = fig.add_subplot(2,num_cols,v+1,projection = proj[i])".format(v))
             for j in range(len(points)):
                 exec ("ax{0}.scatter(points[j][0], points[j][1], points[j][2])".format(v))
         else:
-            exec ("ax{0} = fig.add_subplot(2,2,v+1)".format(v))
+            exec ("ax{0} = fig.add_subplot(2,num_cols,v+1)".format(v))
             for j in range(len(points)):
                 exec ("ax{0}.scatter(points[j][combinations[i-1][0]], points[j][combinations[i-1][1]], c=colors[i])".format(v))
     set_legend()
@@ -104,15 +105,16 @@ def init():
     gen = 0
     st.set_text(evo_strat + " on HH " + str(gen))
     points = inds_gen[gen]
+    num_cols = len(boundaries[0])-1
     combinations = list(itertools.combinations(range(0, num_param), 2))
 
     for i, v in enumerate(xrange(num_plots)):
         if proj[i] == '3d':
-            exec ("ax{0} = fig.add_subplot(2,2,v+1,projection = proj[i])".format(v))
+            exec ("ax{0} = fig.add_subplot(2,num_cols,v+1,projection = proj[i])".format(v))
             for j in range(len(points)):
                 exec ("ax{0}.scatter(points[j][0], points[j][1], points[j][2])".format(v))
         else:
-            exec ("ax{0} = fig.add_subplot(2,2,v+1)".format(v))
+            exec ("ax{0} = fig.add_subplot(2,num_cols,v+1)".format(v))
             for j in range(len(points)):
                 exec ("ax{0}.scatter(points[j][combinations[i-1][0]], points[j][combinations[i-1][1]], c=colors[i])".format(v))
 
@@ -154,12 +156,15 @@ def twoD_axes(ax,combination):
 
 boundaries, max_eval, population_size, num_param, evo_strat = parseSettings("_settings.xml")
 inds_gen = parseIndividuals('ind_file.txt')
-exact_point = [0.12, 0.036, 0.0003]
-labels = ['gnabar_hh', 'gkbar_hh', 'gl_hh']
+
+exact_point = [0.01,2, 0.3, 3]
+labels = ['weight','delay', 'tau_rise', 'tau_decay']
+
 fig = plt.figure(figsize=(12, 8))
 st = fig.suptitle(evo_strat + " on HH")
-num_plots = 4
-proj = ['3d', None, None, None]
+num_plots = 2*(len(boundaries[0])-1)
+
+proj = [None, None, None, None, None, None, None, None]
 colors = ['C0', 'C1', 'C2', 'C5', 'C6', 'C8', 'C9', 'C4', 'C7', 'C3']
 
 anim = animation.FuncAnimation(fig, update, frames=len(inds_gen), init_func=init(), interval=300, repeat=False)

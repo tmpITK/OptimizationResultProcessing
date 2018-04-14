@@ -46,5 +46,5 @@ Scripts for visualizing the progress of an INSPYRED algorithm in the parameter s
 
     Must be given:  -axes labels
                     -in case of a test model the exact parameter combination (currently only works like that)
-                    -projection type (in case of three parameters they are plotted in a 3D manner)
+                    -projection type 2 or 3D. Generally I made 3D possible if there are only 3 parameters. Having 2 and 3D projections in every case will result in way too many subplots.
                     -the path of the aformentioned files

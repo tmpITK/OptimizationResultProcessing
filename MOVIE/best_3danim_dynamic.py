@@ -7,6 +7,7 @@ import mpl_toolkits.mplot3d.axes3d as p3
 import matplotlib.animation as animation
 import os
 import xml.etree.ElementTree as ET
+import re
 from matplotlib.ticker import MultipleLocator, FormatStrFormatter
 
 cwd = os.getcwd()
@@ -49,12 +50,12 @@ def parseIndividuals(ind_file):
         current_generation = []
         for individual in iter(f):
             individual = split_values_of_individuals(individual)[START_INDEX_OF_PARAMETERS:START_INDEX_OF_PARAMETERS+num_param]
-            renormalized_individual = renormalize(individual)
-            current_generation.append(renormalized_individual)
+            current_generation.append(individual)
             if  is_end_of_generation(len(current_generation)):
                 generations.append(current_generation)
                 current_generation = []
-    return generations
+    best_of_all_generations = get_best_of_each_generation(generations)
+    return best_of_all_generations
 
 def remove_unwanted_characters(element):
     remove_these_chars = ['(', ')', '[', ']', ',']
@@ -68,6 +69,11 @@ def split_values_of_individuals(new_individual):
 
 def is_end_of_generation(length_of_generation):
     return length_of_generation ==  population_size
+
+def get_best_of_each_generation(generations):
+    for i,generation in enumerate(generations):
+        generations[i] = generation[0]
+    return generations
 
 def renormalize(parameters):
     MAX_INDEX = 1
@@ -149,9 +155,21 @@ def twoD_axes(ax,combination):
     ax.set_ylim([boundaries[0][combination[1]], boundaries[1][combination[1]]])
     ax.set_ylabel(labels[combination[1]])
 
+def get_directories(directory_base_name):
+    regex = re.compile(directory_base_name + '_.')
+    all_elements_in_cwd = [element for element in os.listdir(cwd) if os.path.isdir(element)]
+
+    return [directory + '/' for directory in all_elements_in_cwd if re.match(regex, directory)]
+
 if __name__ == '__main__':
-    boundaries, max_eval, population_size, num_param, evo_strat = parseSettings("_settings.xml")
-    inds_gen = parseIndividuals('ind_file.txt')
+    base_directory = 'VClamp_surrogate'
+    directories = get_directories(base_directory)
+    num_runs = len(directories)
+
+    boundaries, max_eval, population_size, num_param, evo_strat = parseSettings(directories[0] + "/_settings.xml")
+    inds_gen = np.ndarray(shape=(max_eval+1, num_runs, num_param))
+    for i, directory in enumerate(directories):
+        inds_gen[:,i,:] = parseIndividuals(directory + '/ind_file.txt')
 
     exact_point = [0.01,2, 0.3, 3]
     labels = ['weight','delay', 'tau_rise', 'tau_decay']
@@ -166,5 +184,4 @@ if __name__ == '__main__':
 
     anim = animation.FuncAnimation(fig, update, frames=len(inds_gen), init_func=init(), interval=300, repeat=False)
 
-    #plt.show()
-    anim.save('DE_CLAMP.html')
+    anim.save('CEO_CLAMP.html')

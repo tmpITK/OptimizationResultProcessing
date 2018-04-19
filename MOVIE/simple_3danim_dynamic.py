@@ -23,7 +23,7 @@ def _float_or_int(val):
             return unicode(val.strip("u").strip('\''))
 
 
-def parseSettings(xml_file):
+def parse_settings(xml_file):
     xml = ET.parse(xml_file)
     root = xml.getroot()
 
@@ -42,7 +42,7 @@ def parseSettings(xml_file):
     return boundaries, max_eval, pop_size, num_param, evo_strat
 
 
-def parseIndividuals(ind_file):
+def parse_individuals(ind_file):
     START_INDEX_OF_PARAMETERS = 3
     generations = []
     with open(ind_file) as f:
@@ -150,8 +150,8 @@ def twoD_axes(ax,combination):
     ax.set_ylabel(labels[combination[1]])
 
 if __name__ == '__main__':
-    boundaries, max_eval, population_size, num_param, evo_strat = parseSettings("_settings.xml")
-    inds_gen = parseIndividuals('ind_file.txt')
+    boundaries, max_eval, population_size, num_param, evo_strat = parse_settings("_settings.xml")
+    inds_gen = parse_individuals('ind_file.txt')
 
     exact_point = [0.01,2, 0.3, 3]
     labels = ['weight','delay', 'tau_rise', 'tau_decay']

@@ -24,7 +24,7 @@ def _float_or_int(val):
             return unicode(val.strip("u").strip('\''))
 
 
-def parseSettings(xml_file):
+def parse_settings(xml_file):
     xml = ET.parse(xml_file)
     root = xml.getroot()
 
@@ -43,7 +43,7 @@ def parseSettings(xml_file):
     return boundaries, max_eval, pop_size, num_param, evo_strat
 
 
-def parseIndividuals(ind_file):
+def parse_individuals(ind_file):
     START_INDEX_OF_PARAMETERS = 3
     generations = []
     with open(ind_file) as f:
@@ -166,10 +166,10 @@ if __name__ == '__main__':
     directories = get_directories(base_directory)
     num_runs = len(directories)
 
-    boundaries, max_eval, population_size, num_param, evo_strat = parseSettings(directories[0] + "/_settings.xml")
+    boundaries, max_eval, population_size, num_param, evo_strat = parse_settings(directories[0] + "/_settings.xml")
     inds_gen = np.ndarray(shape=(max_eval+1, num_runs, num_param))
     for i, directory in enumerate(directories):
-        inds_gen[:,i,:] = parseIndividuals(directory + '/ind_file.txt')
+        inds_gen[:,i,:] = parse_individuals(directory + '/ind_file.txt')
 
     exact_point = [0.01,2, 0.3, 3]
     labels = ['weight','delay', 'tau_rise', 'tau_decay']

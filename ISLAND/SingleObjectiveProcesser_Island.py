@@ -79,7 +79,7 @@ class OptimizationSettings(MetaOptimizationSettings):
             except ValueError:
                 return unicode(value.strip("u").strip('\''))
 
-    def getParams(self):
+    def get_params(self):
         print(self.__dict__.keys())
 
 
@@ -243,7 +243,7 @@ if __name__ == '__main__':
 	print(directories)
 
 	all_minimums_of_all_runs = []
-	# NSGAII on HODGKIN-HUXLEY	
+	# NSGAII on HODGKIN-HUXLEY
 	for directory in directories:
 		minimums_of_each_island = []
 		for instance_index in range(num_islands):

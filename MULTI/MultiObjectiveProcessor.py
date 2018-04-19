@@ -78,7 +78,7 @@ class OptimizationSettings(MetaOptimizationSettings):
             except ValueError:
                 return unicode(value.strip("u").strip('\''))
 
-    def getParams(self):
+    def get_params(self):
         print(self.__dict__.keys())
 
 

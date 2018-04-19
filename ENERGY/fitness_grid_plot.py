@@ -27,7 +27,7 @@ def _float_or_int(val):
                     return unicode(val.strip("u").strip('\''))
 
 
-def parseSettings(xml_file="_settings.xml"):
+def parse_settings(xml_file="_settings.xml"):
 
     xml = ET.parse(xml_file)
     root = xml.getroot()
@@ -49,7 +49,7 @@ def parseSettings(xml_file="_settings.xml"):
     return boundaries, max_eval, resolution, pop_size, num_param, evo_strat, feats
 
 
-def parseIndividuals(ind_file='ind_file.txt'):
+def parse_individuals(ind_file='ind_file.txt'):
     REMOVE_THESE_CHARS = ['[', ' [', ']', ',']
     NEEDED_COLS = [1] + range(3, num_param+3)
 
@@ -84,7 +84,7 @@ def renormalize(individual, i):
     return normalizedIndividual
 
 
-def parseFitnesComponents(fitnesCompsFile="fitness_components.txt"):
+def parse_fitnes_components(fitnesCompsFile="fitness_components.txt"):
 	REMOVE_THESE_CHARS = ['[', ']', ', ', ',']
 	NEEDED_COLS = range(len(feats) + 1)
 
@@ -100,7 +100,7 @@ def parseFitnesComponents(fitnesCompsFile="fitness_components.txt"):
 	return fitnesComps
 
 
-def mergeIndividualsAndFitnes(individuals, fitComps):
+def merge_individuals_and_fitnes(individuals, fitComps):
 
 	individualsAndFitnes =[]
 	for i in range(len(individuals)):
@@ -112,7 +112,7 @@ def mergeIndividualsAndFitnes(individuals, fitComps):
 	return individualsAndFitnes
 
 
-def createPlanes(lim, index):
+def create_planes(lim, index):
 
 	fitnesIndex = index + num_param + 1 #pop_index + parameters are in front of the fitnesses
 
@@ -133,14 +133,14 @@ def createPlanes(lim, index):
         neededParamVals = paramVals[:i] + paramVals[i+1:]
         for j in range(len(combinations)):
             neededCols = [column(plane, combinations[j][0]), column(plane, combinations[j][1]), column(plane, num_param-1)]
-            createScatterPlot(neededCols, neededLabels ,lim[i], neededParamVals, feats[index])
+            create_scatter_plot(neededCols, neededLabels ,lim[i], neededParamVals, feats[index])
 
 
 def column(matrix, i):
     return [row[i] for row in matrix]
 
 
-def createScatterPlot(coordinates, labels, lim, exactParameterValues, suptitle):
+def create_scatter_plot(coordinates, labels, lim, exactParameterValues, suptitle):
     X_COORD = 0
     Y_COORD = 1
     Z_COORD = 2
@@ -150,7 +150,7 @@ def createScatterPlot(coordinates, labels, lim, exactParameterValues, suptitle):
     ax.set_zlim3d(lim)
     st = fig.suptitle(suptitle)
     for i in range(len(coordinates[X_COORD])):
-	if([str(coord) for j,  coord in enumerate(column(coordinates,i)) if checkIfParameterCoordinate(j, len(coordinates)-1)] == exactParameterValues):
+	if([str(coord) for j,  coord in enumerate(column(coordinates,i)) if check_if_parameter_coordinate(j, len(coordinates)-1)] == exactParameterValues):
             ax.scatter(coordinates[X_COORD][i], coordinates[Y_COORD][i], coordinates[Z_COORD][i], c = "r")
             del coordinates[X_COORD][i], coordinates[Y_COORD][i], coordinates[Z_COORD][i]
             break
@@ -162,22 +162,21 @@ def createScatterPlot(coordinates, labels, lim, exactParameterValues, suptitle):
     plt.show()
 
 
-def checkIfParameterCoordinate(coordinateIndex, fitnesIndex):
+def check_if_parameter_coordinate(coordinateIndex, fitnesIndex):
     return coordinateIndex != fitnesIndex
 
 if __name__ == '__main__':
 
     paramVals = ["0.12", "0.036", "0.0003"]
     labels = ['gnabar', 'gkbar', 'gl']
-    boundaries, max_eval, resolution, pop_size, num_param, evo_strat, feats = parseSettings()
-    individuals = parseIndividuals()
-    fitnesComps = parseFitnesComponents()
+    boundaries, max_eval, resolution, pop_size, num_param, evo_strat, feats = parse_settings()
+    individuals = parse_individuals()
+    fitnesComps = parse_fitnes_components()
     lims = [[[0,0.35] ,[0,0.2] ,[0,0.35]],[[0,0.05],[0,0.02],[0,0.05]],[[0,2],[0,2],[0,2]],[[0,2],[0,2],[0,2]],[[0,2],[0,2],[0,2]],[[0,0.1],[0,0.1],[0,0.12]],[[0,2],[0,2],[0,2]],[[0,0.01],[0,0.01],[0,0.01]],[[0,1.8],[0,1.8],[0,1.8]],[[0,1.1],[0,1.1],[0,1.1]]]
 
-    everyIndivs = mergeIndividualsAndFitnes(individuals,  fitnesComps)
+    everyIndivs = merge_individuals_and_fitnes(individuals,  fitnesComps)
     feats.append("weighted_sum")
 
-    createPlanes(lims[-1], len(feats)-1)
+    create_planes(lims[-1], len(feats)-1)
     for i in range(len(feats)):
-        createPlanes(lims[i], i)
-
+        create_planes(lims[i], i)

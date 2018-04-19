@@ -167,4 +167,4 @@ if __name__ == '__main__':
     anim = animation.FuncAnimation(fig, update, frames=len(inds_gen), init_func=init(), interval=300, repeat=False)
 
     #plt.show()
-    anim.save('DE_CLAMP.html')
+    anim.save('PSO_CLAMP.html')

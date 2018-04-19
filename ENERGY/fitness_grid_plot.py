@@ -114,18 +114,19 @@ def merge_individuals_and_fitnes(individuals, fitComps):
 
 def create_planes(lim, index):
 
-	fitnesIndex = index + num_param + 1 #pop_index + parameters are in front of the fitnesses
+    fitnesIndex = index + num_param + 1 #pop_index + parameters are in front of the fitnesses
 
-	points = np.ndarray(shape = (len(everyIndivs), num_param+1))
+    points = np.ndarray(shape = (len(everyIndivs), num_param+1))
 
-	for i in range(len(everyIndivs)):
-	   for j in range(num_param):
-		    points[i][j] = everyIndivs[i][j+1]     #parameters start from 1
-	   points[i][-1] = everyIndivs[i][fitnesIndex] #fitnes goes to last place in points
+    for i in range(len(everyIndivs)):
+       for j in range(num_param):
+	        points[i][j] = everyIndivs[i][j+1]     #parameters start from 1
+       points[i][-1] = everyIndivs[i][fitnesIndex] #fitnes goes to last place in points
 
-	for i in range(0,num_param):
-		plane = np.ndarray(shape = (len(everyIndivs), num_param))
-		plane = [row[:i].tolist() + row[i+1:].tolist() for row in points if str(row[i]) == paramVals[i]]
+    for i in range(0,num_param):
+        print(i)
+        plane = np.ndarray(shape = (len(everyIndivs), num_param))
+        plane = [row[:i].tolist() + row[i+1:].tolist() for row in points if str(row[i]) == paramVals[i]]
 
         combinations = list(itertools.combinations(range(0,num_param-1),2)) #for getting the combinations of the possible parameters for the 3 dimensional projection
 

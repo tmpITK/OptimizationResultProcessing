@@ -1,0 +1,1409 @@
+2018-03-05 19:13:56,357 - inspyred.ec - DEBUG - generating initial population
+2018-03-05 19:13:56,358 - inspyred.ec - DEBUG - evaluating initial population
+2018-03-05 19:14:33,537 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:14:33,537 - inspyred.ec - DEBUG - archiving initial population
+2018-03-05 19:14:33,537 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:14:33,537 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:14:33,537 - inspyred.ec - DEBUG - observation using file_observer at generation 0 and evaluation 100
+2018-03-05 19:14:33,538 - inspyred.ec - DEBUG - termination test using generation_termination at generation 0 and evaluation 100
+2018-03-05 19:14:33,539 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 0 and evaluation 100
+2018-03-05 19:14:33,539 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:14:33,540 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 0 and evaluation 100
+2018-03-05 19:14:33,550 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:14:33,550 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 0 and evaluation 100
+2018-03-05 19:14:58,986 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 0 and evaluation 200
+2018-03-05 19:14:58,986 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:14:58,986 - inspyred.ec - DEBUG - migration using default_migration at generation 0 and evaluation 200
+2018-03-05 19:14:58,986 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:14:58,986 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 0 and evaluation 200
+2018-03-05 19:14:58,987 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:14:58,987 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:14:58,987 - inspyred.ec - DEBUG - observation using file_observer at generation 1 and evaluation 200
+2018-03-05 19:14:58,988 - inspyred.ec - DEBUG - termination test using generation_termination at generation 1 and evaluation 200
+2018-03-05 19:14:58,988 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 1 and evaluation 200
+2018-03-05 19:14:58,988 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:14:58,989 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 1 and evaluation 200
+2018-03-05 19:14:58,997 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:14:58,997 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 1 and evaluation 200
+2018-03-05 19:15:26,498 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 1 and evaluation 300
+2018-03-05 19:15:26,499 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:15:26,499 - inspyred.ec - DEBUG - migration using default_migration at generation 1 and evaluation 300
+2018-03-05 19:15:26,499 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:15:26,499 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 1 and evaluation 300
+2018-03-05 19:15:26,499 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:15:26,499 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:15:26,500 - inspyred.ec - DEBUG - observation using file_observer at generation 2 and evaluation 300
+2018-03-05 19:15:26,502 - inspyred.ec - DEBUG - termination test using generation_termination at generation 2 and evaluation 300
+2018-03-05 19:15:26,503 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 2 and evaluation 300
+2018-03-05 19:15:26,503 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:15:26,504 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 2 and evaluation 300
+2018-03-05 19:15:26,514 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:15:26,514 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 2 and evaluation 300
+2018-03-05 19:15:56,545 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 2 and evaluation 400
+2018-03-05 19:15:56,545 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:15:56,545 - inspyred.ec - DEBUG - migration using default_migration at generation 2 and evaluation 400
+2018-03-05 19:15:56,545 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:15:56,545 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 2 and evaluation 400
+2018-03-05 19:15:56,546 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:15:56,546 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:15:56,546 - inspyred.ec - DEBUG - observation using file_observer at generation 3 and evaluation 400
+2018-03-05 19:15:56,547 - inspyred.ec - DEBUG - termination test using generation_termination at generation 3 and evaluation 400
+2018-03-05 19:15:56,547 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 3 and evaluation 400
+2018-03-05 19:15:56,547 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:15:56,548 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 3 and evaluation 400
+2018-03-05 19:15:56,558 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:15:56,558 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 3 and evaluation 400
+2018-03-05 19:16:24,150 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 3 and evaluation 500
+2018-03-05 19:16:24,150 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:16:24,150 - inspyred.ec - DEBUG - migration using default_migration at generation 3 and evaluation 500
+2018-03-05 19:16:24,150 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:16:24,150 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 3 and evaluation 500
+2018-03-05 19:16:24,150 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:16:24,150 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:16:24,150 - inspyred.ec - DEBUG - observation using file_observer at generation 4 and evaluation 500
+2018-03-05 19:16:24,152 - inspyred.ec - DEBUG - termination test using generation_termination at generation 4 and evaluation 500
+2018-03-05 19:16:24,152 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 4 and evaluation 500
+2018-03-05 19:16:24,152 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:16:24,153 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 4 and evaluation 500
+2018-03-05 19:16:24,162 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:16:24,162 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 4 and evaluation 500
+2018-03-05 19:16:52,363 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 4 and evaluation 600
+2018-03-05 19:16:52,363 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:16:52,363 - inspyred.ec - DEBUG - migration using default_migration at generation 4 and evaluation 600
+2018-03-05 19:16:52,363 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:16:52,363 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 4 and evaluation 600
+2018-03-05 19:16:52,364 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:16:52,364 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:16:52,364 - inspyred.ec - DEBUG - observation using file_observer at generation 5 and evaluation 600
+2018-03-05 19:16:52,365 - inspyred.ec - DEBUG - termination test using generation_termination at generation 5 and evaluation 600
+2018-03-05 19:16:52,365 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 5 and evaluation 600
+2018-03-05 19:16:52,365 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:16:52,366 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 5 and evaluation 600
+2018-03-05 19:16:52,375 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:16:52,375 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 5 and evaluation 600
+2018-03-05 19:17:20,155 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 5 and evaluation 700
+2018-03-05 19:17:20,156 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:17:20,156 - inspyred.ec - DEBUG - migration using default_migration at generation 5 and evaluation 700
+2018-03-05 19:17:20,156 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:17:20,156 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 5 and evaluation 700
+2018-03-05 19:17:20,156 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:17:20,156 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:17:20,156 - inspyred.ec - DEBUG - observation using file_observer at generation 6 and evaluation 700
+2018-03-05 19:17:20,159 - inspyred.ec - DEBUG - termination test using generation_termination at generation 6 and evaluation 700
+2018-03-05 19:17:20,160 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 6 and evaluation 700
+2018-03-05 19:17:20,160 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:17:20,162 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 6 and evaluation 700
+2018-03-05 19:17:20,171 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:17:20,172 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 6 and evaluation 700
+2018-03-05 19:17:47,704 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 6 and evaluation 800
+2018-03-05 19:17:47,705 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:17:47,705 - inspyred.ec - DEBUG - migration using default_migration at generation 6 and evaluation 800
+2018-03-05 19:17:47,705 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:17:47,705 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 6 and evaluation 800
+2018-03-05 19:17:47,705 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:17:47,705 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:17:47,705 - inspyred.ec - DEBUG - observation using file_observer at generation 7 and evaluation 800
+2018-03-05 19:17:47,706 - inspyred.ec - DEBUG - termination test using generation_termination at generation 7 and evaluation 800
+2018-03-05 19:17:47,706 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 7 and evaluation 800
+2018-03-05 19:17:47,706 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:17:47,707 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 7 and evaluation 800
+2018-03-05 19:17:47,716 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:17:47,716 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 7 and evaluation 800
+2018-03-05 19:18:15,493 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 7 and evaluation 900
+2018-03-05 19:18:15,494 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:18:15,494 - inspyred.ec - DEBUG - migration using default_migration at generation 7 and evaluation 900
+2018-03-05 19:18:15,494 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:18:15,494 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 7 and evaluation 900
+2018-03-05 19:18:15,494 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:18:15,494 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:18:15,494 - inspyred.ec - DEBUG - observation using file_observer at generation 8 and evaluation 900
+2018-03-05 19:18:15,495 - inspyred.ec - DEBUG - termination test using generation_termination at generation 8 and evaluation 900
+2018-03-05 19:18:15,496 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 8 and evaluation 900
+2018-03-05 19:18:15,496 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:18:15,497 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 8 and evaluation 900
+2018-03-05 19:18:15,507 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:18:15,507 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 8 and evaluation 900
+2018-03-05 19:18:43,620 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 8 and evaluation 1000
+2018-03-05 19:18:43,620 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:18:43,620 - inspyred.ec - DEBUG - migration using default_migration at generation 8 and evaluation 1000
+2018-03-05 19:18:43,620 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:18:43,621 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 8 and evaluation 1000
+2018-03-05 19:18:43,621 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:18:43,621 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:18:43,621 - inspyred.ec - DEBUG - observation using file_observer at generation 9 and evaluation 1000
+2018-03-05 19:18:43,622 - inspyred.ec - DEBUG - termination test using generation_termination at generation 9 and evaluation 1000
+2018-03-05 19:18:43,622 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 9 and evaluation 1000
+2018-03-05 19:18:43,622 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:18:43,624 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 9 and evaluation 1000
+2018-03-05 19:18:43,635 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:18:43,635 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 9 and evaluation 1000
+2018-03-05 19:19:12,218 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 9 and evaluation 1100
+2018-03-05 19:19:12,218 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:19:12,218 - inspyred.ec - DEBUG - migration using default_migration at generation 9 and evaluation 1100
+2018-03-05 19:19:12,218 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:19:12,218 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 9 and evaluation 1100
+2018-03-05 19:19:12,219 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:19:12,219 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:19:12,219 - inspyred.ec - DEBUG - observation using file_observer at generation 10 and evaluation 1100
+2018-03-05 19:19:12,220 - inspyred.ec - DEBUG - termination test using generation_termination at generation 10 and evaluation 1100
+2018-03-05 19:19:12,220 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 10 and evaluation 1100
+2018-03-05 19:19:12,220 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:19:12,221 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 10 and evaluation 1100
+2018-03-05 19:19:12,231 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:19:12,231 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 10 and evaluation 1100
+2018-03-05 19:19:39,129 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 10 and evaluation 1200
+2018-03-05 19:19:39,130 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:19:39,130 - inspyred.ec - DEBUG - migration using default_migration at generation 10 and evaluation 1200
+2018-03-05 19:19:39,130 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:19:39,130 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 10 and evaluation 1200
+2018-03-05 19:19:39,130 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:19:39,130 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:19:39,130 - inspyred.ec - DEBUG - observation using file_observer at generation 11 and evaluation 1200
+2018-03-05 19:19:39,132 - inspyred.ec - DEBUG - termination test using generation_termination at generation 11 and evaluation 1200
+2018-03-05 19:19:39,132 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 11 and evaluation 1200
+2018-03-05 19:19:39,132 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:19:39,133 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 11 and evaluation 1200
+2018-03-05 19:19:39,143 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:19:39,143 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 11 and evaluation 1200
+2018-03-05 19:20:06,075 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 11 and evaluation 1300
+2018-03-05 19:20:06,075 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:20:06,075 - inspyred.ec - DEBUG - migration using default_migration at generation 11 and evaluation 1300
+2018-03-05 19:20:06,075 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:20:06,075 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 11 and evaluation 1300
+2018-03-05 19:20:06,075 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:20:06,075 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:20:06,075 - inspyred.ec - DEBUG - observation using file_observer at generation 12 and evaluation 1300
+2018-03-05 19:20:06,077 - inspyred.ec - DEBUG - termination test using generation_termination at generation 12 and evaluation 1300
+2018-03-05 19:20:06,077 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 12 and evaluation 1300
+2018-03-05 19:20:06,077 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:20:06,078 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 12 and evaluation 1300
+2018-03-05 19:20:06,088 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:20:06,088 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 12 and evaluation 1300
+2018-03-05 19:20:33,705 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 12 and evaluation 1400
+2018-03-05 19:20:33,706 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:20:33,706 - inspyred.ec - DEBUG - migration using default_migration at generation 12 and evaluation 1400
+2018-03-05 19:20:33,706 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:20:33,706 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 12 and evaluation 1400
+2018-03-05 19:20:33,706 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:20:33,706 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:20:33,706 - inspyred.ec - DEBUG - observation using file_observer at generation 13 and evaluation 1400
+2018-03-05 19:20:33,707 - inspyred.ec - DEBUG - termination test using generation_termination at generation 13 and evaluation 1400
+2018-03-05 19:20:33,707 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 13 and evaluation 1400
+2018-03-05 19:20:33,708 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:20:33,708 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 13 and evaluation 1400
+2018-03-05 19:20:33,717 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:20:33,717 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 13 and evaluation 1400
+2018-03-05 19:21:01,896 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 13 and evaluation 1500
+2018-03-05 19:21:01,896 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:21:01,896 - inspyred.ec - DEBUG - migration using default_migration at generation 13 and evaluation 1500
+2018-03-05 19:21:01,897 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:21:01,897 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 13 and evaluation 1500
+2018-03-05 19:21:01,897 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:21:01,897 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:21:01,897 - inspyred.ec - DEBUG - observation using file_observer at generation 14 and evaluation 1500
+2018-03-05 19:21:01,898 - inspyred.ec - DEBUG - termination test using generation_termination at generation 14 and evaluation 1500
+2018-03-05 19:21:01,898 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 14 and evaluation 1500
+2018-03-05 19:21:01,898 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:21:01,899 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 14 and evaluation 1500
+2018-03-05 19:21:01,908 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:21:01,908 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 14 and evaluation 1500
+2018-03-05 19:21:29,177 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 14 and evaluation 1600
+2018-03-05 19:21:29,177 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:21:29,177 - inspyred.ec - DEBUG - migration using default_migration at generation 14 and evaluation 1600
+2018-03-05 19:21:29,177 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:21:29,177 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 14 and evaluation 1600
+2018-03-05 19:21:29,178 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:21:29,178 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:21:29,178 - inspyred.ec - DEBUG - observation using file_observer at generation 15 and evaluation 1600
+2018-03-05 19:21:29,179 - inspyred.ec - DEBUG - termination test using generation_termination at generation 15 and evaluation 1600
+2018-03-05 19:21:29,179 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 15 and evaluation 1600
+2018-03-05 19:21:29,179 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:21:29,180 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 15 and evaluation 1600
+2018-03-05 19:21:29,190 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:21:29,190 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 15 and evaluation 1600
+2018-03-05 19:21:57,091 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 15 and evaluation 1700
+2018-03-05 19:21:57,091 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:21:57,091 - inspyred.ec - DEBUG - migration using default_migration at generation 15 and evaluation 1700
+2018-03-05 19:21:57,091 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:21:57,091 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 15 and evaluation 1700
+2018-03-05 19:21:57,091 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:21:57,091 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:21:57,091 - inspyred.ec - DEBUG - observation using file_observer at generation 16 and evaluation 1700
+2018-03-05 19:21:57,093 - inspyred.ec - DEBUG - termination test using generation_termination at generation 16 and evaluation 1700
+2018-03-05 19:21:57,093 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 16 and evaluation 1700
+2018-03-05 19:21:57,093 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:21:57,094 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 16 and evaluation 1700
+2018-03-05 19:21:57,104 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:21:57,104 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 16 and evaluation 1700
+2018-03-05 19:22:24,574 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 16 and evaluation 1800
+2018-03-05 19:22:24,574 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:22:24,574 - inspyred.ec - DEBUG - migration using default_migration at generation 16 and evaluation 1800
+2018-03-05 19:22:24,575 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:22:24,575 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 16 and evaluation 1800
+2018-03-05 19:22:24,575 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:22:24,575 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:22:24,575 - inspyred.ec - DEBUG - observation using file_observer at generation 17 and evaluation 1800
+2018-03-05 19:22:24,576 - inspyred.ec - DEBUG - termination test using generation_termination at generation 17 and evaluation 1800
+2018-03-05 19:22:24,576 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 17 and evaluation 1800
+2018-03-05 19:22:24,576 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:22:24,577 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 17 and evaluation 1800
+2018-03-05 19:22:24,587 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:22:24,587 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 17 and evaluation 1800
+2018-03-05 19:22:51,725 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 17 and evaluation 1900
+2018-03-05 19:22:51,725 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:22:51,725 - inspyred.ec - DEBUG - migration using default_migration at generation 17 and evaluation 1900
+2018-03-05 19:22:51,725 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:22:51,725 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 17 and evaluation 1900
+2018-03-05 19:22:51,725 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:22:51,725 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:22:51,725 - inspyred.ec - DEBUG - observation using file_observer at generation 18 and evaluation 1900
+2018-03-05 19:22:51,727 - inspyred.ec - DEBUG - termination test using generation_termination at generation 18 and evaluation 1900
+2018-03-05 19:22:51,727 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 18 and evaluation 1900
+2018-03-05 19:22:51,727 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:22:51,728 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 18 and evaluation 1900
+2018-03-05 19:22:51,736 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:22:51,737 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 18 and evaluation 1900
+2018-03-05 19:23:18,920 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 18 and evaluation 2000
+2018-03-05 19:23:18,920 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:23:18,921 - inspyred.ec - DEBUG - migration using default_migration at generation 18 and evaluation 2000
+2018-03-05 19:23:18,921 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:23:18,921 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 18 and evaluation 2000
+2018-03-05 19:23:18,921 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:23:18,921 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:23:18,921 - inspyred.ec - DEBUG - observation using file_observer at generation 19 and evaluation 2000
+2018-03-05 19:23:18,922 - inspyred.ec - DEBUG - termination test using generation_termination at generation 19 and evaluation 2000
+2018-03-05 19:23:18,922 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 19 and evaluation 2000
+2018-03-05 19:23:18,922 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:23:18,923 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 19 and evaluation 2000
+2018-03-05 19:23:18,932 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:23:18,932 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 19 and evaluation 2000
+2018-03-05 19:23:47,254 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 19 and evaluation 2100
+2018-03-05 19:23:47,254 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:23:47,254 - inspyred.ec - DEBUG - migration using default_migration at generation 19 and evaluation 2100
+2018-03-05 19:23:47,254 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:23:47,254 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 19 and evaluation 2100
+2018-03-05 19:23:47,254 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:23:47,254 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:23:47,254 - inspyred.ec - DEBUG - observation using file_observer at generation 20 and evaluation 2100
+2018-03-05 19:23:47,256 - inspyred.ec - DEBUG - termination test using generation_termination at generation 20 and evaluation 2100
+2018-03-05 19:23:47,256 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 20 and evaluation 2100
+2018-03-05 19:23:47,256 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:23:47,256 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 20 and evaluation 2100
+2018-03-05 19:23:47,266 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:23:47,266 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 20 and evaluation 2100
+2018-03-05 19:24:14,827 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 20 and evaluation 2200
+2018-03-05 19:24:14,827 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:24:14,828 - inspyred.ec - DEBUG - migration using default_migration at generation 20 and evaluation 2200
+2018-03-05 19:24:14,828 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:24:14,828 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 20 and evaluation 2200
+2018-03-05 19:24:14,828 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:24:14,828 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:24:14,828 - inspyred.ec - DEBUG - observation using file_observer at generation 21 and evaluation 2200
+2018-03-05 19:24:14,830 - inspyred.ec - DEBUG - termination test using generation_termination at generation 21 and evaluation 2200
+2018-03-05 19:24:14,830 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 21 and evaluation 2200
+2018-03-05 19:24:14,830 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:24:14,831 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 21 and evaluation 2200
+2018-03-05 19:24:14,841 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:24:14,841 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 21 and evaluation 2200
+2018-03-05 19:24:41,909 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 21 and evaluation 2300
+2018-03-05 19:24:41,909 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:24:41,909 - inspyred.ec - DEBUG - migration using default_migration at generation 21 and evaluation 2300
+2018-03-05 19:24:41,909 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:24:41,909 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 21 and evaluation 2300
+2018-03-05 19:24:41,909 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:24:41,909 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:24:41,909 - inspyred.ec - DEBUG - observation using file_observer at generation 22 and evaluation 2300
+2018-03-05 19:24:41,911 - inspyred.ec - DEBUG - termination test using generation_termination at generation 22 and evaluation 2300
+2018-03-05 19:24:41,911 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 22 and evaluation 2300
+2018-03-05 19:24:41,911 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:24:41,912 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 22 and evaluation 2300
+2018-03-05 19:24:41,920 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:24:41,921 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 22 and evaluation 2300
+2018-03-05 19:25:12,659 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 22 and evaluation 2400
+2018-03-05 19:25:12,660 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:25:12,660 - inspyred.ec - DEBUG - migration using default_migration at generation 22 and evaluation 2400
+2018-03-05 19:25:12,660 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:25:12,660 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 22 and evaluation 2400
+2018-03-05 19:25:12,660 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:25:12,660 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:25:12,660 - inspyred.ec - DEBUG - observation using file_observer at generation 23 and evaluation 2400
+2018-03-05 19:25:12,662 - inspyred.ec - DEBUG - termination test using generation_termination at generation 23 and evaluation 2400
+2018-03-05 19:25:12,662 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 23 and evaluation 2400
+2018-03-05 19:25:12,662 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:25:12,664 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 23 and evaluation 2400
+2018-03-05 19:25:12,675 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:25:12,675 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 23 and evaluation 2400
+2018-03-05 19:25:41,956 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 23 and evaluation 2500
+2018-03-05 19:25:41,956 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:25:41,956 - inspyred.ec - DEBUG - migration using default_migration at generation 23 and evaluation 2500
+2018-03-05 19:25:41,956 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:25:41,956 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 23 and evaluation 2500
+2018-03-05 19:25:41,956 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:25:41,956 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:25:41,956 - inspyred.ec - DEBUG - observation using file_observer at generation 24 and evaluation 2500
+2018-03-05 19:25:41,958 - inspyred.ec - DEBUG - termination test using generation_termination at generation 24 and evaluation 2500
+2018-03-05 19:25:41,958 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 24 and evaluation 2500
+2018-03-05 19:25:41,958 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:25:41,959 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 24 and evaluation 2500
+2018-03-05 19:25:41,969 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:25:41,969 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 24 and evaluation 2500
+2018-03-05 19:26:11,548 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 24 and evaluation 2600
+2018-03-05 19:26:11,548 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:26:11,548 - inspyred.ec - DEBUG - migration using default_migration at generation 24 and evaluation 2600
+2018-03-05 19:26:11,548 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:26:11,548 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 24 and evaluation 2600
+2018-03-05 19:26:11,548 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:26:11,548 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:26:11,548 - inspyred.ec - DEBUG - observation using file_observer at generation 25 and evaluation 2600
+2018-03-05 19:26:11,551 - inspyred.ec - DEBUG - termination test using generation_termination at generation 25 and evaluation 2600
+2018-03-05 19:26:11,551 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 25 and evaluation 2600
+2018-03-05 19:26:11,551 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:26:11,552 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 25 and evaluation 2600
+2018-03-05 19:26:11,563 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:26:11,564 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 25 and evaluation 2600
+2018-03-05 19:26:38,114 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 25 and evaluation 2700
+2018-03-05 19:26:38,114 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:26:38,114 - inspyred.ec - DEBUG - migration using default_migration at generation 25 and evaluation 2700
+2018-03-05 19:26:38,114 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:26:38,114 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 25 and evaluation 2700
+2018-03-05 19:26:38,115 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:26:38,115 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:26:38,115 - inspyred.ec - DEBUG - observation using file_observer at generation 26 and evaluation 2700
+2018-03-05 19:26:38,116 - inspyred.ec - DEBUG - termination test using generation_termination at generation 26 and evaluation 2700
+2018-03-05 19:26:38,116 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 26 and evaluation 2700
+2018-03-05 19:26:38,116 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:26:38,117 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 26 and evaluation 2700
+2018-03-05 19:26:38,128 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:26:38,128 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 26 and evaluation 2700
+2018-03-05 19:27:04,608 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 26 and evaluation 2800
+2018-03-05 19:27:04,608 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:27:04,608 - inspyred.ec - DEBUG - migration using default_migration at generation 26 and evaluation 2800
+2018-03-05 19:27:04,608 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:27:04,609 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 26 and evaluation 2800
+2018-03-05 19:27:04,609 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:27:04,609 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:27:04,609 - inspyred.ec - DEBUG - observation using file_observer at generation 27 and evaluation 2800
+2018-03-05 19:27:04,610 - inspyred.ec - DEBUG - termination test using generation_termination at generation 27 and evaluation 2800
+2018-03-05 19:27:04,610 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 27 and evaluation 2800
+2018-03-05 19:27:04,610 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:27:04,611 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 27 and evaluation 2800
+2018-03-05 19:27:04,621 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:27:04,621 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 27 and evaluation 2800
+2018-03-05 19:27:31,963 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 27 and evaluation 2900
+2018-03-05 19:27:31,964 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:27:31,964 - inspyred.ec - DEBUG - migration using default_migration at generation 27 and evaluation 2900
+2018-03-05 19:27:31,964 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:27:31,964 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 27 and evaluation 2900
+2018-03-05 19:27:31,964 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:27:31,964 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:27:31,964 - inspyred.ec - DEBUG - observation using file_observer at generation 28 and evaluation 2900
+2018-03-05 19:27:31,965 - inspyred.ec - DEBUG - termination test using generation_termination at generation 28 and evaluation 2900
+2018-03-05 19:27:31,965 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 28 and evaluation 2900
+2018-03-05 19:27:31,965 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:27:31,966 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 28 and evaluation 2900
+2018-03-05 19:27:31,977 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:27:31,977 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 28 and evaluation 2900
+2018-03-05 19:27:59,211 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 28 and evaluation 3000
+2018-03-05 19:27:59,212 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:27:59,212 - inspyred.ec - DEBUG - migration using default_migration at generation 28 and evaluation 3000
+2018-03-05 19:27:59,212 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:27:59,212 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 28 and evaluation 3000
+2018-03-05 19:27:59,212 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:27:59,212 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:27:59,212 - inspyred.ec - DEBUG - observation using file_observer at generation 29 and evaluation 3000
+2018-03-05 19:27:59,214 - inspyred.ec - DEBUG - termination test using generation_termination at generation 29 and evaluation 3000
+2018-03-05 19:27:59,214 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 29 and evaluation 3000
+2018-03-05 19:27:59,214 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:27:59,215 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 29 and evaluation 3000
+2018-03-05 19:27:59,225 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:27:59,225 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 29 and evaluation 3000
+2018-03-05 19:28:26,640 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 29 and evaluation 3100
+2018-03-05 19:28:26,640 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:28:26,640 - inspyred.ec - DEBUG - migration using default_migration at generation 29 and evaluation 3100
+2018-03-05 19:28:26,640 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:28:26,640 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 29 and evaluation 3100
+2018-03-05 19:28:26,640 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:28:26,640 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:28:26,641 - inspyred.ec - DEBUG - observation using file_observer at generation 30 and evaluation 3100
+2018-03-05 19:28:26,642 - inspyred.ec - DEBUG - termination test using generation_termination at generation 30 and evaluation 3100
+2018-03-05 19:28:26,642 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 30 and evaluation 3100
+2018-03-05 19:28:26,642 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:28:26,643 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 30 and evaluation 3100
+2018-03-05 19:28:26,652 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:28:26,652 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 30 and evaluation 3100
+2018-03-05 19:28:53,852 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 30 and evaluation 3200
+2018-03-05 19:28:53,852 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:28:53,852 - inspyred.ec - DEBUG - migration using default_migration at generation 30 and evaluation 3200
+2018-03-05 19:28:53,852 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:28:53,852 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 30 and evaluation 3200
+2018-03-05 19:28:53,853 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:28:53,853 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:28:53,853 - inspyred.ec - DEBUG - observation using file_observer at generation 31 and evaluation 3200
+2018-03-05 19:28:53,854 - inspyred.ec - DEBUG - termination test using generation_termination at generation 31 and evaluation 3200
+2018-03-05 19:28:53,854 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 31 and evaluation 3200
+2018-03-05 19:28:53,854 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:28:53,855 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 31 and evaluation 3200
+2018-03-05 19:28:53,864 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:28:53,864 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 31 and evaluation 3200
+2018-03-05 19:29:21,693 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 31 and evaluation 3300
+2018-03-05 19:29:21,694 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:29:21,694 - inspyred.ec - DEBUG - migration using default_migration at generation 31 and evaluation 3300
+2018-03-05 19:29:21,694 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:29:21,694 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 31 and evaluation 3300
+2018-03-05 19:29:21,694 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:29:21,694 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:29:21,694 - inspyred.ec - DEBUG - observation using file_observer at generation 32 and evaluation 3300
+2018-03-05 19:29:21,695 - inspyred.ec - DEBUG - termination test using generation_termination at generation 32 and evaluation 3300
+2018-03-05 19:29:21,696 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 32 and evaluation 3300
+2018-03-05 19:29:21,696 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:29:21,696 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 32 and evaluation 3300
+2018-03-05 19:29:21,706 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:29:21,706 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 32 and evaluation 3300
+2018-03-05 19:29:49,172 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 32 and evaluation 3400
+2018-03-05 19:29:49,172 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:29:49,172 - inspyred.ec - DEBUG - migration using default_migration at generation 32 and evaluation 3400
+2018-03-05 19:29:49,172 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:29:49,173 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 32 and evaluation 3400
+2018-03-05 19:29:49,173 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:29:49,173 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:29:49,173 - inspyred.ec - DEBUG - observation using file_observer at generation 33 and evaluation 3400
+2018-03-05 19:29:49,174 - inspyred.ec - DEBUG - termination test using generation_termination at generation 33 and evaluation 3400
+2018-03-05 19:29:49,174 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 33 and evaluation 3400
+2018-03-05 19:29:49,174 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:29:49,175 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 33 and evaluation 3400
+2018-03-05 19:29:49,185 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:29:49,186 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 33 and evaluation 3400
+2018-03-05 19:30:16,363 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 33 and evaluation 3500
+2018-03-05 19:30:16,364 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:30:16,364 - inspyred.ec - DEBUG - migration using default_migration at generation 33 and evaluation 3500
+2018-03-05 19:30:16,364 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:30:16,364 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 33 and evaluation 3500
+2018-03-05 19:30:16,364 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:30:16,364 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:30:16,364 - inspyred.ec - DEBUG - observation using file_observer at generation 34 and evaluation 3500
+2018-03-05 19:30:16,365 - inspyred.ec - DEBUG - termination test using generation_termination at generation 34 and evaluation 3500
+2018-03-05 19:30:16,365 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 34 and evaluation 3500
+2018-03-05 19:30:16,366 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:30:16,366 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 34 and evaluation 3500
+2018-03-05 19:30:16,376 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:30:16,376 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 34 and evaluation 3500
+2018-03-05 19:30:44,388 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 34 and evaluation 3600
+2018-03-05 19:30:44,389 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:30:44,389 - inspyred.ec - DEBUG - migration using default_migration at generation 34 and evaluation 3600
+2018-03-05 19:30:44,389 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:30:44,389 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 34 and evaluation 3600
+2018-03-05 19:30:44,389 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:30:44,389 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:30:44,389 - inspyred.ec - DEBUG - observation using file_observer at generation 35 and evaluation 3600
+2018-03-05 19:30:44,390 - inspyred.ec - DEBUG - termination test using generation_termination at generation 35 and evaluation 3600
+2018-03-05 19:30:44,390 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 35 and evaluation 3600
+2018-03-05 19:30:44,390 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:30:44,391 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 35 and evaluation 3600
+2018-03-05 19:30:44,404 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:30:44,404 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 35 and evaluation 3600
+2018-03-05 19:31:13,769 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 35 and evaluation 3700
+2018-03-05 19:31:13,769 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:31:13,769 - inspyred.ec - DEBUG - migration using default_migration at generation 35 and evaluation 3700
+2018-03-05 19:31:13,769 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:31:13,770 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 35 and evaluation 3700
+2018-03-05 19:31:13,770 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:31:13,770 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:31:13,770 - inspyred.ec - DEBUG - observation using file_observer at generation 36 and evaluation 3700
+2018-03-05 19:31:13,771 - inspyred.ec - DEBUG - termination test using generation_termination at generation 36 and evaluation 3700
+2018-03-05 19:31:13,771 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 36 and evaluation 3700
+2018-03-05 19:31:13,771 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:31:13,772 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 36 and evaluation 3700
+2018-03-05 19:31:13,781 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:31:13,781 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 36 and evaluation 3700
+2018-03-05 19:31:40,916 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 36 and evaluation 3800
+2018-03-05 19:31:40,917 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:31:40,917 - inspyred.ec - DEBUG - migration using default_migration at generation 36 and evaluation 3800
+2018-03-05 19:31:40,917 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:31:40,917 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 36 and evaluation 3800
+2018-03-05 19:31:40,917 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:31:40,917 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:31:40,917 - inspyred.ec - DEBUG - observation using file_observer at generation 37 and evaluation 3800
+2018-03-05 19:31:40,918 - inspyred.ec - DEBUG - termination test using generation_termination at generation 37 and evaluation 3800
+2018-03-05 19:31:40,918 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 37 and evaluation 3800
+2018-03-05 19:31:40,918 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:31:40,919 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 37 and evaluation 3800
+2018-03-05 19:31:40,928 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:31:40,928 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 37 and evaluation 3800
+2018-03-05 19:32:07,977 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 37 and evaluation 3900
+2018-03-05 19:32:07,977 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:32:07,977 - inspyred.ec - DEBUG - migration using default_migration at generation 37 and evaluation 3900
+2018-03-05 19:32:07,977 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:32:07,977 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 37 and evaluation 3900
+2018-03-05 19:32:07,977 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:32:07,978 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:32:07,978 - inspyred.ec - DEBUG - observation using file_observer at generation 38 and evaluation 3900
+2018-03-05 19:32:07,979 - inspyred.ec - DEBUG - termination test using generation_termination at generation 38 and evaluation 3900
+2018-03-05 19:32:07,979 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 38 and evaluation 3900
+2018-03-05 19:32:07,979 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:32:07,980 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 38 and evaluation 3900
+2018-03-05 19:32:07,992 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:32:07,992 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 38 and evaluation 3900
+2018-03-05 19:32:34,973 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 38 and evaluation 4000
+2018-03-05 19:32:34,973 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:32:34,973 - inspyred.ec - DEBUG - migration using default_migration at generation 38 and evaluation 4000
+2018-03-05 19:32:34,973 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:32:34,973 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 38 and evaluation 4000
+2018-03-05 19:32:34,974 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:32:34,974 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:32:34,974 - inspyred.ec - DEBUG - observation using file_observer at generation 39 and evaluation 4000
+2018-03-05 19:32:34,976 - inspyred.ec - DEBUG - termination test using generation_termination at generation 39 and evaluation 4000
+2018-03-05 19:32:34,976 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 39 and evaluation 4000
+2018-03-05 19:32:34,976 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:32:34,977 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 39 and evaluation 4000
+2018-03-05 19:32:34,986 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:32:34,986 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 39 and evaluation 4000
+2018-03-05 19:33:01,821 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 39 and evaluation 4100
+2018-03-05 19:33:01,821 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:33:01,821 - inspyred.ec - DEBUG - migration using default_migration at generation 39 and evaluation 4100
+2018-03-05 19:33:01,821 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:33:01,821 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 39 and evaluation 4100
+2018-03-05 19:33:01,822 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:33:01,822 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:33:01,822 - inspyred.ec - DEBUG - observation using file_observer at generation 40 and evaluation 4100
+2018-03-05 19:33:01,824 - inspyred.ec - DEBUG - termination test using generation_termination at generation 40 and evaluation 4100
+2018-03-05 19:33:01,825 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 40 and evaluation 4100
+2018-03-05 19:33:01,825 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:33:01,828 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 40 and evaluation 4100
+2018-03-05 19:33:01,839 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:33:01,839 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 40 and evaluation 4100
+2018-03-05 19:33:28,654 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 40 and evaluation 4200
+2018-03-05 19:33:28,654 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:33:28,654 - inspyred.ec - DEBUG - migration using default_migration at generation 40 and evaluation 4200
+2018-03-05 19:33:28,654 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:33:28,654 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 40 and evaluation 4200
+2018-03-05 19:33:28,654 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:33:28,654 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:33:28,654 - inspyred.ec - DEBUG - observation using file_observer at generation 41 and evaluation 4200
+2018-03-05 19:33:28,656 - inspyred.ec - DEBUG - termination test using generation_termination at generation 41 and evaluation 4200
+2018-03-05 19:33:28,656 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 41 and evaluation 4200
+2018-03-05 19:33:28,656 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:33:28,657 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 41 and evaluation 4200
+2018-03-05 19:33:28,667 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:33:28,667 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 41 and evaluation 4200
+2018-03-05 19:33:56,520 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 41 and evaluation 4300
+2018-03-05 19:33:56,521 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:33:56,521 - inspyred.ec - DEBUG - migration using default_migration at generation 41 and evaluation 4300
+2018-03-05 19:33:56,521 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:33:56,521 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 41 and evaluation 4300
+2018-03-05 19:33:56,521 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:33:56,521 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:33:56,521 - inspyred.ec - DEBUG - observation using file_observer at generation 42 and evaluation 4300
+2018-03-05 19:33:56,522 - inspyred.ec - DEBUG - termination test using generation_termination at generation 42 and evaluation 4300
+2018-03-05 19:33:56,522 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 42 and evaluation 4300
+2018-03-05 19:33:56,523 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:33:56,523 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 42 and evaluation 4300
+2018-03-05 19:33:56,533 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:33:56,534 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 42 and evaluation 4300
+2018-03-05 19:34:23,755 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 42 and evaluation 4400
+2018-03-05 19:34:23,755 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:34:23,755 - inspyred.ec - DEBUG - migration using default_migration at generation 42 and evaluation 4400
+2018-03-05 19:34:23,756 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:34:23,756 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 42 and evaluation 4400
+2018-03-05 19:34:23,756 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:34:23,756 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:34:23,756 - inspyred.ec - DEBUG - observation using file_observer at generation 43 and evaluation 4400
+2018-03-05 19:34:23,757 - inspyred.ec - DEBUG - termination test using generation_termination at generation 43 and evaluation 4400
+2018-03-05 19:34:23,757 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 43 and evaluation 4400
+2018-03-05 19:34:23,757 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:34:23,758 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 43 and evaluation 4400
+2018-03-05 19:34:23,768 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:34:23,768 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 43 and evaluation 4400
+2018-03-05 19:34:52,224 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 43 and evaluation 4500
+2018-03-05 19:34:52,225 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:34:52,225 - inspyred.ec - DEBUG - migration using default_migration at generation 43 and evaluation 4500
+2018-03-05 19:34:52,225 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:34:52,225 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 43 and evaluation 4500
+2018-03-05 19:34:52,225 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:34:52,225 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:34:52,225 - inspyred.ec - DEBUG - observation using file_observer at generation 44 and evaluation 4500
+2018-03-05 19:34:52,226 - inspyred.ec - DEBUG - termination test using generation_termination at generation 44 and evaluation 4500
+2018-03-05 19:34:52,226 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 44 and evaluation 4500
+2018-03-05 19:34:52,227 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:34:52,227 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 44 and evaluation 4500
+2018-03-05 19:34:52,236 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:34:52,236 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 44 and evaluation 4500
+2018-03-05 19:35:20,909 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 44 and evaluation 4600
+2018-03-05 19:35:20,909 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:35:20,909 - inspyred.ec - DEBUG - migration using default_migration at generation 44 and evaluation 4600
+2018-03-05 19:35:20,909 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:35:20,909 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 44 and evaluation 4600
+2018-03-05 19:35:20,909 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:35:20,909 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:35:20,909 - inspyred.ec - DEBUG - observation using file_observer at generation 45 and evaluation 4600
+2018-03-05 19:35:20,911 - inspyred.ec - DEBUG - termination test using generation_termination at generation 45 and evaluation 4600
+2018-03-05 19:35:20,911 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 45 and evaluation 4600
+2018-03-05 19:35:20,911 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:35:20,912 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 45 and evaluation 4600
+2018-03-05 19:35:20,920 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:35:20,921 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 45 and evaluation 4600
+2018-03-05 19:35:48,249 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 45 and evaluation 4700
+2018-03-05 19:35:48,249 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:35:48,249 - inspyred.ec - DEBUG - migration using default_migration at generation 45 and evaluation 4700
+2018-03-05 19:35:48,249 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:35:48,250 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 45 and evaluation 4700
+2018-03-05 19:35:48,250 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:35:48,250 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:35:48,250 - inspyred.ec - DEBUG - observation using file_observer at generation 46 and evaluation 4700
+2018-03-05 19:35:48,251 - inspyred.ec - DEBUG - termination test using generation_termination at generation 46 and evaluation 4700
+2018-03-05 19:35:48,251 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 46 and evaluation 4700
+2018-03-05 19:35:48,251 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:35:48,252 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 46 and evaluation 4700
+2018-03-05 19:35:48,262 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:35:48,262 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 46 and evaluation 4700
+2018-03-05 19:36:17,103 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 46 and evaluation 4800
+2018-03-05 19:36:17,104 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:36:17,104 - inspyred.ec - DEBUG - migration using default_migration at generation 46 and evaluation 4800
+2018-03-05 19:36:17,104 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:36:17,104 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 46 and evaluation 4800
+2018-03-05 19:36:17,104 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:36:17,104 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:36:17,104 - inspyred.ec - DEBUG - observation using file_observer at generation 47 and evaluation 4800
+2018-03-05 19:36:17,105 - inspyred.ec - DEBUG - termination test using generation_termination at generation 47 and evaluation 4800
+2018-03-05 19:36:17,105 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 47 and evaluation 4800
+2018-03-05 19:36:17,105 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:36:17,106 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 47 and evaluation 4800
+2018-03-05 19:36:17,115 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:36:17,115 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 47 and evaluation 4800
+2018-03-05 19:36:44,569 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 47 and evaluation 4900
+2018-03-05 19:36:44,569 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:36:44,569 - inspyred.ec - DEBUG - migration using default_migration at generation 47 and evaluation 4900
+2018-03-05 19:36:44,569 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:36:44,569 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 47 and evaluation 4900
+2018-03-05 19:36:44,569 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:36:44,569 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:36:44,570 - inspyred.ec - DEBUG - observation using file_observer at generation 48 and evaluation 4900
+2018-03-05 19:36:44,571 - inspyred.ec - DEBUG - termination test using generation_termination at generation 48 and evaluation 4900
+2018-03-05 19:36:44,571 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 48 and evaluation 4900
+2018-03-05 19:36:44,571 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:36:44,572 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 48 and evaluation 4900
+2018-03-05 19:36:44,581 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:36:44,581 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 48 and evaluation 4900
+2018-03-05 19:37:12,401 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 48 and evaluation 5000
+2018-03-05 19:37:12,402 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:37:12,402 - inspyred.ec - DEBUG - migration using default_migration at generation 48 and evaluation 5000
+2018-03-05 19:37:12,402 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:37:12,402 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 48 and evaluation 5000
+2018-03-05 19:37:12,402 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:37:12,402 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:37:12,402 - inspyred.ec - DEBUG - observation using file_observer at generation 49 and evaluation 5000
+2018-03-05 19:37:12,403 - inspyred.ec - DEBUG - termination test using generation_termination at generation 49 and evaluation 5000
+2018-03-05 19:37:12,403 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 49 and evaluation 5000
+2018-03-05 19:37:12,403 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:37:12,404 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 49 and evaluation 5000
+2018-03-05 19:37:12,413 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:37:12,413 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 49 and evaluation 5000
+2018-03-05 19:37:40,708 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 49 and evaluation 5100
+2018-03-05 19:37:40,708 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:37:40,709 - inspyred.ec - DEBUG - migration using default_migration at generation 49 and evaluation 5100
+2018-03-05 19:37:40,709 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:37:40,709 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 49 and evaluation 5100
+2018-03-05 19:37:40,709 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:37:40,709 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:37:40,709 - inspyred.ec - DEBUG - observation using file_observer at generation 50 and evaluation 5100
+2018-03-05 19:37:40,711 - inspyred.ec - DEBUG - termination test using generation_termination at generation 50 and evaluation 5100
+2018-03-05 19:37:40,711 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 50 and evaluation 5100
+2018-03-05 19:37:40,711 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:37:40,712 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 50 and evaluation 5100
+2018-03-05 19:37:40,722 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:37:40,722 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 50 and evaluation 5100
+2018-03-05 19:38:10,218 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 50 and evaluation 5200
+2018-03-05 19:38:10,218 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:38:10,218 - inspyred.ec - DEBUG - migration using default_migration at generation 50 and evaluation 5200
+2018-03-05 19:38:10,218 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:38:10,218 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 50 and evaluation 5200
+2018-03-05 19:38:10,218 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:38:10,218 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:38:10,219 - inspyred.ec - DEBUG - observation using file_observer at generation 51 and evaluation 5200
+2018-03-05 19:38:10,220 - inspyred.ec - DEBUG - termination test using generation_termination at generation 51 and evaluation 5200
+2018-03-05 19:38:10,220 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 51 and evaluation 5200
+2018-03-05 19:38:10,220 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:38:10,221 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 51 and evaluation 5200
+2018-03-05 19:38:10,230 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:38:10,230 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 51 and evaluation 5200
+2018-03-05 19:38:36,193 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 51 and evaluation 5300
+2018-03-05 19:38:36,193 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:38:36,193 - inspyred.ec - DEBUG - migration using default_migration at generation 51 and evaluation 5300
+2018-03-05 19:38:36,193 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:38:36,193 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 51 and evaluation 5300
+2018-03-05 19:38:36,193 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:38:36,193 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:38:36,193 - inspyred.ec - DEBUG - observation using file_observer at generation 52 and evaluation 5300
+2018-03-05 19:38:36,195 - inspyred.ec - DEBUG - termination test using generation_termination at generation 52 and evaluation 5300
+2018-03-05 19:38:36,195 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 52 and evaluation 5300
+2018-03-05 19:38:36,195 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:38:36,196 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 52 and evaluation 5300
+2018-03-05 19:38:36,205 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:38:36,205 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 52 and evaluation 5300
+2018-03-05 19:39:03,756 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 52 and evaluation 5400
+2018-03-05 19:39:03,756 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:39:03,756 - inspyred.ec - DEBUG - migration using default_migration at generation 52 and evaluation 5400
+2018-03-05 19:39:03,757 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:39:03,757 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 52 and evaluation 5400
+2018-03-05 19:39:03,757 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:39:03,757 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:39:03,757 - inspyred.ec - DEBUG - observation using file_observer at generation 53 and evaluation 5400
+2018-03-05 19:39:03,758 - inspyred.ec - DEBUG - termination test using generation_termination at generation 53 and evaluation 5400
+2018-03-05 19:39:03,758 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 53 and evaluation 5400
+2018-03-05 19:39:03,759 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:39:03,759 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 53 and evaluation 5400
+2018-03-05 19:39:03,770 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:39:03,770 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 53 and evaluation 5400
+2018-03-05 19:39:29,705 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 53 and evaluation 5500
+2018-03-05 19:39:29,705 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:39:29,705 - inspyred.ec - DEBUG - migration using default_migration at generation 53 and evaluation 5500
+2018-03-05 19:39:29,705 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:39:29,705 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 53 and evaluation 5500
+2018-03-05 19:39:29,705 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:39:29,705 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:39:29,705 - inspyred.ec - DEBUG - observation using file_observer at generation 54 and evaluation 5500
+2018-03-05 19:39:29,707 - inspyred.ec - DEBUG - termination test using generation_termination at generation 54 and evaluation 5500
+2018-03-05 19:39:29,707 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 54 and evaluation 5500
+2018-03-05 19:39:29,707 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:39:29,708 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 54 and evaluation 5500
+2018-03-05 19:39:29,717 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:39:29,717 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 54 and evaluation 5500
+2018-03-05 19:39:56,429 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 54 and evaluation 5600
+2018-03-05 19:39:56,429 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:39:56,429 - inspyred.ec - DEBUG - migration using default_migration at generation 54 and evaluation 5600
+2018-03-05 19:39:56,429 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:39:56,429 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 54 and evaluation 5600
+2018-03-05 19:39:56,430 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:39:56,430 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:39:56,430 - inspyred.ec - DEBUG - observation using file_observer at generation 55 and evaluation 5600
+2018-03-05 19:39:56,431 - inspyred.ec - DEBUG - termination test using generation_termination at generation 55 and evaluation 5600
+2018-03-05 19:39:56,431 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 55 and evaluation 5600
+2018-03-05 19:39:56,431 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:39:56,432 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 55 and evaluation 5600
+2018-03-05 19:39:56,441 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:39:56,441 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 55 and evaluation 5600
+2018-03-05 19:40:25,560 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 55 and evaluation 5700
+2018-03-05 19:40:25,560 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:40:25,560 - inspyred.ec - DEBUG - migration using default_migration at generation 55 and evaluation 5700
+2018-03-05 19:40:25,560 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:40:25,560 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 55 and evaluation 5700
+2018-03-05 19:40:25,560 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:40:25,560 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:40:25,560 - inspyred.ec - DEBUG - observation using file_observer at generation 56 and evaluation 5700
+2018-03-05 19:40:25,562 - inspyred.ec - DEBUG - termination test using generation_termination at generation 56 and evaluation 5700
+2018-03-05 19:40:25,562 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 56 and evaluation 5700
+2018-03-05 19:40:25,562 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:40:25,563 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 56 and evaluation 5700
+2018-03-05 19:40:25,573 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:40:25,573 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 56 and evaluation 5700
+2018-03-05 19:40:52,824 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 56 and evaluation 5800
+2018-03-05 19:40:52,825 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:40:52,825 - inspyred.ec - DEBUG - migration using default_migration at generation 56 and evaluation 5800
+2018-03-05 19:40:52,825 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:40:52,825 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 56 and evaluation 5800
+2018-03-05 19:40:52,825 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:40:52,825 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:40:52,825 - inspyred.ec - DEBUG - observation using file_observer at generation 57 and evaluation 5800
+2018-03-05 19:40:52,826 - inspyred.ec - DEBUG - termination test using generation_termination at generation 57 and evaluation 5800
+2018-03-05 19:40:52,827 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 57 and evaluation 5800
+2018-03-05 19:40:52,827 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:40:52,828 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 57 and evaluation 5800
+2018-03-05 19:40:52,837 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:40:52,837 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 57 and evaluation 5800
+2018-03-05 19:41:20,312 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 57 and evaluation 5900
+2018-03-05 19:41:20,313 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:41:20,313 - inspyred.ec - DEBUG - migration using default_migration at generation 57 and evaluation 5900
+2018-03-05 19:41:20,314 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:41:20,314 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 57 and evaluation 5900
+2018-03-05 19:41:20,315 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:41:20,315 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:41:20,315 - inspyred.ec - DEBUG - observation using file_observer at generation 58 and evaluation 5900
+2018-03-05 19:41:20,317 - inspyred.ec - DEBUG - termination test using generation_termination at generation 58 and evaluation 5900
+2018-03-05 19:41:20,317 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 58 and evaluation 5900
+2018-03-05 19:41:20,317 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:41:20,318 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 58 and evaluation 5900
+2018-03-05 19:41:20,328 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:41:20,328 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 58 and evaluation 5900
+2018-03-05 19:41:47,833 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 58 and evaluation 6000
+2018-03-05 19:41:47,833 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:41:47,833 - inspyred.ec - DEBUG - migration using default_migration at generation 58 and evaluation 6000
+2018-03-05 19:41:47,833 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:41:47,833 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 58 and evaluation 6000
+2018-03-05 19:41:47,833 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:41:47,833 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:41:47,833 - inspyred.ec - DEBUG - observation using file_observer at generation 59 and evaluation 6000
+2018-03-05 19:41:47,835 - inspyred.ec - DEBUG - termination test using generation_termination at generation 59 and evaluation 6000
+2018-03-05 19:41:47,835 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 59 and evaluation 6000
+2018-03-05 19:41:47,835 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:41:47,836 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 59 and evaluation 6000
+2018-03-05 19:41:47,846 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:41:47,846 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 59 and evaluation 6000
+2018-03-05 19:42:14,963 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 59 and evaluation 6100
+2018-03-05 19:42:14,963 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:42:14,963 - inspyred.ec - DEBUG - migration using default_migration at generation 59 and evaluation 6100
+2018-03-05 19:42:14,963 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:42:14,963 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 59 and evaluation 6100
+2018-03-05 19:42:14,964 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:42:14,964 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:42:14,964 - inspyred.ec - DEBUG - observation using file_observer at generation 60 and evaluation 6100
+2018-03-05 19:42:14,965 - inspyred.ec - DEBUG - termination test using generation_termination at generation 60 and evaluation 6100
+2018-03-05 19:42:14,965 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 60 and evaluation 6100
+2018-03-05 19:42:14,965 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:42:14,966 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 60 and evaluation 6100
+2018-03-05 19:42:14,976 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:42:14,976 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 60 and evaluation 6100
+2018-03-05 19:42:42,868 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 60 and evaluation 6200
+2018-03-05 19:42:42,869 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:42:42,869 - inspyred.ec - DEBUG - migration using default_migration at generation 60 and evaluation 6200
+2018-03-05 19:42:42,869 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:42:42,869 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 60 and evaluation 6200
+2018-03-05 19:42:42,869 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:42:42,869 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:42:42,869 - inspyred.ec - DEBUG - observation using file_observer at generation 61 and evaluation 6200
+2018-03-05 19:42:42,870 - inspyred.ec - DEBUG - termination test using generation_termination at generation 61 and evaluation 6200
+2018-03-05 19:42:42,871 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 61 and evaluation 6200
+2018-03-05 19:42:42,871 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:42:42,871 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 61 and evaluation 6200
+2018-03-05 19:42:42,883 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:42:42,883 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 61 and evaluation 6200
+2018-03-05 19:43:10,177 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 61 and evaluation 6300
+2018-03-05 19:43:10,177 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:43:10,177 - inspyred.ec - DEBUG - migration using default_migration at generation 61 and evaluation 6300
+2018-03-05 19:43:10,177 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:43:10,177 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 61 and evaluation 6300
+2018-03-05 19:43:10,177 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:43:10,177 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:43:10,177 - inspyred.ec - DEBUG - observation using file_observer at generation 62 and evaluation 6300
+2018-03-05 19:43:10,178 - inspyred.ec - DEBUG - termination test using generation_termination at generation 62 and evaluation 6300
+2018-03-05 19:43:10,179 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 62 and evaluation 6300
+2018-03-05 19:43:10,179 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:43:10,179 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 62 and evaluation 6300
+2018-03-05 19:43:10,188 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:43:10,189 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 62 and evaluation 6300
+2018-03-05 19:43:36,877 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 62 and evaluation 6400
+2018-03-05 19:43:36,877 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:43:36,877 - inspyred.ec - DEBUG - migration using default_migration at generation 62 and evaluation 6400
+2018-03-05 19:43:36,877 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:43:36,877 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 62 and evaluation 6400
+2018-03-05 19:43:36,877 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:43:36,877 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:43:36,877 - inspyred.ec - DEBUG - observation using file_observer at generation 63 and evaluation 6400
+2018-03-05 19:43:36,879 - inspyred.ec - DEBUG - termination test using generation_termination at generation 63 and evaluation 6400
+2018-03-05 19:43:36,879 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 63 and evaluation 6400
+2018-03-05 19:43:36,879 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:43:36,880 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 63 and evaluation 6400
+2018-03-05 19:43:36,889 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:43:36,889 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 63 and evaluation 6400
+2018-03-05 19:44:04,302 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 63 and evaluation 6500
+2018-03-05 19:44:04,302 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:44:04,302 - inspyred.ec - DEBUG - migration using default_migration at generation 63 and evaluation 6500
+2018-03-05 19:44:04,302 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:44:04,302 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 63 and evaluation 6500
+2018-03-05 19:44:04,302 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:44:04,302 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:44:04,302 - inspyred.ec - DEBUG - observation using file_observer at generation 64 and evaluation 6500
+2018-03-05 19:44:04,304 - inspyred.ec - DEBUG - termination test using generation_termination at generation 64 and evaluation 6500
+2018-03-05 19:44:04,304 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 64 and evaluation 6500
+2018-03-05 19:44:04,304 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:44:04,305 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 64 and evaluation 6500
+2018-03-05 19:44:04,316 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:44:04,316 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 64 and evaluation 6500
+2018-03-05 19:44:30,772 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 64 and evaluation 6600
+2018-03-05 19:44:30,772 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:44:30,772 - inspyred.ec - DEBUG - migration using default_migration at generation 64 and evaluation 6600
+2018-03-05 19:44:30,772 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:44:30,772 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 64 and evaluation 6600
+2018-03-05 19:44:30,772 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:44:30,772 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:44:30,773 - inspyred.ec - DEBUG - observation using file_observer at generation 65 and evaluation 6600
+2018-03-05 19:44:30,774 - inspyred.ec - DEBUG - termination test using generation_termination at generation 65 and evaluation 6600
+2018-03-05 19:44:30,774 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 65 and evaluation 6600
+2018-03-05 19:44:30,774 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:44:30,775 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 65 and evaluation 6600
+2018-03-05 19:44:30,783 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:44:30,784 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 65 and evaluation 6600
+2018-03-05 19:44:58,671 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 65 and evaluation 6700
+2018-03-05 19:44:58,671 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:44:58,671 - inspyred.ec - DEBUG - migration using default_migration at generation 65 and evaluation 6700
+2018-03-05 19:44:58,671 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:44:58,671 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 65 and evaluation 6700
+2018-03-05 19:44:58,672 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:44:58,672 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:44:58,672 - inspyred.ec - DEBUG - observation using file_observer at generation 66 and evaluation 6700
+2018-03-05 19:44:58,674 - inspyred.ec - DEBUG - termination test using generation_termination at generation 66 and evaluation 6700
+2018-03-05 19:44:58,674 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 66 and evaluation 6700
+2018-03-05 19:44:58,674 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:44:58,675 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 66 and evaluation 6700
+2018-03-05 19:44:58,685 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:44:58,685 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 66 and evaluation 6700
+2018-03-05 19:45:25,169 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 66 and evaluation 6800
+2018-03-05 19:45:25,169 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:45:25,169 - inspyred.ec - DEBUG - migration using default_migration at generation 66 and evaluation 6800
+2018-03-05 19:45:25,169 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:45:25,169 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 66 and evaluation 6800
+2018-03-05 19:45:25,169 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:45:25,169 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:45:25,169 - inspyred.ec - DEBUG - observation using file_observer at generation 67 and evaluation 6800
+2018-03-05 19:45:25,171 - inspyred.ec - DEBUG - termination test using generation_termination at generation 67 and evaluation 6800
+2018-03-05 19:45:25,171 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 67 and evaluation 6800
+2018-03-05 19:45:25,171 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:45:25,172 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 67 and evaluation 6800
+2018-03-05 19:45:25,183 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:45:25,183 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 67 and evaluation 6800
+2018-03-05 19:45:51,972 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 67 and evaluation 6900
+2018-03-05 19:45:51,972 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:45:51,972 - inspyred.ec - DEBUG - migration using default_migration at generation 67 and evaluation 6900
+2018-03-05 19:45:51,972 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:45:51,972 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 67 and evaluation 6900
+2018-03-05 19:45:51,972 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:45:51,972 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:45:51,973 - inspyred.ec - DEBUG - observation using file_observer at generation 68 and evaluation 6900
+2018-03-05 19:45:51,974 - inspyred.ec - DEBUG - termination test using generation_termination at generation 68 and evaluation 6900
+2018-03-05 19:45:51,974 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 68 and evaluation 6900
+2018-03-05 19:45:51,974 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:45:51,975 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 68 and evaluation 6900
+2018-03-05 19:45:51,983 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:45:51,983 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 68 and evaluation 6900
+2018-03-05 19:46:18,622 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 68 and evaluation 7000
+2018-03-05 19:46:18,623 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:46:18,623 - inspyred.ec - DEBUG - migration using default_migration at generation 68 and evaluation 7000
+2018-03-05 19:46:18,623 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:46:18,623 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 68 and evaluation 7000
+2018-03-05 19:46:18,623 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:46:18,623 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:46:18,623 - inspyred.ec - DEBUG - observation using file_observer at generation 69 and evaluation 7000
+2018-03-05 19:46:18,624 - inspyred.ec - DEBUG - termination test using generation_termination at generation 69 and evaluation 7000
+2018-03-05 19:46:18,624 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 69 and evaluation 7000
+2018-03-05 19:46:18,625 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:46:18,625 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 69 and evaluation 7000
+2018-03-05 19:46:18,637 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:46:18,637 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 69 and evaluation 7000
+2018-03-05 19:46:45,176 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 69 and evaluation 7100
+2018-03-05 19:46:45,176 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:46:45,176 - inspyred.ec - DEBUG - migration using default_migration at generation 69 and evaluation 7100
+2018-03-05 19:46:45,176 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:46:45,177 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 69 and evaluation 7100
+2018-03-05 19:46:45,177 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:46:45,177 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:46:45,177 - inspyred.ec - DEBUG - observation using file_observer at generation 70 and evaluation 7100
+2018-03-05 19:46:45,178 - inspyred.ec - DEBUG - termination test using generation_termination at generation 70 and evaluation 7100
+2018-03-05 19:46:45,178 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 70 and evaluation 7100
+2018-03-05 19:46:45,178 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:46:45,179 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 70 and evaluation 7100
+2018-03-05 19:46:45,188 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:46:45,188 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 70 and evaluation 7100
+2018-03-05 19:47:13,059 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 70 and evaluation 7200
+2018-03-05 19:47:13,060 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:47:13,060 - inspyred.ec - DEBUG - migration using default_migration at generation 70 and evaluation 7200
+2018-03-05 19:47:13,060 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:47:13,060 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 70 and evaluation 7200
+2018-03-05 19:47:13,060 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:47:13,060 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:47:13,060 - inspyred.ec - DEBUG - observation using file_observer at generation 71 and evaluation 7200
+2018-03-05 19:47:13,061 - inspyred.ec - DEBUG - termination test using generation_termination at generation 71 and evaluation 7200
+2018-03-05 19:47:13,062 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 71 and evaluation 7200
+2018-03-05 19:47:13,062 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:47:13,062 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 71 and evaluation 7200
+2018-03-05 19:47:13,075 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:47:13,075 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 71 and evaluation 7200
+2018-03-05 19:47:40,398 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 71 and evaluation 7300
+2018-03-05 19:47:40,398 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:47:40,398 - inspyred.ec - DEBUG - migration using default_migration at generation 71 and evaluation 7300
+2018-03-05 19:47:40,398 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:47:40,398 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 71 and evaluation 7300
+2018-03-05 19:47:40,398 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:47:40,398 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:47:40,398 - inspyred.ec - DEBUG - observation using file_observer at generation 72 and evaluation 7300
+2018-03-05 19:47:40,400 - inspyred.ec - DEBUG - termination test using generation_termination at generation 72 and evaluation 7300
+2018-03-05 19:47:40,400 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 72 and evaluation 7300
+2018-03-05 19:47:40,400 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:47:40,401 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 72 and evaluation 7300
+2018-03-05 19:47:40,411 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:47:40,411 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 72 and evaluation 7300
+2018-03-05 19:48:07,053 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 72 and evaluation 7400
+2018-03-05 19:48:07,054 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:48:07,054 - inspyred.ec - DEBUG - migration using default_migration at generation 72 and evaluation 7400
+2018-03-05 19:48:07,054 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:48:07,054 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 72 and evaluation 7400
+2018-03-05 19:48:07,054 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:48:07,054 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:48:07,054 - inspyred.ec - DEBUG - observation using file_observer at generation 73 and evaluation 7400
+2018-03-05 19:48:07,056 - inspyred.ec - DEBUG - termination test using generation_termination at generation 73 and evaluation 7400
+2018-03-05 19:48:07,056 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 73 and evaluation 7400
+2018-03-05 19:48:07,056 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:48:07,057 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 73 and evaluation 7400
+2018-03-05 19:48:07,069 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:48:07,069 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 73 and evaluation 7400
+2018-03-05 19:48:33,834 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 73 and evaluation 7500
+2018-03-05 19:48:33,834 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:48:33,834 - inspyred.ec - DEBUG - migration using default_migration at generation 73 and evaluation 7500
+2018-03-05 19:48:33,834 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:48:33,834 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 73 and evaluation 7500
+2018-03-05 19:48:33,834 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:48:33,834 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:48:33,834 - inspyred.ec - DEBUG - observation using file_observer at generation 74 and evaluation 7500
+2018-03-05 19:48:33,836 - inspyred.ec - DEBUG - termination test using generation_termination at generation 74 and evaluation 7500
+2018-03-05 19:48:33,836 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 74 and evaluation 7500
+2018-03-05 19:48:33,836 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:48:33,837 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 74 and evaluation 7500
+2018-03-05 19:48:33,846 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:48:33,846 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 74 and evaluation 7500
+2018-03-05 19:49:00,892 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 74 and evaluation 7600
+2018-03-05 19:49:00,892 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:49:00,892 - inspyred.ec - DEBUG - migration using default_migration at generation 74 and evaluation 7600
+2018-03-05 19:49:00,892 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:49:00,892 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 74 and evaluation 7600
+2018-03-05 19:49:00,892 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:49:00,892 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:49:00,892 - inspyred.ec - DEBUG - observation using file_observer at generation 75 and evaluation 7600
+2018-03-05 19:49:00,894 - inspyred.ec - DEBUG - termination test using generation_termination at generation 75 and evaluation 7600
+2018-03-05 19:49:00,894 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 75 and evaluation 7600
+2018-03-05 19:49:00,894 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:49:00,896 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 75 and evaluation 7600
+2018-03-05 19:49:00,912 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:49:00,912 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 75 and evaluation 7600
+2018-03-05 19:49:28,849 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 75 and evaluation 7700
+2018-03-05 19:49:28,849 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:49:28,849 - inspyred.ec - DEBUG - migration using default_migration at generation 75 and evaluation 7700
+2018-03-05 19:49:28,849 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:49:28,849 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 75 and evaluation 7700
+2018-03-05 19:49:28,849 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:49:28,849 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:49:28,850 - inspyred.ec - DEBUG - observation using file_observer at generation 76 and evaluation 7700
+2018-03-05 19:49:28,851 - inspyred.ec - DEBUG - termination test using generation_termination at generation 76 and evaluation 7700
+2018-03-05 19:49:28,851 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 76 and evaluation 7700
+2018-03-05 19:49:28,851 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:49:28,852 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 76 and evaluation 7700
+2018-03-05 19:49:28,860 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:49:28,860 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 76 and evaluation 7700
+2018-03-05 19:49:55,863 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 76 and evaluation 7800
+2018-03-05 19:49:55,863 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:49:55,864 - inspyred.ec - DEBUG - migration using default_migration at generation 76 and evaluation 7800
+2018-03-05 19:49:55,864 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:49:55,864 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 76 and evaluation 7800
+2018-03-05 19:49:55,864 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:49:55,864 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:49:55,864 - inspyred.ec - DEBUG - observation using file_observer at generation 77 and evaluation 7800
+2018-03-05 19:49:55,865 - inspyred.ec - DEBUG - termination test using generation_termination at generation 77 and evaluation 7800
+2018-03-05 19:49:55,866 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 77 and evaluation 7800
+2018-03-05 19:49:55,866 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:49:55,867 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 77 and evaluation 7800
+2018-03-05 19:49:55,876 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:49:55,877 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 77 and evaluation 7800
+2018-03-05 19:50:23,003 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 77 and evaluation 7900
+2018-03-05 19:50:23,003 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:50:23,003 - inspyred.ec - DEBUG - migration using default_migration at generation 77 and evaluation 7900
+2018-03-05 19:50:23,003 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:50:23,003 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 77 and evaluation 7900
+2018-03-05 19:50:23,003 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:50:23,003 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:50:23,003 - inspyred.ec - DEBUG - observation using file_observer at generation 78 and evaluation 7900
+2018-03-05 19:50:23,005 - inspyred.ec - DEBUG - termination test using generation_termination at generation 78 and evaluation 7900
+2018-03-05 19:50:23,005 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 78 and evaluation 7900
+2018-03-05 19:50:23,005 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:50:23,006 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 78 and evaluation 7900
+2018-03-05 19:50:23,017 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:50:23,017 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 78 and evaluation 7900
+2018-03-05 19:50:49,386 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 78 and evaluation 8000
+2018-03-05 19:50:49,386 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:50:49,386 - inspyred.ec - DEBUG - migration using default_migration at generation 78 and evaluation 8000
+2018-03-05 19:50:49,386 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:50:49,386 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 78 and evaluation 8000
+2018-03-05 19:50:49,386 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:50:49,386 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:50:49,386 - inspyred.ec - DEBUG - observation using file_observer at generation 79 and evaluation 8000
+2018-03-05 19:50:49,388 - inspyred.ec - DEBUG - termination test using generation_termination at generation 79 and evaluation 8000
+2018-03-05 19:50:49,388 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 79 and evaluation 8000
+2018-03-05 19:50:49,388 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:50:49,389 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 79 and evaluation 8000
+2018-03-05 19:50:49,398 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:50:49,399 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 79 and evaluation 8000
+2018-03-05 19:51:15,819 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 79 and evaluation 8100
+2018-03-05 19:51:15,819 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:51:15,819 - inspyred.ec - DEBUG - migration using default_migration at generation 79 and evaluation 8100
+2018-03-05 19:51:15,819 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:51:15,819 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 79 and evaluation 8100
+2018-03-05 19:51:15,819 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:51:15,820 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:51:15,820 - inspyred.ec - DEBUG - observation using file_observer at generation 80 and evaluation 8100
+2018-03-05 19:51:15,821 - inspyred.ec - DEBUG - termination test using generation_termination at generation 80 and evaluation 8100
+2018-03-05 19:51:15,821 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 80 and evaluation 8100
+2018-03-05 19:51:15,821 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:51:15,822 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 80 and evaluation 8100
+2018-03-05 19:51:15,832 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:51:15,833 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 80 and evaluation 8100
+2018-03-05 19:51:42,248 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 80 and evaluation 8200
+2018-03-05 19:51:42,248 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:51:42,248 - inspyred.ec - DEBUG - migration using default_migration at generation 80 and evaluation 8200
+2018-03-05 19:51:42,248 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:51:42,248 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 80 and evaluation 8200
+2018-03-05 19:51:42,249 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:51:42,249 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:51:42,249 - inspyred.ec - DEBUG - observation using file_observer at generation 81 and evaluation 8200
+2018-03-05 19:51:42,250 - inspyred.ec - DEBUG - termination test using generation_termination at generation 81 and evaluation 8200
+2018-03-05 19:51:42,250 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 81 and evaluation 8200
+2018-03-05 19:51:42,250 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:51:42,251 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 81 and evaluation 8200
+2018-03-05 19:51:42,261 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:51:42,261 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 81 and evaluation 8200
+2018-03-05 19:52:10,142 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 81 and evaluation 8300
+2018-03-05 19:52:10,142 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:52:10,142 - inspyred.ec - DEBUG - migration using default_migration at generation 81 and evaluation 8300
+2018-03-05 19:52:10,142 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:52:10,142 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 81 and evaluation 8300
+2018-03-05 19:52:10,142 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:52:10,142 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:52:10,142 - inspyred.ec - DEBUG - observation using file_observer at generation 82 and evaluation 8300
+2018-03-05 19:52:10,144 - inspyred.ec - DEBUG - termination test using generation_termination at generation 82 and evaluation 8300
+2018-03-05 19:52:10,144 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 82 and evaluation 8300
+2018-03-05 19:52:10,144 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:52:10,145 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 82 and evaluation 8300
+2018-03-05 19:52:10,155 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:52:10,155 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 82 and evaluation 8300
+2018-03-05 19:52:36,522 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 82 and evaluation 8400
+2018-03-05 19:52:36,522 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:52:36,522 - inspyred.ec - DEBUG - migration using default_migration at generation 82 and evaluation 8400
+2018-03-05 19:52:36,522 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:52:36,522 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 82 and evaluation 8400
+2018-03-05 19:52:36,522 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:52:36,522 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:52:36,522 - inspyred.ec - DEBUG - observation using file_observer at generation 83 and evaluation 8400
+2018-03-05 19:52:36,524 - inspyred.ec - DEBUG - termination test using generation_termination at generation 83 and evaluation 8400
+2018-03-05 19:52:36,524 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 83 and evaluation 8400
+2018-03-05 19:52:36,524 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:52:36,525 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 83 and evaluation 8400
+2018-03-05 19:52:36,535 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:52:36,535 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 83 and evaluation 8400
+2018-03-05 19:53:03,128 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 83 and evaluation 8500
+2018-03-05 19:53:03,128 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:53:03,128 - inspyred.ec - DEBUG - migration using default_migration at generation 83 and evaluation 8500
+2018-03-05 19:53:03,128 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:53:03,128 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 83 and evaluation 8500
+2018-03-05 19:53:03,128 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:53:03,129 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:53:03,129 - inspyred.ec - DEBUG - observation using file_observer at generation 84 and evaluation 8500
+2018-03-05 19:53:03,130 - inspyred.ec - DEBUG - termination test using generation_termination at generation 84 and evaluation 8500
+2018-03-05 19:53:03,130 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 84 and evaluation 8500
+2018-03-05 19:53:03,130 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:53:03,131 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 84 and evaluation 8500
+2018-03-05 19:53:03,141 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:53:03,141 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 84 and evaluation 8500
+2018-03-05 19:53:30,191 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 84 and evaluation 8600
+2018-03-05 19:53:30,191 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:53:30,191 - inspyred.ec - DEBUG - migration using default_migration at generation 84 and evaluation 8600
+2018-03-05 19:53:30,191 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:53:30,191 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 84 and evaluation 8600
+2018-03-05 19:53:30,191 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:53:30,191 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:53:30,191 - inspyred.ec - DEBUG - observation using file_observer at generation 85 and evaluation 8600
+2018-03-05 19:53:30,193 - inspyred.ec - DEBUG - termination test using generation_termination at generation 85 and evaluation 8600
+2018-03-05 19:53:30,193 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 85 and evaluation 8600
+2018-03-05 19:53:30,193 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:53:30,194 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 85 and evaluation 8600
+2018-03-05 19:53:30,203 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:53:30,203 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 85 and evaluation 8600
+2018-03-05 19:53:57,103 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 85 and evaluation 8700
+2018-03-05 19:53:57,103 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:53:57,103 - inspyred.ec - DEBUG - migration using default_migration at generation 85 and evaluation 8700
+2018-03-05 19:53:57,103 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:53:57,103 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 85 and evaluation 8700
+2018-03-05 19:53:57,103 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:53:57,103 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:53:57,103 - inspyred.ec - DEBUG - observation using file_observer at generation 86 and evaluation 8700
+2018-03-05 19:53:57,104 - inspyred.ec - DEBUG - termination test using generation_termination at generation 86 and evaluation 8700
+2018-03-05 19:53:57,104 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 86 and evaluation 8700
+2018-03-05 19:53:57,104 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:53:57,105 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 86 and evaluation 8700
+2018-03-05 19:53:57,114 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:53:57,114 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 86 and evaluation 8700
+2018-03-05 19:54:23,186 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 86 and evaluation 8800
+2018-03-05 19:54:23,186 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:54:23,187 - inspyred.ec - DEBUG - migration using default_migration at generation 86 and evaluation 8800
+2018-03-05 19:54:23,187 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:54:23,187 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 86 and evaluation 8800
+2018-03-05 19:54:23,187 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:54:23,187 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:54:23,187 - inspyred.ec - DEBUG - observation using file_observer at generation 87 and evaluation 8800
+2018-03-05 19:54:23,188 - inspyred.ec - DEBUG - termination test using generation_termination at generation 87 and evaluation 8800
+2018-03-05 19:54:23,188 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 87 and evaluation 8800
+2018-03-05 19:54:23,188 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:54:23,189 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 87 and evaluation 8800
+2018-03-05 19:54:23,199 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:54:23,200 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 87 and evaluation 8800
+2018-03-05 19:54:45,818 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 87 and evaluation 8900
+2018-03-05 19:54:45,818 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:54:45,818 - inspyred.ec - DEBUG - migration using default_migration at generation 87 and evaluation 8900
+2018-03-05 19:54:45,818 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:54:45,819 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 87 and evaluation 8900
+2018-03-05 19:54:45,819 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:54:45,819 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:54:45,819 - inspyred.ec - DEBUG - observation using file_observer at generation 88 and evaluation 8900
+2018-03-05 19:54:45,820 - inspyred.ec - DEBUG - termination test using generation_termination at generation 88 and evaluation 8900
+2018-03-05 19:54:45,820 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 88 and evaluation 8900
+2018-03-05 19:54:45,820 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:54:45,820 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 88 and evaluation 8900
+2018-03-05 19:54:45,825 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:54:45,826 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 88 and evaluation 8900
+2018-03-05 19:55:08,792 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 88 and evaluation 9000
+2018-03-05 19:55:08,793 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:55:08,793 - inspyred.ec - DEBUG - migration using default_migration at generation 88 and evaluation 9000
+2018-03-05 19:55:08,793 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:55:08,793 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 88 and evaluation 9000
+2018-03-05 19:55:08,793 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:55:08,793 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:55:08,793 - inspyred.ec - DEBUG - observation using file_observer at generation 89 and evaluation 9000
+2018-03-05 19:55:08,794 - inspyred.ec - DEBUG - termination test using generation_termination at generation 89 and evaluation 9000
+2018-03-05 19:55:08,794 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 89 and evaluation 9000
+2018-03-05 19:55:08,794 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:55:08,794 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 89 and evaluation 9000
+2018-03-05 19:55:08,799 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:55:08,800 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 89 and evaluation 9000
+2018-03-05 19:55:32,381 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 89 and evaluation 9100
+2018-03-05 19:55:32,381 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:55:32,381 - inspyred.ec - DEBUG - migration using default_migration at generation 89 and evaluation 9100
+2018-03-05 19:55:32,381 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:55:32,381 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 89 and evaluation 9100
+2018-03-05 19:55:32,381 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:55:32,381 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:55:32,381 - inspyred.ec - DEBUG - observation using file_observer at generation 90 and evaluation 9100
+2018-03-05 19:55:32,382 - inspyred.ec - DEBUG - termination test using generation_termination at generation 90 and evaluation 9100
+2018-03-05 19:55:32,383 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 90 and evaluation 9100
+2018-03-05 19:55:32,383 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:55:32,383 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 90 and evaluation 9100
+2018-03-05 19:55:32,392 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:55:32,392 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 90 and evaluation 9100
+2018-03-05 19:55:57,011 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 90 and evaluation 9200
+2018-03-05 19:55:57,011 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:55:57,011 - inspyred.ec - DEBUG - migration using default_migration at generation 90 and evaluation 9200
+2018-03-05 19:55:57,011 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:55:57,011 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 90 and evaluation 9200
+2018-03-05 19:55:57,011 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:55:57,011 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:55:57,011 - inspyred.ec - DEBUG - observation using file_observer at generation 91 and evaluation 9200
+2018-03-05 19:55:57,012 - inspyred.ec - DEBUG - termination test using generation_termination at generation 91 and evaluation 9200
+2018-03-05 19:55:57,012 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 91 and evaluation 9200
+2018-03-05 19:55:57,012 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:55:57,013 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 91 and evaluation 9200
+2018-03-05 19:55:57,018 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:55:57,018 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 91 and evaluation 9200
+2018-03-05 19:56:21,100 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 91 and evaluation 9300
+2018-03-05 19:56:21,101 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:56:21,101 - inspyred.ec - DEBUG - migration using default_migration at generation 91 and evaluation 9300
+2018-03-05 19:56:21,101 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:56:21,101 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 91 and evaluation 9300
+2018-03-05 19:56:21,101 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:56:21,101 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:56:21,101 - inspyred.ec - DEBUG - observation using file_observer at generation 92 and evaluation 9300
+2018-03-05 19:56:21,103 - inspyred.ec - DEBUG - termination test using generation_termination at generation 92 and evaluation 9300
+2018-03-05 19:56:21,103 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 92 and evaluation 9300
+2018-03-05 19:56:21,103 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:56:21,104 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 92 and evaluation 9300
+2018-03-05 19:56:21,112 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:56:21,113 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 92 and evaluation 9300
+2018-03-05 19:56:43,579 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 92 and evaluation 9400
+2018-03-05 19:56:43,579 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:56:43,579 - inspyred.ec - DEBUG - migration using default_migration at generation 92 and evaluation 9400
+2018-03-05 19:56:43,579 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:56:43,579 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 92 and evaluation 9400
+2018-03-05 19:56:43,579 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:56:43,579 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:56:43,579 - inspyred.ec - DEBUG - observation using file_observer at generation 93 and evaluation 9400
+2018-03-05 19:56:43,580 - inspyred.ec - DEBUG - termination test using generation_termination at generation 93 and evaluation 9400
+2018-03-05 19:56:43,580 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 93 and evaluation 9400
+2018-03-05 19:56:43,580 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:56:43,581 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 93 and evaluation 9400
+2018-03-05 19:56:43,586 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:56:43,587 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 93 and evaluation 9400
+2018-03-05 19:57:09,020 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 93 and evaluation 9500
+2018-03-05 19:57:09,021 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:57:09,021 - inspyred.ec - DEBUG - migration using default_migration at generation 93 and evaluation 9500
+2018-03-05 19:57:09,022 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:57:09,022 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 93 and evaluation 9500
+2018-03-05 19:57:09,022 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:57:09,022 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:57:09,022 - inspyred.ec - DEBUG - observation using file_observer at generation 94 and evaluation 9500
+2018-03-05 19:57:09,024 - inspyred.ec - DEBUG - termination test using generation_termination at generation 94 and evaluation 9500
+2018-03-05 19:57:09,024 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 94 and evaluation 9500
+2018-03-05 19:57:09,024 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:57:09,025 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 94 and evaluation 9500
+2018-03-05 19:57:09,036 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:57:09,037 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 94 and evaluation 9500
+2018-03-05 19:57:34,111 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 94 and evaluation 9600
+2018-03-05 19:57:34,111 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:57:34,111 - inspyred.ec - DEBUG - migration using default_migration at generation 94 and evaluation 9600
+2018-03-05 19:57:34,111 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:57:34,111 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 94 and evaluation 9600
+2018-03-05 19:57:34,112 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:57:34,112 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:57:34,112 - inspyred.ec - DEBUG - observation using file_observer at generation 95 and evaluation 9600
+2018-03-05 19:57:34,113 - inspyred.ec - DEBUG - termination test using generation_termination at generation 95 and evaluation 9600
+2018-03-05 19:57:34,113 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 95 and evaluation 9600
+2018-03-05 19:57:34,113 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:57:34,114 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 95 and evaluation 9600
+2018-03-05 19:57:34,125 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:57:34,125 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 95 and evaluation 9600
+2018-03-05 19:57:58,339 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 95 and evaluation 9700
+2018-03-05 19:57:58,339 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:57:58,339 - inspyred.ec - DEBUG - migration using default_migration at generation 95 and evaluation 9700
+2018-03-05 19:57:58,339 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:57:58,339 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 95 and evaluation 9700
+2018-03-05 19:57:58,340 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:57:58,340 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:57:58,340 - inspyred.ec - DEBUG - observation using file_observer at generation 96 and evaluation 9700
+2018-03-05 19:57:58,341 - inspyred.ec - DEBUG - termination test using generation_termination at generation 96 and evaluation 9700
+2018-03-05 19:57:58,342 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 96 and evaluation 9700
+2018-03-05 19:57:58,342 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:57:58,343 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 96 and evaluation 9700
+2018-03-05 19:57:58,354 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:57:58,354 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 96 and evaluation 9700
+2018-03-05 19:58:22,724 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 96 and evaluation 9800
+2018-03-05 19:58:22,724 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:58:22,724 - inspyred.ec - DEBUG - migration using default_migration at generation 96 and evaluation 9800
+2018-03-05 19:58:22,724 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:58:22,724 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 96 and evaluation 9800
+2018-03-05 19:58:22,725 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:58:22,725 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:58:22,725 - inspyred.ec - DEBUG - observation using file_observer at generation 97 and evaluation 9800
+2018-03-05 19:58:22,725 - inspyred.ec - DEBUG - termination test using generation_termination at generation 97 and evaluation 9800
+2018-03-05 19:58:22,725 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 97 and evaluation 9800
+2018-03-05 19:58:22,726 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:58:22,726 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 97 and evaluation 9800
+2018-03-05 19:58:22,731 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:58:22,731 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 97 and evaluation 9800
+2018-03-05 19:58:43,662 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 97 and evaluation 9900
+2018-03-05 19:58:43,663 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:58:43,663 - inspyred.ec - DEBUG - migration using default_migration at generation 97 and evaluation 9900
+2018-03-05 19:58:43,663 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:58:43,663 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 97 and evaluation 9900
+2018-03-05 19:58:43,663 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:58:43,663 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:58:43,663 - inspyred.ec - DEBUG - observation using file_observer at generation 98 and evaluation 9900
+2018-03-05 19:58:43,664 - inspyred.ec - DEBUG - termination test using generation_termination at generation 98 and evaluation 9900
+2018-03-05 19:58:43,664 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 98 and evaluation 9900
+2018-03-05 19:58:43,664 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:58:43,664 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 98 and evaluation 9900
+2018-03-05 19:58:43,669 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:58:43,669 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 98 and evaluation 9900
+2018-03-05 19:59:07,387 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 98 and evaluation 10000
+2018-03-05 19:59:07,388 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:59:07,388 - inspyred.ec - DEBUG - migration using default_migration at generation 98 and evaluation 10000
+2018-03-05 19:59:07,388 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:59:07,388 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 98 and evaluation 10000
+2018-03-05 19:59:07,388 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:59:07,388 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:59:07,388 - inspyred.ec - DEBUG - observation using file_observer at generation 99 and evaluation 10000
+2018-03-05 19:59:07,390 - inspyred.ec - DEBUG - termination test using generation_termination at generation 99 and evaluation 10000
+2018-03-05 19:59:07,390 - inspyred.ec - DEBUG - selection using _swarm_selector at generation 99 and evaluation 10000
+2018-03-05 19:59:07,390 - inspyred.ec - DEBUG - selected 100 candidates
+2018-03-05 19:59:07,391 - inspyred.ec - DEBUG - variation using _swarm_variator at generation 99 and evaluation 10000
+2018-03-05 19:59:07,400 - inspyred.ec - DEBUG - created 100 offspring
+2018-03-05 19:59:07,400 - inspyred.ec - DEBUG - evaluation using combineFeatures at generation 99 and evaluation 10000
+2018-03-05 19:59:36,192 - inspyred.ec - DEBUG - replacement using _swarm_replacer at generation 99 and evaluation 10100
+2018-03-05 19:59:36,192 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:59:36,192 - inspyred.ec - DEBUG - migration using default_migration at generation 99 and evaluation 10100
+2018-03-05 19:59:36,192 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:59:36,192 - inspyred.ec - DEBUG - archival using _swarm_archiver at generation 99 and evaluation 10100
+2018-03-05 19:59:36,192 - inspyred.ec - DEBUG - archive size is now 100
+2018-03-05 19:59:36,192 - inspyred.ec - DEBUG - population size is now 100
+2018-03-05 19:59:36,192 - inspyred.ec - DEBUG - observation using file_observer at generation 100 and evaluation 10100
+2018-03-05 19:59:36,194 - inspyred.ec - DEBUG - termination test using generation_termination at generation 100 and evaluation 10100
+2018-03-05 19:59:36,194 - inspyred.ec - DEBUG - termination from generation_termination at generation 100 and evaluation 10100

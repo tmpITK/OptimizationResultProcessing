@@ -24,7 +24,7 @@ def _float_or_int(val):
             return unicode(val.strip("u").strip('\''))
 
 
-def parse_settings(xml_file):
+def parseSettings(xml_file):
     xml = ET.parse(xml_file)
     root = xml.getroot()
 
@@ -43,7 +43,7 @@ def parse_settings(xml_file):
     return boundaries, max_eval, pop_size, num_param, evo_strat
 
 
-def parse_individuals(ind_file):
+def parseIndividuals(ind_file):
     START_INDEX_OF_PARAMETERS = 3
     generations = []
     with open(ind_file) as f:
@@ -55,6 +55,7 @@ def parse_individuals(ind_file):
                 generations.append(current_generation)
                 current_generation = []
     best_of_all_generations = get_best_of_each_generation(generations)
+    map(renormalize, best_of_all_generations)
     return best_of_all_generations
 
 def remove_unwanted_characters(element):
@@ -88,6 +89,7 @@ def update(gen):
     plt.clf()
     st = fig.suptitle("{0} {1} {2}".format(evo_strat, model_name, str(gen)))
     points = inds_gen[gen]
+    print(points)
     num_cols = len(boundaries[0])-1
     combinations = list(itertools.combinations(range(0, num_param), 2))
 
@@ -162,26 +164,26 @@ def get_directories(directory_base_name):
     return [directory + '/' for directory in all_elements_in_cwd if re.match(regex, directory)]
 
 if __name__ == '__main__':
-    base_directory = 'VClamp_surrogate'
+    base_directory = 'hh_pas_surrogate'
     directories = get_directories(base_directory)
     num_runs = len(directories)
 
-    boundaries, max_eval, population_size, num_param, evo_strat = parse_settings(directories[0] + "/_settings.xml")
+    boundaries, max_eval, population_size, num_param, evo_strat = parseSettings(directories[0] + "/_settings.xml")
     inds_gen = np.ndarray(shape=(max_eval+1, num_runs, num_param))
     for i, directory in enumerate(directories):
-        inds_gen[:,i,:] = parse_individuals(directory + '/ind_file.txt')
+        inds_gen[:,i,:] = parseIndividuals(directory + '/ind_file.txt')
 
-    exact_point = [0.01,2, 0.3, 3]
-    labels = ['weight','delay', 'tau_rise', 'tau_decay']
-    model_name = "CLAMP"
+    exact_point = [0.12, 0.036, 0.0003]
+    labels = ['gnabar_hh', 'gkbar_hh', 'gl_hh']
+    model_name = "HH"
 
     fig = plt.figure(figsize=(12, 8))
     st = fig.suptitle("")
     num_plots = 2*(len(boundaries[0])-1)
 
-    proj = [None, None, None, None, None, None, None, None]
+    proj = ['3d', None, None, None]
     colors = ['C0', 'C1', 'C2', 'C5', 'C6', 'C8', 'C9', 'C4', 'C7', 'C3']
 
     anim = animation.FuncAnimation(fig, update, frames=len(inds_gen), init_func=init(), interval=300, repeat=False)
 
-    anim.save('CEO_CLAMP.html')
+    anim.save('PSO2_BEST_HH.html')

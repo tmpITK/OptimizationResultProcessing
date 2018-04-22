@@ -24,7 +24,7 @@ def _float_or_int(val):
             return unicode(val.strip("u").strip('\''))
 
 
-def parseSettings(xml_file):
+def parse_settings(xml_file):
     xml = ET.parse(xml_file)
     root = xml.getroot()
 
@@ -43,19 +43,18 @@ def parseSettings(xml_file):
     return boundaries, max_eval, pop_size, num_param, evo_strat
 
 
-def parseIndividuals(ind_file):
+def parse_individuals(ind_file):
     START_INDEX_OF_PARAMETERS = 3
-    generations = []
+    best_of_all_generations = []
     with open(ind_file) as f:
         current_generation = []
-        for individual in iter(f):
-            individual = split_values_of_individuals(individual)[START_INDEX_OF_PARAMETERS:START_INDEX_OF_PARAMETERS+num_param]
-            current_generation.append(individual)
-            if  is_end_of_generation(len(current_generation)):
-                generations.append(current_generation)
-                current_generation = []
-    best_of_all_generations = get_best_of_each_generation(generations)
-    map(renormalize, best_of_all_generations)
+        for i, individual in enumerate(f):
+            if i % population_size == 0 or i == 0:
+                individual = split_values_of_individuals(individual)[START_INDEX_OF_PARAMETERS:START_INDEX_OF_PARAMETERS+num_param]
+                renormalized_individual = renormalize(individual)
+                best_of_all_generations.append(renormalized_individual)
+            else:
+                pass
     return best_of_all_generations
 
 def remove_unwanted_characters(element):
@@ -89,7 +88,6 @@ def update(gen):
     plt.clf()
     st = fig.suptitle("{0} {1} {2}".format(evo_strat, model_name, str(gen)))
     points = inds_gen[gen]
-    print(points)
     num_cols = len(boundaries[0])-1
     combinations = list(itertools.combinations(range(0, num_param), 2))
 
@@ -166,16 +164,17 @@ def get_directories(directory_base_name):
 if __name__ == '__main__':
     base_directory = 'hh_pas_surrogate'
     directories = get_directories(base_directory)
+    print(directories)
     num_runs = len(directories)
+    model_name = 'HH'
 
-    boundaries, max_eval, population_size, num_param, evo_strat = parseSettings(directories[0] + "/_settings.xml")
-    inds_gen = np.ndarray(shape=(max_eval+1, num_runs, num_param))
+    boundaries, max_eval, population_size, num_param, evo_strat = parse_settings(directories[0] + "/_settings.xml")
+    inds_gen = np.ndarray(shape=(max_eval, num_runs, num_param))
     for i, directory in enumerate(directories):
-        inds_gen[:,i,:] = parseIndividuals(directory + '/ind_file.txt')
+        inds_gen[:,i,:] = parse_individuals(directory + '/ind_file.txt')
 
     exact_point = [0.12, 0.036, 0.0003]
     labels = ['gnabar_hh', 'gkbar_hh', 'gl_hh']
-    model_name = "HH"
 
     fig = plt.figure(figsize=(12, 8))
     st = fig.suptitle("")
@@ -186,4 +185,4 @@ if __name__ == '__main__':
 
     anim = animation.FuncAnimation(fig, update, frames=len(inds_gen), init_func=init(), interval=300, repeat=False)
 
-    anim.save('PSO2_BEST_HH.html')
+    anim.save('PSO_BEST.html')

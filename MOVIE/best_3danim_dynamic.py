@@ -101,8 +101,6 @@ def update(gen):
             exec ("ax{0} = fig.add_subplot(2,num_cols,v+1)".format(v))
             for j in range(1,len(points)):
                 exec ("ax{0}.scatter(points[j][combinations[i-1][0]], points[j][combinations[i-1][1]], c=colors[i])".format(v))
-                if j == len(points)-1:
-                    exec ("ax{0}.scatter(points[0][combinations[i-1][0]], points[0][combinations[i-1][1]], c=colors[-1])".format(v))
     set_legend()
 
 def init():
